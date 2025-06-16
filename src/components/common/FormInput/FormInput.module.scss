@@ -1,0 +1,57 @@
+@use "@/styles/mixins";
+
+.input_container {
+	width: 50%;
+	display: flex;
+	// flex-direction: column;
+	flex-wrap: wrap;
+	gap: .5rem;
+
+
+
+	@include mixins.button($paddingBtmTop: 0,
+		$paddingLftRght: 0,
+		$bgColor: transparent,
+		$txtColor: var(--white-secondary),
+		$bgActiveColor: transparent);
+
+	.input {
+		width: 100%;
+		display: flex;
+		align-items: center;
+
+		border-radius: 1.25rem;
+		background: var(--chat-border-dark);
+
+		@include mixins.input($width: 80%, $paddingRight: .75rem);
+
+		.clear {
+		padding: 0;
+
+		background: none;
+		border: none;
+		color: var(--white-secondary);
+		cursor: pointer;
+		opacity: 0;
+		transition: opacity 0.2s;
+
+
+		right: 2rem;
+		// top: 50%;
+		// transform: translateY(50%);
+	}
+
+	input:not(:placeholder-shown)+.clear {
+		opacity: 1;
+	}
+	}
+
+	.error {
+		padding: .5rem;
+
+		background: var(--black-secondary);
+		color: var(--red);
+		font-size: .8rem;
+		font-weight: 600;
+	}
+}

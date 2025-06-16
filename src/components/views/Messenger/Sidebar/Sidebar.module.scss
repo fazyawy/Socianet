@@ -1,0 +1,8 @@
+.sidebar {
+	background-color: var(--chat-bg-dark);
+	border-right: .07rem solid var(--chat-vorder-dark);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}

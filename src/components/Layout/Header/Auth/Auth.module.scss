@@ -1,0 +1,17 @@
+@use "@/styles/mixins";
+
+.auth {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-left: auto;
+	position: relative;
+
+	.auth_login {
+		@include mixins.button($paddingBtmTop: 1rem,
+			$paddingLftRght: 2rem,
+			$bgColor: var(--white),
+			$txtColor: var(--primary),
+			$bgActiveColor: var(--secondary));
+	}
+}

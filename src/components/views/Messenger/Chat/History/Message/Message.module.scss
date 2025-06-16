@@ -1,0 +1,82 @@
+@use "@/styles/mixins";
+
+.message {
+	display: flex;
+	max-width: 70%;
+	position: relative;
+
+	&.received {
+		align-self: flex-start;
+
+		.content {
+			background-color: var(--message-received);
+			border-top-left-radius: 0;
+		}
+	}
+
+	&.sent {
+		padding-right: .75rem;
+
+		align-self: flex-end;
+		flex-direction: row-reverse;
+
+		.content {
+			background-color: var(--message-sent);
+			border-top-right-radius: 0;
+		}
+
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		padding: .5rem .75rem;
+		border-radius: .5rem;
+		position: relative;
+		word-wrap: break-word;
+		min-width: 7.5rem;
+
+		.text {
+			margin-bottom: .25rem;
+
+			font-size: .95rem;
+			line-height: 1.4;
+			font-weight: 400;
+		}
+
+		.meta {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: .25rem;
+			font-size: .75rem;
+			color: var(--white-secondary);
+
+			.read_receipt {
+				color: var(--secondary);
+			}
+		}
+	}
+
+	.message_menu {
+		position: relative;
+		align-self: center;
+		opacity: 0;
+		transition: all .3s;
+		margin: 0 .25rem;
+
+		@include mixins.button-chat(
+			$primary: var(--white-secondary),
+			$secondary: var(--white),
+			$bgHover: var(--white-transparent),
+			$size: auto,
+			$bgSize: auto,
+			$padding: .25rem);
+
+	}
+
+	&:hover .message_menu {
+		opacity: 1;
+	}
+
+}

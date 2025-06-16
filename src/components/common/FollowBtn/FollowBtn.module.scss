@@ -1,0 +1,12 @@
+@use "@/styles/mixins";
+
+.btn {
+
+	// margin-left: auto;
+
+	@include mixins.button($paddingBtmTop: 1rem,
+		$paddingLftRght: 2rem,
+		$bgColor: var(--white),
+		$txtColor: var(--secondary),
+		$bgActiveColor: var(--primary));
+}

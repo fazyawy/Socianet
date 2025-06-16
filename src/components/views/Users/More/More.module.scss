@@ -1,0 +1,13 @@
+@use "@/styles/mixins";
+
+.more {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem;
+
+	@include mixins.button($paddingBtmTop: .4rem,
+		$paddingLftRght: .8rem,
+		$bgColor: var(--primary),
+		$txtColor: var(--white),
+		$bgActiveColor: var(--secondary));
+}

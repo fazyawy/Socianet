@@ -1,0 +1,54 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useId } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+import { AUTH_QUERY_KEY, LOGIN_MUTATION_KEY } from "@/constants/queryKeys.const";
+
+import authService from "@/services/auth.service";
+
+import { ILogin } from "@/shared/types/login.type";
+
+import { useAuthStore } from "@/store/useAuthStore";
+
+export const useLogin = () => {
+	const rememberMeId = useId();
+
+	const queryClient = useQueryClient();
+
+	const isAuth = useAuthStore(state => state.isAuth)
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset
+	} = useForm<ILogin>();
+
+	const { mutate, isPending } = useMutation({
+		mutationKey: LOGIN_MUTATION_KEY,
+		mutationFn: authService.login,
+
+		onSuccess: () => {
+			queryClient.invalidateQueries({
+				queryKey: AUTH_QUERY_KEY
+			})
+		}
+	})
+
+	const onSubmit: SubmitHandler<ILogin> = (data) => {
+		console.log(data)
+		mutate(data);
+		reset()
+	};
+
+	return {
+		onSubmit: handleSubmit(onSubmit),
+		register,
+		isPending,
+		errors,
+		rememberMeId,
+
+		isAuth
+	}
+};
+

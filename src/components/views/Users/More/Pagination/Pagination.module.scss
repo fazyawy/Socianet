@@ -1,0 +1,19 @@
+@use "@/styles/mixins.scss";
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	gap: .1rem;
+
+	@include mixins.button($paddingBtmTop: .25rem, $paddingLftRght: .5rem,
+	$bgColor: var(--white),
+	$txtColor: var(--secondary),
+	$bgActiveColor: var(--primary));
+
+	span {
+		padding: .25rem;
+		letter-spacing: .5rem;
+		cursor: default;
+		text-align: center;
+	}
+}

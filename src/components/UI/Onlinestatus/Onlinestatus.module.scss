@@ -1,0 +1,12 @@
+.online_status {
+	width: .6rem;
+	height: .6rem;
+
+	background-color: var(--chat-online);
+	border-radius: 50%;
+	border: .13rem solid var(--chat-bg-dark);
+
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
