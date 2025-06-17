@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+ 🌟 Socianet - социальная сеть (в разработке)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Проект социальной сети с возможностью регистрации, поиска пользователей и подписки на их профили. В планах — добавление ленты новостей, личных сообщений и других социальных функций.** 
 
-Currently, two official plugins are available:
+## 🚀 Основные функции
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔐 Система аутентификации
+- Вход в аккаунт
+- Выход из акккаунта
 
-## Expanding the ESLint configuration
+### 👥 Взаимодействие с пользователями
+- Просмотр списка пользователей
+- Система подписок
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![изображение](https://github.com/user-attachments/assets/92d258b3-ba4f-4bb2-8493-54a0ed2bace4)
+![изображение](https://github.com/user-attachments/assets/28fe9362-93b7-4b39-b9ea-453c7b763728)
+![изображение](https://github.com/user-attachments/assets/c2a6daef-d365-4332-bbcc-99b541d84d2c)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+
+##🏗️ Установка и запуск:
+
+```bash
+bash
+# Клонировать репозиторий
+git clone https://github.com/yourusername/Socianet.git
+
+# Установить зависимости
+yarn\ npm i
+
+# Запустить dev-сервер
+yarn\npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Логин для теста: free@samuraijs.com
+Пароль для теста: free
