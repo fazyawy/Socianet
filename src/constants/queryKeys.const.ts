@@ -9,3 +9,5 @@ export const AUTH_QUERY_KEY = ['auth'];
 export const LOGIN_MUTATION_KEY = ['login'];
 
 export const LOGOUT_MUTATION_KEY = ['logout'];
+
+export const PROFILE_QUERY_KEY = ['profile'];

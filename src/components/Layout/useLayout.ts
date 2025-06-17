@@ -8,10 +8,12 @@ import { useToggle } from "@/hooks/useToggle";
 import { useQuery } from "@tanstack/react-query";
 
 import { IAuthData } from "./Layout.type";
+import { useMyProfileStore } from "@/store/useMyProfileStore";
 
 export const useLayout = () => {
 
-	const setIsAuth = useAuthStore(state => state.setIsAuth)
+	const setIsAuth = useAuthStore(state => state.setIsAuth);
+	const setMyId = useMyProfileStore(state => state.setMyId)
 
 	const {data, isLoading} = useQuery({
 		queryKey: AUTH_QUERY_KEY,
@@ -19,6 +21,7 @@ export const useLayout = () => {
 
 		select: ({data}) => {
 			setIsAuth(data?.resultCode === 0);
+			setMyId(data.data.id);
 			return data;
 		},
 		retry: 2

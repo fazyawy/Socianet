@@ -9,6 +9,7 @@ import authService from "@/services/auth.service";
 import { ILogin } from "@/shared/types/login.type";
 
 import { useAuthStore } from "@/store/useAuthStore";
+import { useMyProfileStore } from "@/store/useMyProfileStore";
 
 export const useLogin = () => {
 	const rememberMeId = useId();
@@ -16,6 +17,7 @@ export const useLogin = () => {
 	const queryClient = useQueryClient();
 
 	const isAuth = useAuthStore(state => state.isAuth)
+	const setMyId = useMyProfileStore(state => state.setMyId)
 
 	const {
 		register,
@@ -24,16 +26,20 @@ export const useLogin = () => {
 		reset
 	} = useForm<ILogin>();
 
-	const { mutate, isPending } = useMutation({
+	const { data, mutate, isPending } = useMutation({
 		mutationKey: LOGIN_MUTATION_KEY,
 		mutationFn: authService.login,
 
-		onSuccess: () => {
+		onSuccess: ({data}) => {
 			queryClient.invalidateQueries({
 				queryKey: AUTH_QUERY_KEY
 			})
+
+			setMyId(data?.data.userId)
 		}
 	})
+
+	console.log(data)
 
 	const onSubmit: SubmitHandler<ILogin> = (data) => {
 		console.log(data)

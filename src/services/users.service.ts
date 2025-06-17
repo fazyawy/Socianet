@@ -1,5 +1,5 @@
-import { IResponse } from "@/shared/types/response.type";
 import { instance } from "./api";
+import followService from "./follow.service";
 
 class UsersService {
 	getUsers = <T>(maxShowedUsers: number,
@@ -10,9 +10,15 @@ class UsersService {
 				${isFriends ? "&friend=true" : ""}`)
 		}
 
-	follow = async(userId: number) => await instance.post<IResponse>(`follow/${userId}`)
+	follow = (userId: number) => {
+		console.warn("change to new service")
+		return followService.follow(userId)
+	}
 
-	unfollow = async(userId: number) => await instance.delete<IResponse>(`follow/${userId}`)
+	unfollow = (userId: number) => {
+		console.warn("change to new service")
+		return followService.unfollow(userId)
+	}
 }
 
 export default new UsersService()
