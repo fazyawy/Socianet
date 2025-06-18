@@ -4,6 +4,7 @@ import { Profile } from "@/components/views/Profile/Profile";
 import { Users } from "@/components/views/Users/Users";
 import { Messenger } from "@/components/views/Messenger/Messenger";
 import { Login } from "@/components/views/Login/Login";
+import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 const routes = [
 	{
@@ -46,7 +47,11 @@ const routes = [
 						element: <Login />
 					}
 				]
-			}
+			},
+			{
+				path: "preloader",
+				element: <Preloader />
+			},
 		]
 	}
 ];

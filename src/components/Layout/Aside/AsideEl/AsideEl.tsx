@@ -15,7 +15,7 @@ export const AsideEl = ({ el }: { el: string }) => {
 	const isProfilePage = title === "";
 	const isActive = pathname === el || !!Number(pathname.slice(1)) && isProfilePage
 
-	if(!isAuth && (pathname === "/" || pathname === "/messenger" || pathname === "/friends")) {
+	if(isAuth === false && (pathname === "/" || pathname === "/messenger" || pathname === "/friends")) {
 		return <Navigate to={"/auth/login"}/>
 	}
 

@@ -7,6 +7,7 @@ import { Aside } from "./Aside/Aside";
 import { Footer } from "./Footer/Footer";
 
 import { useLayout } from "./useLayout";
+import { Preloader } from "../UI/Preloader/Preloader";
 
 export const Layout = () => {
 	const {haveAside, toggleAside, isLoading} = useLayout();
@@ -15,8 +16,7 @@ export const Layout = () => {
 		<div className={`${styles.layout} ${haveAside ? "" : styles.not_aside}`}>
 			<Header haveAside={haveAside} toggleAside={toggleAside} />
 			{ haveAside && <Aside /> }
-			{!isLoading && <Outlet />}
-			{isLoading && "Loading..."}
+			{isLoading ? <Preloader /> : <Outlet />}
 			{/* <Footer /> */}
 		</div>
 	)

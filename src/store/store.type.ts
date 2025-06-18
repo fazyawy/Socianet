@@ -6,7 +6,7 @@ export interface IPaginationStore {
 }
 
 export interface IAuthStore {
-	isAuth: boolean,
+	isAuth: boolean | null,
 	setIsAuth: (value: boolean) => void,
 }
 

@@ -3,7 +3,7 @@ import { IFollowBtn } from "./Follow.type";
 
 import { useFollowBtn } from "./useFollowBtn";
 
-export const FollowBtn = ({ isFollowed, userId = 2 }: IFollowBtn) => {
+export const FollowBtn = ({ isFollowed, userId }: IFollowBtn) => {
 
 	const { mutate, isPending } = useFollowBtn(isFollowed)
 

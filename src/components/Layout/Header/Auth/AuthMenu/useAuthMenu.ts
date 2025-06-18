@@ -30,26 +30,26 @@ export const useAuthMenu = () => {
 		}
 	})
 
-	const isAuth = useAuthStore(state => state.isAuth);
-	const [ myId, setMyProfile] = useMyProfileStore(useShallow(state => [state.myId, state.setMyProfile]))
+	// const isAuth = useAuthStore(state => state.isAuth);
+	// const [ myId, setMyProfile] = useMyProfileStore(useShallow(state => [state.myId, state.setMyProfile]))
 
-	const { data } = useQuery({
-		queryKey: PROFILE_QUERY_KEY,
-		queryFn: profileService.getProfile(myId),
+	// const { data } = useQuery({
+	// 	queryKey: PROFILE_QUERY_KEY,
+	// 	queryFn: profileService.getProfile(myId),
 
-		select:({data}) => {
-			console.log(data)
-			setMyProfile(data);
-			return data
-		},
-		enabled: isAuth
-	})
+	// 	select:({data}) => {
+	// 		console.log(data)
+	// 		setMyProfile(data);
+	// 		return data
+	// 	},
+	// 	enabled: isAuth
+	// })
 
 	return {
 		isOpenMenu,
 		toggleIsOpenMenu,
 
-		myAvatar: data?.photos.large || myAvatar,
+		myAvatar: myAvatar,
 
 		mutate: () => mutate()
 	}

@@ -5,6 +5,7 @@ import { Avatar } from "@/components/UI/Avatar/Avatar";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { useQuery } from "@tanstack/react-query";
 import profileService from "@/services/profile.service";
+import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 
 export const Info = ({ id }: { id: number | string }) => {
@@ -15,7 +16,7 @@ export const Info = ({ id }: { id: number | string }) => {
 
 	const isMyProfile = id !== myId;
 
-	const { data } = useQuery({
+	const { data, isLoading } = useQuery({
 		queryKey: ['show profile'],
 		queryFn: profileService.getProfile(id),
 		select: ({ data }) => data,
@@ -25,6 +26,8 @@ export const Info = ({ id }: { id: number | string }) => {
 	console.log(data)
 
 	const { photos, fullName, aboutMe } = data ? { ...data } : { ...myProfile }
+
+	if(isLoading) return <Preloader />
 
 	return (
 		<article className={styles.info}>
