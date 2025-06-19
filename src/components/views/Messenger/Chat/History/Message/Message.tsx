@@ -3,7 +3,7 @@ import styles from "./Message.module.scss"
 import { IMessage } from "./Message.type";
 import { useMessage } from "./useMessage";
 
-import { Avatar } from "@/components/UI/Avatar/Avatar";
+import { Avatar } from "@/components/common/Avatar/Avatar";
 import { MessageTime } from "@/components/UI/MessageTime/MessageTime";
 
 import { FaCheckDouble } from "react-icons/fa6";

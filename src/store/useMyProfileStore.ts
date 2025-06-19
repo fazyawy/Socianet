@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import { IMyProfileStore } from "./store.type";
+
 import { IProfile } from "@/shared/types/profile.type";
+import { IMyProfileStore } from "./types/myProfile.types";
 
 const initialState: IProfile = {
 	userId: 2,

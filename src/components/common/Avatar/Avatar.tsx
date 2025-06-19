@@ -1,13 +1,8 @@
-import { Onlinestatus } from "../Onlinestatus/Onlinestatus";
 import styles from "./Avatar.module.scss"
 
-interface IAvatar {
-	src: string,
-	type: "large" | "bigger" | "big" | "middle" | "small" | "smaller",
-	haveOnlineStatus?: boolean,
-	isOnline?: boolean,
-	onlineStyle?: string
-}
+import { Onlinestatus } from "@/components/UI/Onlinestatus/Onlinestatus";
+import { IAvatar } from "./Avatar.type";
+
 
 export const Avatar = ({ src, type, haveOnlineStatus, isOnline, onlineStyle }: IAvatar) => {
 

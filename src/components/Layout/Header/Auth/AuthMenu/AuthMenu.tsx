@@ -1,7 +1,7 @@
 import styles from "./AuthMenu.module.scss"
 import { useAuthMenu } from "./useAuthMenu";
 
-import { Avatar } from "@/components/UI/Avatar/Avatar";
+import { Avatar } from "@/components/common/Avatar/Avatar";
 
 import { GiExitDoor } from "react-icons/gi";
 

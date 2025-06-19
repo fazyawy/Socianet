@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss"
 
 import { Actions } from "./Actions/Actions";
-import { Avatar } from "@/components/UI/Avatar/Avatar";
+import { Avatar } from "@/components/common/Avatar/Avatar";
 
 export const Header = () => {
 	return (

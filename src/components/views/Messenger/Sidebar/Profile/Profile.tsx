@@ -1,8 +1,9 @@
-import { Avatar } from "@/components/UI/Avatar/Avatar";
 import styles from "./Profile.module.scss";
 
 import { FaMoon } from "react-icons/fa";
 import { FaEllipsisVertical } from "react-icons/fa6";
+
+import { Avatar } from "@/components/common/Avatar/Avatar";
 
 export const Profile = () => {
 	return (

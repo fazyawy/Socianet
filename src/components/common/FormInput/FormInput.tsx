@@ -1,7 +1,9 @@
-import { useId } from "react";
 import styles from "./FormInput.module.scss"
-import { IFormInput } from "./FormInput.type";
+
+import { useId } from "react";
 import { FaTimes } from "react-icons/fa";
+
+import { IFormInput } from "./FormInput.type";
 
 export const FormInput = ({ type = "text", title, label, placeholder, register, errors }: IFormInput) => {
 

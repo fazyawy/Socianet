@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { IAuthStore } from "./store.type";
+
+import { IAuthStore } from "./types/auth.types";
 
 export const useAuthStore = create<IAuthStore>((set) => ({
 	isAuth: null,

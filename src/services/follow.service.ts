@@ -1,5 +1,6 @@
-import { IResponse } from "@/shared/types/response.type";
 import { instance } from "./api";
+
+import { IResponse } from "./types/services.type";
 
 class FollowService {
 	getIsFollow = <T>(userId: number) => {

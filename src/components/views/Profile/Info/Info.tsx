@@ -1,7 +1,7 @@
 import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
 import styles from "./Info.module.scss"
 
-import { Avatar } from "@/components/UI/Avatar/Avatar";
+import { Avatar } from "@/components/common/Avatar/Avatar";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { useQuery } from "@tanstack/react-query";
 import profileService from "@/services/profile.service";

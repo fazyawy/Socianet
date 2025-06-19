@@ -1,15 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import authService from "@/services/auth.service";
 
-import { AUTH_QUERY_KEY, LOGOUT_MUTATION_KEY, PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
+import { AUTH_QUERY_KEY, LOGOUT_MUTATION_KEY } from "@/constants/queryKeys.const";
 
 import { useToggle } from "@/hooks/useToggle";
-
-import { useMyAvatarStore } from "@/store/useMyAvatarStore";
-import { useAuthStore } from "@/store/useAuthStore";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
-import { useShallow } from "zustand/shallow";
-import profileService from "@/services/profile.service";
 
 
 
@@ -18,7 +13,7 @@ export const useAuthMenu = () => {
 	const queryClient = useQueryClient();
 
 	const [isOpenMenu, toggleIsOpenMenu] = useToggle(false);
-	const myAvatar = useMyAvatarStore(state => state.myAvatar);
+	const { photos } = useMyProfileStore(state => state.myProfile);
 
 	const { mutate } = useMutation({
 		mutationKey: LOGOUT_MUTATION_KEY,
@@ -30,26 +25,11 @@ export const useAuthMenu = () => {
 		}
 	})
 
-	// const isAuth = useAuthStore(state => state.isAuth);
-	// const [ myId, setMyProfile] = useMyProfileStore(useShallow(state => [state.myId, state.setMyProfile]))
-
-	// const { data } = useQuery({
-	// 	queryKey: PROFILE_QUERY_KEY,
-	// 	queryFn: profileService.getProfile(myId),
-
-	// 	select:({data}) => {
-	// 		console.log(data)
-	// 		setMyProfile(data);
-	// 		return data
-	// 	},
-	// 	enabled: isAuth
-	// })
-
 	return {
 		isOpenMenu,
 		toggleIsOpenMenu,
 
-		myAvatar: myAvatar,
+		myAvatar: photos.small || "https://i.pravatar.cc/150?img=5",
 
 		mutate: () => mutate()
 	}

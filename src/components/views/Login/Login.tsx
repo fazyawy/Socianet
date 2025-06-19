@@ -1,7 +1,8 @@
-import { Navigate } from "react-router";
 import styles from "./Login.module.scss"
 
 import { useLogin } from "./useLogin";
+
+import { Navigate } from "react-router";
 
 import { FormInput } from "@/components/common/FormInput/FormInput";
 

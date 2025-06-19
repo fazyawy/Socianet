@@ -1,6 +1,6 @@
 import styles from "./Contact.module.scss";
 
-import { Avatar } from "@/components/UI/Avatar/Avatar";
+import { Avatar } from "@/components/common/Avatar/Avatar";
 import { MessageTime } from "@/components/UI/MessageTime/MessageTime";
 
 import { IContact } from "./Contact.type";

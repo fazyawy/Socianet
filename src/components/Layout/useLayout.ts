@@ -1,48 +1,50 @@
+import { useShallow } from "zustand/shallow";
+import { useEffect } from "react";
+
 import { AUTH_QUERY_KEY, PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 
 import authService from "@/services/auth.service";
+import profileService from "@/services/profile.service";
 
 import { useAuthStore } from "@/store/useAuthStore";
+import { useMyProfileStore } from "@/store/useMyProfileStore";
+
 import { useToggle } from "@/hooks/useToggle";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { IAuthData } from "./Layout.type";
-import { useMyProfileStore } from "@/store/useMyProfileStore";
-import { useShallow } from "zustand/shallow";
-import profileService from "@/services/profile.service";
 
 export const useLayout = () => {
+	const { setIsAuth, isAuth } = useAuthStore(state => state);
+	const [ setMyId, defaultId, setMyProfile ] = useMyProfileStore(useShallow(state => [state.setMyId, state.myId, state.setMyProfile]));
 
-	const {setIsAuth, isAuth} = useAuthStore(state => state);
-	const setMyId = useMyProfileStore(state => state.setMyId)
-
-	const { data, isLoading, isSuccess } = useQuery({
+	const { data: authData, isFetching: isAuthFetching, isSuccess: isAuthSuccess } = useQuery({
 		queryKey: AUTH_QUERY_KEY,
-		queryFn: authService.getAuth<IAuthData>,
+		queryFn: authService.getAuth,
 
-		select: ({ data }) => {
-			setIsAuth(data.resultCode === 0);
-			setMyId(data.data.id);
-			return data;
-		},
-		retry: 2
+		select: ({ data }) => data,
+		retry: 2,
 	})
 
-	const [myId, setMyProfile] = useMyProfileStore(useShallow(state => [state.myId, state.setMyProfile]))
+	const myId: number = (isAuthSuccess && authData.resultCode === 0) ? authData.data.id : defaultId;
 
-	const { isLoading: profileIsLoading } = useQuery({
+	const { isFetching: isProfileFetching, data: profile, isSuccess: isSuccessProfile } = useQuery({
 		queryKey: PROFILE_QUERY_KEY,
 		queryFn: profileService.getProfile(myId),
 
-		select: ({ data }) => {
-			setMyProfile(data);
-			return data
-		},
-		enabled: (isSuccess && data.resultCode === 0) || !!isAuth
+		select: ({ data }) => data,
+		retry: 2,
+
+		enabled: (isAuthSuccess && authData.resultCode === 0) || !!isAuth,
 	})
 
-	console.log(data)
+	useEffect(() => {
+		if (isAuthSuccess) {
+			setIsAuth(authData.resultCode === 0);
+			setMyId(myId);
+		}
+		if (isSuccessProfile) setMyProfile(profile);
+	}, [isAuthFetching, isProfileFetching])
 
 	const [haveAside, toggleAside] = useToggle(true);
 
@@ -50,7 +52,7 @@ export const useLayout = () => {
 		haveAside,
 		toggleAside,
 
-		isLoading: isLoading || profileIsLoading
+		isLoading: isAuthFetching || isProfileFetching
 	};
 };
 

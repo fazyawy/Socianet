@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { IPaginationStore } from "./store.type";
+
+import { IPaginationStore } from "./types/pagination.types";
 
 export const usePaginationStore = create<IPaginationStore>((set) => ({
 	currentPage: 1,
