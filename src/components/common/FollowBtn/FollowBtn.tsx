@@ -3,14 +3,14 @@ import { IFollowBtn } from "./Follow.type";
 
 import { useFollowBtn } from "./useFollowBtn";
 
-export const FollowBtn = ({ isFollowed, userId }: IFollowBtn) => {
+export const FollowBtn = ({ isFollowed, userId, className }: IFollowBtn) => {
 
-	const { mutate, isPending } = useFollowBtn(isFollowed)
+	const { mutate, isPending, isFollow } = useFollowBtn(isFollowed, userId);
 
 	return (
-		<div className={styles.btn}>
-			<button onClick={() => mutate(userId)} className={isFollowed ? styles.active : ""} disabled={isPending}>
-				{isFollowed && "un"}follow
+		<div className={`${styles.button_container} ${className}`}>
+			<button onClick={() => mutate(userId)} className={isFollow ? styles.active : ""} disabled={isPending}>
+				{isFollow && "un"}follow
 			</button>
 		</div>
 	)

@@ -6,5 +6,6 @@ export interface IFollow {
 
 export interface IFollowBtn {
 	isFollowed: boolean,
-	userId: number
+	userId: number,
+	className?: string
 }

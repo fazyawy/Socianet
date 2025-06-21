@@ -6,7 +6,7 @@ import { More } from "./More/More";
 import { User } from "./User/User";
 
 export const Users = () => {
-	const { isFriendsPage, data, isLoading, upMaxShowedUsers, maxShowedUsers, pageCount } = useUsers();
+	const { isFriendsPage, data, isLoading, pageCount } = useUsers();
 
 	return (
 		<main className={styles.users}>
@@ -22,7 +22,7 @@ export const Users = () => {
 
 						</div>
 
-						{maxShowedUsers <= data?.totalCount && <More upMaxShowedUsers={upMaxShowedUsers} pageCount={pageCount} />}
+						<More pageCount={pageCount} totalCount={data.totalCount || 6} />
 					</>
 				) : "error"}
 

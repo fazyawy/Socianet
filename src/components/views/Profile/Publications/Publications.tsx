@@ -7,7 +7,7 @@ import { IPost } from "./Publications.type";
 export const Publications = () => {
 	const { data, isLoading } = usePublications()
 
-	console.log(data)
+	// console.log(data);
 
 	return (
 		<section className={styles.publications}>

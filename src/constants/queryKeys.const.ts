@@ -1,4 +1,4 @@
-export const USERS_QUERY_KEY = ['users'];
+export const USERS_QUERY_KEY = 'users';
 
 export const FOLLOW_MUTATION_KEY = ['follow'];
 
@@ -11,3 +11,5 @@ export const LOGIN_MUTATION_KEY = ['login'];
 export const LOGOUT_MUTATION_KEY = ['logout'];
 
 export const PROFILE_QUERY_KEY = ['profile'];
+
+export const CHECK_IS_FOLLOW_QUERY_KEY = 'check isFollow'

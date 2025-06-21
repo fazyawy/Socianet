@@ -1,6 +1,6 @@
 import { usePaginationStore } from "@/store/usePaginationStore";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useShallow } from "zustand/shallow";
@@ -15,15 +15,14 @@ export const useUsers = () => {
 	const { pathname } = useLocation();
 	const isFriendsPage = pathname === "/friends"
 
-	const [maxShowedUsers, setMaxShowedUsers] = useState<number>(6);
-
-	const [currentPage, setCurrentPage] = usePaginationStore(useShallow(state => [state.currentPage, state.setCurrentPage]));
+	const [currentPage, maxShowedUsers] = usePaginationStore(useShallow(state => [state.currentPage, state.maxShowedUsers]));
 	const isAuth = useAuthStore(state => state.isAuth)
 
 
 	const { data, isLoading, refetch } = useQuery({
-		queryKey: USERS_QUERY_KEY,
+		queryKey: [USERS_QUERY_KEY, {page: currentPage}],
 		queryFn: usersService.getUsers<IUsers>(maxShowedUsers, currentPage, isFriendsPage),
+
 		select: ({ data }) => data,
 		retry: 2,
 		enabled: isAuth ? isFriendsPage : true,
@@ -33,25 +32,12 @@ export const useUsers = () => {
 		refetch();
 	}, [maxShowedUsers, currentPage, isFriendsPage])
 
-	const upMaxShowedUsers = () => {
-			setMaxShowedUsers(state => state += 6);
-
-			const pageCountTimed = data ? Math.ceil(data.totalCount / (maxShowedUsers + 6)) : 0;
-
-			if (currentPage >= pageCountTimed) setCurrentPage(pageCountTimed);
-		}
-
 	return {
-		upMaxShowedUsers,
-
 		pageCount: data ? Math.ceil(data.totalCount / maxShowedUsers) : 0,
-		maxShowedUsers,
-
 
 		data,
 		isLoading,
-		isFriendsPage,
-		refetch
+		isFriendsPage
 	}
 };
 
