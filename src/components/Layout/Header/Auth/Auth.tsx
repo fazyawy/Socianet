@@ -5,10 +5,11 @@ import { useAuthStore } from "@/store/useAuthStore";
 import { Link } from "react-router";
 
 import { AuthMenu } from "./AuthMenu/AuthMenu";
+import { getIsAuthSelector } from "@/store/selectors/auth.selector";
 
 export const Auth = () => {
 
-	const isAuth = useAuthStore(state => state.isAuth)
+	const isAuth = useAuthStore(getIsAuthSelector)
 
 	return (
 		<div className={styles.auth}>

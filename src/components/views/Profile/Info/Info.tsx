@@ -7,9 +7,9 @@ import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
 import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 
-export const Info = ({ id }: { id: number | string }) => {
+export const Info = () => {
 
-	const { photos, fullName, description, isLoading, isMyProfile, isFollowed } = useInfo(id);
+	const { photos, fullName, description, isLoading, isMyProfile, userId } = useInfo();
 
 	if (isLoading) return <Preloader />
 
@@ -30,7 +30,7 @@ export const Info = ({ id }: { id: number | string }) => {
 				<span>{description} <a href="">{description.length == 250 && "..."}more</a></span>
 			</div>
 
-			{!isMyProfile && <FollowBtn isFollowed={isFollowed} userId={Number(id)} className={styles.button} />}
+			{!isMyProfile && <FollowBtn userId={Number(userId)} className={styles.button} />}
 
 		</article>
 	)

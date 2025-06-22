@@ -4,10 +4,11 @@ import { Link, Navigate, useLocation } from "react-router";
 
 import { capitalizeFirstLetter } from "@/utils/string/capitalizeFirstLetter";
 import { useAuthStore } from "@/store/useAuthStore";
+import { getIsAuthSelector } from "@/store/selectors/auth.selector";
 
 export const AsideEl = ({ el }: { el: string }) => {
 
-	const isAuth = useAuthStore(state => state.isAuth)
+	const isAuth = useAuthStore(getIsAuthSelector)
 
 	const { pathname } = useLocation();
 

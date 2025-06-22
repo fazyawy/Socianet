@@ -17,11 +17,7 @@
 
 		background: var(--secondary);
 
-		@include mixins.button($paddingBtmTop: 1rem,
-			$paddingLftRght: 2rem,
-			$bgColor: var(--white),
-			$txtColor: var(--black-secondary),
-			$bgActiveColor: var(--primary));
+		@include mixins.button($txtColor: var(--black-secondary));
 
 		.rememberMe {
 			margin-left: 50%;

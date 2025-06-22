@@ -41,25 +41,17 @@
 
 	--red: #dd2c2c;
 
+	--online-status: #27b94b;
+
 	// Messenger============================\\
 	--chat-bg-dark: #3f258f;
 	--chat-border-dark: #5a4792;
-
-	--chat-online: #27b94b;
-	// --chat-online-bg: #27b94b;
-	--unread-badge: #f05;
 
 	--message-received: var(--primary-dark);
 	--message-sent: #6844d6;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+* {
 	margin: 0;
 	padding: 0;
 }

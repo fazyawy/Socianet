@@ -1,7 +1,7 @@
-@mixin button($paddingBtmTop, $paddingLftRght, $bgColor, $txtColor, $bgActiveColor) {
+@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--secondary), $bgActiveColor: var(--primary)) {
 
 	button {
-		padding: $paddingBtmTop $paddingLftRght;
+		padding: $paddingY $paddingX;
 
 		border-radius: .5rem;
 		outline: none;

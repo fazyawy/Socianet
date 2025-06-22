@@ -6,6 +6,9 @@ import { Navigate } from "react-router";
 
 import { FormInput } from "@/components/common/FormInput/FormInput";
 
+import { emailValidator } from "@/shared/validators/email.validator";
+import { requiredValidator } from "@/shared/validators/required.validator";
+
 export const Login = () => {
 
 	const { onSubmit, register, errors, rememberMeId, isAuth } = useLogin();
@@ -23,10 +26,7 @@ export const Login = () => {
 				<FormInput
 					type="email"
 					title={"email"}
-					register={register("email", {
-						required: "This field is required",
-						minLength: 5
-					})}
+					register={register("email", emailValidator(5))}
 					errors={errors.email}
 					label="Your email"
 					placeholder="ex. email@email.com" />
@@ -34,9 +34,7 @@ export const Login = () => {
 				<FormInput
 					type="password"
 					title={"password"}
-					register={register("password", {
-						required: "This field is required"
-					})}
+					register={register("password", requiredValidator)}
 					errors={errors.password}
 					label="Your password"
 					placeholder="ex. qwerty123" />

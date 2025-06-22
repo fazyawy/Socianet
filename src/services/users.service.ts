@@ -1,5 +1,4 @@
 import { instance } from "./api";
-import followService from "./follow.service";
 
 class UsersService {
 	getUsers = <T>(maxShowedUsers: number,
@@ -9,16 +8,6 @@ class UsersService {
 				&page=${currentPage}
 				${isFriends ? "&friend=true" : ""}`)
 		}
-
-	follow = (userId: number) => {
-		console.warn("change to new service")
-		return followService.follow(userId)
-	}
-
-	unfollow = (userId: number) => {
-		console.warn("change to new service")
-		return followService.unfollow(userId)
-	}
 }
 
 export default new UsersService()

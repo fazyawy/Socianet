@@ -5,6 +5,11 @@
 	transition: background-color 0.2s;
 	position: relative;
 
+	.online {
+		border: .13rem solid var(--chat-bg-dark);
+
+	}
+
 	&:hover {
 		background-color: var(--primary-dark);
 
@@ -52,7 +57,7 @@
 			}
 
 			.unread_badge {
-				background-color: var(--unread-badge);
+				background-color: var(--red);
 				color: white;
 				font-size: .625rem;
 				padding: .15rem .5rem;

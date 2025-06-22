@@ -5,10 +5,7 @@
 	justify-content: space-between;
 	gap: .1rem;
 
-	@include mixins.button($paddingBtmTop: .25rem, $paddingLftRght: .5rem,
-	$bgColor: var(--white),
-	$txtColor: var(--secondary),
-	$bgActiveColor: var(--primary));
+	@include mixins.button($paddingY: .25rem);
 
 	span {
 		padding: .25rem;

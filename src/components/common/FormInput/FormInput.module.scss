@@ -7,14 +7,6 @@
 	flex-wrap: wrap;
 	gap: .5rem;
 
-
-
-	@include mixins.button($paddingBtmTop: 0,
-		$paddingLftRght: 0,
-		$bgColor: transparent,
-		$txtColor: var(--white-secondary),
-		$bgActiveColor: transparent);
-
 	.input {
 		width: 100%;
 		display: flex;

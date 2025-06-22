@@ -10,13 +10,14 @@ import { ILogin } from "@/shared/types/login.type";
 
 import { useAuthStore } from "@/store/useAuthStore";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
+import { getIsAuthSelector } from "@/store/selectors/auth.selector";
 
 export const useLogin = () => {
 	const rememberMeId = useId();
 
 	const queryClient = useQueryClient();
 
-	const isAuth = useAuthStore(state => state.isAuth)
+	const isAuth = useAuthStore(getIsAuthSelector)
 	const setMyId = useMyProfileStore(state => state.setMyId)
 
 	const {
@@ -32,7 +33,7 @@ export const useLogin = () => {
 
 		onSuccess: ({data}) => {
 			queryClient.invalidateQueries({
-				queryKey: AUTH_QUERY_KEY
+				queryKey: [AUTH_QUERY_KEY]
 			})
 
 			setMyId(data?.data.userId)

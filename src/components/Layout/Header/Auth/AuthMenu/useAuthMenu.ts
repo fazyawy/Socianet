@@ -20,7 +20,7 @@ export const useAuthMenu = () => {
 		mutationFn: authService.logout,
 		onSuccess: () => {
 			queryClient.invalidateQueries({
-				queryKey: AUTH_QUERY_KEY
+				queryKey: [ AUTH_QUERY_KEY ]
 			})
 		}
 	})

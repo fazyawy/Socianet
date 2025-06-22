@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { IPost } from "./Publications.type";
-import axios from "axios";
+import { useAuthStore } from "@/store/useAuthStore";
+import { getIsAuthSelector } from "@/store/selectors/auth.selector";
+import publicationsService from "@/services/publications.service";
 
 export const usePublications = () => {
 
-	const queryFn = async (): Promise<IPost[]> => {
-		const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-
-		return response.data
-	}
+	const isAuth = useAuthStore(getIsAuthSelector)
 
 	return useQuery({
 		queryKey: ['publications'],
-		queryFn
+		queryFn: publicationsService.getPublications,
+
+		select: ({data}) => data,
+		enabled: isAuth === true
 	})
 };
 

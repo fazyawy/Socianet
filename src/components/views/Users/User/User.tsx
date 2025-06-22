@@ -16,7 +16,7 @@ export const User = ({ name, photos, followed, id }: IUser) => {
 		<article className={styles.user}>
 			<Link to={`/${id}`} title={name}>
 				<Avatar src={!!photos.small ? photos.small : "https://i.pravatar.cc/150?img=5"} type={"bigger"} />
-				<h2>{`${name.slice(0,15)}${name.length > 15 ? "..." : ""}`}</h2>
+				<h2>{`${name.split("").slice(0,15).join("")}${name.length > 15 ? "..." : ""}`}</h2>
 			</Link>
 			{haveFollowBtn && <FollowBtn isFollowed={followed} userId={id}/>}
 		</article>

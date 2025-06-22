@@ -13,7 +13,8 @@ export const Header = () => {
 				src="https://i.pravatar.cc/150?img=5"
 				type={"middle"}
 				haveOnlineStatus={true}
-				isOnline={true}/>
+				isOnline={true}
+				onlineStyle={styles.online}/>
 
 				<div className={styles.contact_details}>
 					<span className={styles.contact_name}>John Doe</span>

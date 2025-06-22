@@ -16,10 +16,10 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useLayout = () => {
 	const { setIsAuth, isAuth } = useAuthStore(state => state);
-	const [ setMyId, defaultId, setMyProfile ] = useMyProfileStore(useShallow(state => [state.setMyId, state.myId, state.setMyProfile]));
+	const [setMyId, defaultId, setMyProfile] = useMyProfileStore(useShallow(state => [state.setMyId, state.myId, state.setMyProfile]));
 
 	const { data: authData, isFetching: isAuthFetching, isSuccess: isAuthSuccess } = useQuery({
-		queryKey: AUTH_QUERY_KEY,
+		queryKey: [ AUTH_QUERY_KEY ],
 		queryFn: authService.getAuth,
 
 		select: ({ data }) => data,

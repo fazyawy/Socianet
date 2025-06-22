@@ -28,8 +28,7 @@ export const FormInput = ({ type = "text", title, label, placeholder, register, 
 
 			{errors && (
 				<span className={styles.error}>
-					{errors.type === "required" && errors.message}
-					{errors.type === "minLength" && `The length of ${name} is from 5 symbools`}
+					{errors.message}
 				</span>
 			)}
 		</div>

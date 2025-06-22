@@ -1,20 +1,25 @@
-import { CHECK_IS_FOLLOW_QUERY_KEY } from "@/constants/queryKeys.const";
-import followService from "@/services/follow.service";
-import profileService from "@/services/profile.service";
-import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { useQuery } from "@tanstack/react-query";
 
-export const useInfo = (id: number | string) => {
+import profileService from "@/services/profile.service";
+
+import { useMyProfileStore } from "@/store/useMyProfileStore";
+import { useLocation } from "react-router";
+
+export const useInfo = () => {
+	const { pathname } = useLocation();
+
+	let userId: number | string = pathname.slice(1);
+
 	const { myId, myProfile } = useMyProfileStore(state => state)
-	console.log(id)
+	console.log(userId)
 
-	id = id === "" ? myId : Number(id);
+	userId = userId === "" ? myId : Number(userId);
 
-	const isMyProfile = id === myId;
+	const isMyProfile = userId === myId;
 
 	const { data: profile, isLoading } = useQuery({
 		queryKey: ['show profile'],
-		queryFn: profileService.getProfile(id),
+		queryFn: profileService.getProfile(userId),
 		select: ({ data }) => data,
 		enabled: !isMyProfile
 	})
@@ -29,7 +34,7 @@ export const useInfo = (id: number | string) => {
 		description,
 		isLoading,
 		isMyProfile,
-		isFollowed: false
+		userId: userId
 	}
 };
 

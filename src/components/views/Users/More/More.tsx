@@ -13,8 +13,10 @@ export const More = ({ pageCount, totalCount }: IMoreProps) => {
 
 	const { onClick, isMore } = useMore(pageCount, totalCount);
 
+	if(!isMore) return;
+
 	return (
-		<div className={isMore ? styles.more : styles.notMore}>
+		<div className={styles.more}>
 			<button className={styles.morebtn} onClick={onClick}>show more</button>
 			<Pagination pageCount={pageCount} />
 		</div>

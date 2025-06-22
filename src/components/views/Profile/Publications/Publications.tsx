@@ -2,7 +2,7 @@ import { capitalizeFirstLetter } from "@/utils/string/capitalizeFirstLetter";
 
 import styles from "./Publications.module.scss"
 import { usePublications } from "./usePublications";
-import { IPost } from "./Publications.type";
+import { IPublications } from "@/services/types/publications.type";
 
 export const Publications = () => {
 	const { data, isLoading } = usePublications()
@@ -20,7 +20,7 @@ export const Publications = () => {
 	)
 };
 
-export const Post = ({id, title, body}:IPost) => {
+export const Post = ({id, title, body}:IPublications) => {
 	return (
 		<article className={styles.post}>
 			<h3>{id}. {capitalizeFirstLetter(title)}</h3>

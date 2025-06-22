@@ -1,9 +1,5 @@
 @use "@/styles/mixins";
 
 .button_container {
-	@include mixins.button($paddingBtmTop: 1rem,
-		$paddingLftRght: 2rem,
-		$bgColor: var(--white),
-		$txtColor: var(--secondary),
-		$bgActiveColor: var(--primary));
+	@include mixins.button();
 }

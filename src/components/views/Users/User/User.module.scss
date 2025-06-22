@@ -1,4 +1,5 @@
 .user {
+	width: 10rem;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -9,6 +10,8 @@
 		align-items: center;
 		flex-direction: column;
 		h2 {
+			font-size: 1.3rem;
+			text-wrap: nowrap;
 			color: var(--white);
 
 		}

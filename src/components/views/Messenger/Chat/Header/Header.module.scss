@@ -7,6 +7,10 @@
 	border-bottom: 1px solid var(--chat-border-dark);
 	z-index: 1;
 
+	.online {
+		border: .13rem solid var(--chat-bg-dark);
+	}
+
 	.contact_info {
 		display: flex;
 		align-items: center;
