@@ -4,7 +4,7 @@ import { Onlinestatus } from "@/components/UI/Onlinestatus/Onlinestatus";
 import { IAvatar } from "./Avatar.type";
 
 
-export const Avatar = ({ src, type, haveOnlineStatus, isOnline, onlineStyle }: IAvatar) => {
+export const Avatar = ({ className, src, type, haveOnlineStatus, isOnline, onlineStyle }: IAvatar) => {
 
 	const sizes = {
 		large: "10rem",
@@ -16,7 +16,7 @@ export const Avatar = ({ src, type, haveOnlineStatus, isOnline, onlineStyle }: I
 	}
 
 	return (
-		<div className={styles.avatar} style={{"width": sizes[type], "height": sizes[type]}}>
+		<div className={`${styles.avatar} ${className}`} style={{"width": sizes[type], "height": sizes[type]}}>
 			<img src={src} alt="Contact" />
 			{haveOnlineStatus && isOnline && <Onlinestatus className={onlineStyle} />}
 		</div>

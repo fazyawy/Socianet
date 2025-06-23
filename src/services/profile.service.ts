@@ -1,9 +1,18 @@
 import { instance } from "./api";
 
 import { IProfile } from "@/shared/types/profile.type";
+import { IResponse } from "./types/services.type";
 
 class ProfileService {
-	getProfile = (userId: number) => async () => await instance.get<IProfile>(`profile/${userId}`)
+	#BASE_URL: string = "profile/";
+
+	getProfile = (userId: number) => async () => await instance.get<IProfile>(`${this.#BASE_URL}${userId}`);
+
+	setProfilePhoto = async(image: File) => await instance.put<IResponse>(`${this.#BASE_URL}photo`, {
+		image
+	})
+
+	getStatus = (userId: number) => async () => await instance.get<string>(`${this.#BASE_URL}status/${userId}`);
 }
 
 export default new ProfileService()

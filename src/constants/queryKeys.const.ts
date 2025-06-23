@@ -13,3 +13,5 @@ export const LOGOUT_MUTATION_KEY = ['logout'];
 export const PROFILE_QUERY_KEY = ['profile'];
 
 export const CHECK_IS_FOLLOW_QUERY_KEY = 'check isFollow'
+
+export const PROFILE_PHOTO_MUTATION_KEY = 'profile photo'

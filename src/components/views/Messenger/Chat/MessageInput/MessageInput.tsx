@@ -6,7 +6,7 @@ import { InputContainer } from "./InputContainer/InputContainer";
 
 export const MessageInput = () => {
 
-	const { ...input } = useInput();
+	const { ...input } = useInput<string>("");
 
 	return (
 		<div className={styles.input}>

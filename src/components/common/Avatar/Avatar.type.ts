@@ -1,5 +1,6 @@
 export interface IAvatar {
-	src: string,
+	className?: string,
+	src: string | File,
 	type: "large" | "bigger" | "big" | "middle" | "small" | "smaller",
 	haveOnlineStatus?: boolean,
 	isOnline?: boolean,
