@@ -1,5 +1,7 @@
 import styles from "./Avatar.module.scss"
 
+import defaultImage from "@/assets/images/user.png"
+
 import { Onlinestatus } from "@/components/UI/Onlinestatus/Onlinestatus";
 import { IAvatar } from "./Avatar.type";
 
@@ -17,7 +19,7 @@ export const Avatar = ({ className, src, type, haveOnlineStatus, isOnline, onlin
 
 	return (
 		<div className={`${styles.avatar} ${className}`} style={{"width": sizes[type], "height": sizes[type]}}>
-			<img src={src} alt="Contact" />
+			<img src={src || defaultImage} alt="Contact" />
 			{haveOnlineStatus && isOnline && <Onlinestatus className={onlineStyle} />}
 		</div>
 	)

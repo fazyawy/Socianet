@@ -17,11 +17,12 @@ export const Contact = ({ avatar,
 		<article className={`${styles.contact} ${isActive && styles.active}`} data-contact-id="1">
 
 			<Avatar
-			src={avatar}
-			type={"middle"}
-			haveOnlineStatus={true}
-			isOnline={isOnline}
-			onlineStyle={styles.online}/>
+				className={styles.avatar}
+				src={avatar}
+				type={"middle"}
+				haveOnlineStatus={true}
+				isOnline={isOnline}
+				onlineStyle={styles.online} />
 
 			<div className={styles.contact_info}>
 

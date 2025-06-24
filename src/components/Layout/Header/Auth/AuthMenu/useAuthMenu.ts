@@ -29,7 +29,7 @@ export const useAuthMenu = () => {
 		isOpenMenu,
 		toggleIsOpenMenu,
 
-		myAvatar: photos.small || "https://i.pravatar.cc/150?img=5",
+		myAvatar: photos.small,
 
 		mutate: () => mutate()
 	}
