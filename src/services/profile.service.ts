@@ -12,7 +12,7 @@ class ProfileService {
 		image
 	});
 
-	setProfileStatus = async(status: string) => await instance.post<IResponse>(`${this.#BASE_URL}status`, {
+	setProfileStatus = async(status: string) => await instance.put<IResponse>(`${this.#BASE_URL}status`, {
 		status
 	})
 

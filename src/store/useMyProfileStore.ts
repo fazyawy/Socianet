@@ -20,8 +20,8 @@ const initialState: IProfile = {
 		mainLink: null,
 	},
 	photos: {
-		small: "https://i.pravatar.cc/150?img=6",
-		large: "https://i.pravatar.cc/150?img=6"
+		small: null,
+		large: null
 	},
 }
 

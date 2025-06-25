@@ -1,7 +1,69 @@
-.name_status {
-		h1 {
-			font-size: 2rem;
-			text-wrap: wrap;
+.nameStatus_container {
+	.name {
+		font-size: 2rem;
+		text-wrap: wrap;
+	}
+
+	.status_container {
+
+		.status {
+			width: auto;
+
+			position: relative;
+			transition: color .2s linear;
+
+			.status_pen {
+				opacity: 0;
+				transition: opacity .2s linear;
+
+				position: absolute;
+				top: 5%;
+			}
+
+			&:hover {
+				color: var(--white-secondary);
+
+				.status_pen {
+					color: var(--white);
+					opacity: .7;
+				}
+			}
+		}
+
+		&:has(.status_input) {
+			.status {
+				color: var(--white-secondary);
+
+				.status_pen {
+					color: var(--white);
+					opacity: .7;
+				}
+			}
 
 		}
+
+		&:has(.status_pen) {
+			.status_input {
+				opacity: 1;
+			}
+		}
+
+
+
+		.status_input {
+			opacity: 0;
+
+			transition: opacity .2s linear;
+
+			&:not([value=""]) {
+				opacity: 1;
+			}
+		}
 	}
+
+	&:hover {
+		.status_input {
+			opacity: 1;
+		}
+	}
+}

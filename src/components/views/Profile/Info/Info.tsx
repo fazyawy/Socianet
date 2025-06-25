@@ -11,7 +11,7 @@ import { NameStatus } from "./NameStatus/NameStatus";
 
 export const Info = () => {
 
-	const { photos, description, isProfileLoading, isMyProfile, userId, name_status } = useInfo();
+	const { photos, description, isProfileLoading, isMyProfile, userId, name } = useInfo();
 
 	if (isProfileLoading) return <Preloader />
 
@@ -20,14 +20,14 @@ export const Info = () => {
 
 			<InfoAvatar src={photos?.large || undefined} isMyProfile={isMyProfile} />
 
-			<NameStatus {...name_status} isMyProfile={isMyProfile} />
+			<NameStatus name={name} userId={userId} isMyProfile={isMyProfile} />
 
 			<div className={styles.description}>
 				<h4>Description</h4>
 				<span>{description} <a href="">{description.length == 250 && "..."}more</a></span>
 			</div>
 
-			{!isMyProfile && <FollowBtn userId={Number(userId)} className={styles.button} />}
+			{!isMyProfile && <FollowBtn userId={userId} className={styles.button} />}
 
 		</article>
 	)
