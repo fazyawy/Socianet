@@ -7,29 +7,27 @@ import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
 import { Preloader } from "@/components/UI/Preloader/Preloader";
 import { InfoAvatar } from "./InfoAvatar/InfoAvatar";
 import { NameStatus } from "./NameStatus/NameStatus";
+import { InfoDesription } from "./InfoDescription/InfoDesription";
 
 
 export const Info = () => {
 
-	const { photos, description, isProfileLoading, isMyProfile, userId, name } = useInfo();
+	const { photo, info_description, isProfileLoading, isMyProfile, userId, name } = useInfo();
 
 	if (isProfileLoading) return <Preloader />
 
 	return (
-		<article className={styles.info}>
+		<div className={styles.info}>
 
-			<InfoAvatar src={photos?.large || undefined} isMyProfile={isMyProfile} />
+			<InfoAvatar src={photo} isMyProfile={isMyProfile} />
 
 			<NameStatus name={name} userId={userId} isMyProfile={isMyProfile} />
 
-			<div className={styles.description}>
-				<h4>Description</h4>
-				<span>{description} <a href="">{description.length == 250 && "..."}more</a></span>
-			</div>
+			<InfoDesription {...info_description}/>
 
 			{!isMyProfile && <FollowBtn userId={userId} className={styles.button} />}
 
-		</article>
+		</div>
 	)
 };
 

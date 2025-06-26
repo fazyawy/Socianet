@@ -6,11 +6,12 @@ import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
 import { STATUS_QUERY_KEY, USER_PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
+import { useShallow } from "zustand/shallow";
 
 export const useInfo = () => {
 	const { pathname } = useLocation();
 
-	const { myId, myProfile } = useMyProfileStore(state => state);
+	const [myId, myProfile] = useMyProfileStore(useShallow(state => [state.myId, state.myProfile]));
 
 	const queryClient = useQueryClient();
 
@@ -18,14 +19,17 @@ export const useInfo = () => {
 
 	const isMyProfile = userId === myId;
 
-	const { data: profile, isLoading: isProfileLoading } = useQuery({
+	console.log(isMyProfile)
+
+	const { data: profile, isLoading: isProfileLoading, isSuccess: isProfileSuccess } = useQuery({
 		queryKey: [USER_PROFILE_QUERY_KEY],
 		queryFn: profileService.getProfile(userId),
 		select: ({ data }) => data,
 		enabled: !isMyProfile
 	})
 
-	const { photos, fullName, aboutMe } = isMyProfile ? { ...myProfile } : { ...profile };
+	const { photos, fullName, aboutMe, contacts } = isMyProfile ? { ...myProfile } :
+		isProfileSuccess ? { ...profile } : { ...myProfile };
 
 	const description = (aboutMe || `We know nothing about this person, but we sure - this is a good person.`).slice(0, 250)
 
@@ -36,8 +40,11 @@ export const useInfo = () => {
 	}, [userId])
 
 	return {
-		photos,
-		description,
+		photo: photos.large || undefined,
+		info_description: {
+			description,
+			contacts,
+		},
 		isProfileLoading,
 		isMyProfile,
 		userId: Number(userId),

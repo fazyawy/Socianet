@@ -19,7 +19,7 @@ export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 			<h1 className={styles.name}>{name || "fazyawy"}</h1>
 
 			<div className={styles.status_container}>
-				<h3 className={status ? styles.status : ""} onClick={toggleStatusInput}>{isStatusLoading ? <Preloader /> : status}{status && <FaPen className={styles.status_pen} size={10} />}</h3>
+				<h3 className={isMyProfile && status ? styles.status : ""} onClick={toggleStatusInput}>{isStatusLoading ? <Preloader /> : status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}</h3>
 
 				{isMyProfile &&
 					(!status || haveStatusInput) &&

@@ -1,0 +1,21 @@
+.info_description {
+	width: auto;
+
+	.description_content {
+		display: flex;
+		justify-content: space-around;
+
+		gap: .5rem;
+
+		button {
+			color: var(--white);
+			opacity: .7;
+		}
+
+		.contacts {
+			list-style-type: none;
+			text-wrap: nowrap;
+		}
+	}
+
+}

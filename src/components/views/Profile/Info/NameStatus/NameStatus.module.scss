@@ -8,8 +8,9 @@
 
 		.status {
 			width: auto;
-
 			position: relative;
+
+			cursor: pointer;
 			transition: color .2s linear;
 
 			.status_pen {
