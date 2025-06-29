@@ -5,9 +5,9 @@ import { useInfo } from "./useInfo";
 import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
 
 import { Preloader } from "@/components/UI/Preloader/Preloader";
-import { InfoAvatar } from "./InfoAvatar/InfoAvatar";
 import { NameStatus } from "./NameStatus/NameStatus";
 import { InfoDesription } from "./InfoDescription/InfoDesription";
+import { ChangeAvatar } from "@/components/common/ChangeAvatar/ChangeAvatar";
 
 
 export const Info = () => {
@@ -19,7 +19,7 @@ export const Info = () => {
 	return (
 		<div className={styles.info}>
 
-			<InfoAvatar src={photo} isMyProfile={isMyProfile} />
+			<ChangeAvatar src={photo} isMyProfile={isMyProfile} />
 
 			<NameStatus name={name} userId={userId} isMyProfile={isMyProfile} />
 

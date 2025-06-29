@@ -1,17 +1,17 @@
-import styles from "./InfoAvatar.module.scss"
+import styles from "./ChangeAvatar.module.scss"
 
-import { IInfoAvatar } from "./InfoAvatar.type";
-import { useInfoAvatar } from "./useInfoAvatar";
+import { IChangeAvatar } from "./ChangeAvatar.type";
+import { useChangeAvatar } from "./useChangeAvatar";
 
 import { FaPen } from "react-icons/fa";
 
 import { Avatar } from "@/components/common/Avatar/Avatar";
 
-export const InfoAvatar = ({ src, isMyProfile }: IInfoAvatar) => {
+export const ChangeAvatar = ({ src, isMyProfile }: IChangeAvatar) => {
 
-	const { handleFileChange, image } = useInfoAvatar(src);
+	const { handleFileChange, image } = useChangeAvatar(src);
 
-	if (!isMyProfile) return <Avatar src={image} type={"large"} className={styles.avatar} />;
+	if (!isMyProfile && isMyProfile !== undefined) return <Avatar src={image} type={"large"} className={styles.avatar} />;
 
 	return (
 		<div className={styles.info_avatar} title="Change avatar">

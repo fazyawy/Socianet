@@ -4,7 +4,7 @@ import { AsideEl } from "./AsideEl/AsideEl";
 
 export const Aside = () => {
 
-	const pages: string[] = ["/", "/messenger", "/news", "/music", "/users", "/friends", "/preloader"]
+	const pages: string[] = ["/", "/messenger", "/news", "/music", "/users", "/friends", "/preloader", "/settings"]
 
 	return (
 		<aside className={styles.aside}>

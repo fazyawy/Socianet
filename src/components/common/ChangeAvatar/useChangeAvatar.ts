@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { PROFILE_PHOTO_MUTATION_KEY, PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
 
-export const useInfoAvatar = (src?: string) => {
+export const useChangeAvatar = (src?: string) => {
 
 	const queryClient = useQueryClient();
 

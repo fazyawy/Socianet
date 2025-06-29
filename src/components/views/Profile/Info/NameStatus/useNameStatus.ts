@@ -18,7 +18,8 @@ export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 		mutationKey: [STATUS_MUTATION_KEY],
 		mutationFn: profileService.setProfileStatus,
 		onSuccess: () => {
-			statusRefetch()
+			statusRefetch();
+			toggleStatusInput();
 		}
 	})
 

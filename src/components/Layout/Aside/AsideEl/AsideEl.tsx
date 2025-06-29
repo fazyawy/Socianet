@@ -1,30 +1,20 @@
 import styles from "./AsideEl.module.scss"
 
-import { Link, Navigate, useLocation } from "react-router";
+import { useAsideEl } from "./useAsideEl";
 
-import { capitalizeFirstLetter } from "@/utils/string/capitalizeFirstLetter";
-import { useAuthStore } from "@/store/useAuthStore";
-import { getIsAuthSelector } from "@/store/selectors/auth.selector";
+import { Link, Navigate } from "react-router";
 
 export const AsideEl = ({ el }: { el: string }) => {
 
-	const isAuth = useAuthStore(getIsAuthSelector)
+	const { isActive, title, isRedirect, to } = useAsideEl(el);
 
-	const { pathname } = useLocation();
-
-	const title = capitalizeFirstLetter(el.slice(1));
-	const isProfilePage = title === "";
-	const isActive = pathname === el || !!Number(pathname.slice(1)) && isProfilePage
-
-	if(isAuth === false && (pathname === "/" || pathname === "/messenger" || pathname === "/friends")) {
-		return <Navigate to={"/auth/login"}/>
-	}
+	if(isRedirect) return <Navigate to={"/auth/login"}/>
 
 	return (
 		<Link
-			to={el}
+			to={to}
 			key={el}
-			className={`${styles.link} ${isActive ? styles.active : ""}`}>{isProfilePage ? "Profile" : title}</Link>
+			className={`${styles.link} ${isActive ? styles.active : ""}`}>{title}</Link>
 	)
 };
 

@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router";
+
 import { Layout } from "@/components/Layout/Layout";
 import { Profile } from "@/components/views/Profile/Profile";
 import { Users } from "@/components/views/Users/Users";
 import { Messenger } from "@/components/views/Messenger/Messenger";
 import { Login } from "@/components/views/Login/Login";
 import { Preloader } from "@/components/UI/Preloader/Preloader";
+
+import { settingsRoutes } from "./settings.router";
 
 const routes = [
 	{
@@ -52,6 +55,7 @@ const routes = [
 				path: "preloader",
 				element: <Preloader />
 			},
+			{...settingsRoutes}
 		]
 	}
 ];

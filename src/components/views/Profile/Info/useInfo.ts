@@ -19,8 +19,6 @@ export const useInfo = () => {
 
 	const isMyProfile = userId === myId;
 
-	console.log(isMyProfile)
-
 	const { data: profile, isLoading: isProfileLoading, isSuccess: isProfileSuccess } = useQuery({
 		queryKey: [USER_PROFILE_QUERY_KEY],
 		queryFn: profileService.getProfile(userId),
@@ -45,6 +43,7 @@ export const useInfo = () => {
 			description,
 			contacts,
 		},
+
 		isProfileLoading,
 		isMyProfile,
 		userId: Number(userId),

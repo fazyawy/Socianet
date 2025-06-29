@@ -12,6 +12,8 @@ export const LOGOUT_MUTATION_KEY = ['logout'];
 
 export const PROFILE_QUERY_KEY = ['profile'];
 
+export const PROFILE_MUTATION_KEY = 'set profile';
+
 export const USER_PROFILE_QUERY_KEY: string = 'show profile';
 
 export const CHECK_IS_FOLLOW_QUERY_KEY: string = 'check isFollow';
