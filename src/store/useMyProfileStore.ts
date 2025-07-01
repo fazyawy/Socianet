@@ -4,24 +4,24 @@ import { IProfile } from "@/shared/types/profile.type";
 import { IMyProfileStore } from "./types/myProfile.types";
 
 const initialState: IProfile = {
-	userId: 2,
-	aboutMe: null,
+	userId: 32475,
+	aboutMe: "",
 	lookingForAJob: false,
-	lookingForAJobDescription: null,
+	lookingForAJobDescription: "not",
 	fullName: "fazyawy",
 	contacts: {
-		github: null,
-		vk: null,
-		facebook: null,
-		instagram: null,
-		twitter: null,
-		website: null,
-		youtube: null,
-		mainLink: null,
+		github: "",
+		vk: "",
+		facebook: "",
+		instagram: "",
+		twitter: "",
+		website: "",
+		youtube: "",
+		mainLink: "",
 	},
 	photos: {
-		small: null,
-		large: null
+		small: "",
+		large: ""
 	},
 }
 
@@ -29,6 +29,6 @@ export const useMyProfileStore = create<IMyProfileStore>((set) => ({
 	myId: 2,
 	setMyId: (changedValue) => set(() => ({ myId: changedValue })),
 	myProfile: initialState,
-	setMyProfile: (changedValue) => set(() => ({ myProfile: changedValue }))
+	setMyProfile: (changedValue) => set(() => ({ myProfile: {...changedValue, lookingForAJobDescription: initialState.lookingForAJobDescription} }))
 }));
 

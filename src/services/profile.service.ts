@@ -8,9 +8,7 @@ class ProfileService {
 
 	getProfile = (userId: number) => async () => await instance.get<IProfile>(`${this.#BASE_URL}${userId}`);
 
-	setProfile = async(profile: Omit<IProfile, "photos">) => await instance.put<IResponse>(`${this.#BASE_URL}`, {
-		profile
-	})
+	setProfile = async(profile: Omit<IProfile, "photos">) => await instance.put<IResponse>(`${this.#BASE_URL}`, profile )
 
 
 	setProfilePhoto = async(image: File) => await instance.postForm<IResponse>(`${this.#BASE_URL}photo`, {

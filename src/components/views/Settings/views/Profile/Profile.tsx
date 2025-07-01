@@ -6,7 +6,7 @@ import { requiredValidator } from "@/shared/validators/required.validator";
 
 export const Profile = () => {
 
-	const { myProfile, register, onSubmit } = useProfile();
+	const { register, onSubmit, errors } = useProfile();
 
 	return (
 		<div className={styles.profile}>
@@ -14,9 +14,19 @@ export const Profile = () => {
 
 			<form action="" onSubmit={onSubmit} className={styles.profile_form}>
 
-				<FormInput label={myProfile.fullName} title={"nickname"} register={register("fullName", {...requiredValidator})}/>
+				<FormInput
+					errors={errors.fullName}
+					label={"Change nickname:"}
+					title={"Change nickname"}
+					register={register("fullName", { ...requiredValidator })} />
+				<FormInput
+					errors={errors.aboutMe}
+					placeholder="information about me"
+					label={"Change about me:"}
+					title={"Change about me"}
+					register={register("aboutMe", { ...requiredValidator })} />
 
-				<button>Save changes</button>
+				<button type="submit">Save changes</button>
 
 			</form>
 

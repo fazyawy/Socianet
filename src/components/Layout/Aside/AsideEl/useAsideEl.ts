@@ -13,7 +13,7 @@ export const useAsideEl = (el: string) => {
 
 	const title = capitalizeFirstLetter(el.slice(1));
 	const isProfilePage = title === "";
-	const isActive = (pathname === el || isNumber) && isProfilePage
+	const isActive = pathname === el || (isNumber && isProfilePage)
 
 	return {
 		isActive,
