@@ -18,7 +18,7 @@ export const useAsideEl = (el: string) => {
 	return {
 		isActive,
 		title: isProfilePage ? "Profile" : title,
-		isRedirect: isAuth === false && (pathname === "/" || pathname === "/messenger" || pathname === "/friends" || isNumber || pathname === "/settings"),
+		isRedirect: isAuth === false && (pathname === "/" || pathname === "/messenger" || pathname === "/friends" || isNumber || pathname.slice(0, 9) === "/settings"),
 		to: title === "Settings" ? "/settings/profile" : el
 	}
 };

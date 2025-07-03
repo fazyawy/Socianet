@@ -5,21 +5,31 @@ import { FaTimes } from "react-icons/fa";
 
 import { IFormInput } from "./FormInput.type";
 
-export const FormInput = ({ type = "text", title, label, placeholder, register, errors }: IFormInput) => {
+export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className }: IFormInput) => {
 
 	const inputId = useId()
 
 	return (
-		<div className={styles.input_container}>
+		<div className={`${styles.input_container} ${className}`}>
 			<label htmlFor={inputId}>{label}</label>
 
 			<div className={styles.input}>
-				<input
-					id={inputId}
-					type={type}
-					placeholder={placeholder}
-					title={title}
-					{...register} />
+				{type === "textarea" ?
+					<textarea
+						className={styles.input_field}
+						inputMode={"text"}
+						id={inputId}
+						placeholder={placeholder}
+						title={title}
+						{...register} /> :
+					<input
+						className={styles.input_field}
+						inputMode={"text"}
+						id={inputId}
+						type={type}
+						placeholder={placeholder}
+						title={title}
+						{...register} />}
 
 				<button className={styles.clear} title="Clear input value" type={"reset"}>
 					<FaTimes className={styles.icon} />

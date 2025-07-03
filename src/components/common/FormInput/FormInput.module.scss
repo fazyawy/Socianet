@@ -18,24 +18,24 @@
 		@include mixins.input($width: 80%, $paddingRight: .75rem);
 
 		.clear {
-		padding: 0;
+			padding: 0;
 
-		background: none;
-		border: none;
-		color: var(--white-secondary);
-		cursor: pointer;
-		opacity: 0;
-		transition: opacity 0.2s;
+			background: none;
+			border: none;
+			color: var(--white-secondary);
+			cursor: pointer;
+			opacity: 0;
+			transition: opacity 0.2s;
 
 
-		right: 2rem;
-		// top: 50%;
-		// transform: translateY(50%);
-	}
+			right: 2rem;
+			// top: 50%;
+			// transform: translateY(50%);
+		}
 
-	input:not(:placeholder-shown)+.clear {
-		opacity: 1;
-	}
+		input:not(:placeholder-shown)+.clear {
+			opacity: 1;
+		}
 	}
 
 	.error {

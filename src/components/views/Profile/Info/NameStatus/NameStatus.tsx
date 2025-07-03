@@ -3,6 +3,7 @@ import styles from "./NameStatus.module.scss"
 import { Preloader } from "@/components/UI/Preloader/Preloader";
 import { useNameStatus } from "./useNameStatus";
 import { FaPen } from "react-icons/fa";
+import { StatusInput } from "@/components/common/StatusInput/StatusInput";
 
 interface INameStatus {
 	name?: string,
@@ -12,7 +13,7 @@ interface INameStatus {
 
 export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 
-	const { input, isStatusLoading, status, haveStatusInput, toggleStatusInput } = useNameStatus(userId, isMyProfile);
+	const { isStatusLoading, status, haveStatusInput, toggleStatusInput } = useNameStatus(userId, isMyProfile);
 
 	return (
 		<div className={styles.nameStatus_container}>
@@ -23,7 +24,7 @@ export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 
 				{isMyProfile &&
 					(!status || haveStatusInput) &&
-						<input title="Set the status" className={styles.status_input} {...input} />}
+						<StatusInput toggleStatusInput={toggleStatusInput} className={styles.status_input} />}
 			</div>
 
 		</div>

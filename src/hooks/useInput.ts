@@ -21,7 +21,6 @@ export const useInput = (initialValue: string = "", fn?: (value: string) => void
 		value,
 		onChange,
 		onBlur,
-		type: "text"
 	}
 };
 

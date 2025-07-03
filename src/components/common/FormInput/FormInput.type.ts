@@ -1,11 +1,17 @@
-import { FieldError, FieldValues, UseFormRegister } from "react-hook-form";
+import { HTMLInputTypeAttribute } from "react";
+import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
 export interface IFormInput {
-	type?: string,
+	type?: HTMLInputTypeAttribute | "textarea",
 	title: string,
 	label?: string,
 	placeholder?: string,
-	// register: UseFormRegister<Record<string, string>>,
-	register: FieldValues,
-	errors?: FieldError
+	register: UseFormRegisterReturn | {
+		value: string,
+		onChange: () => void,
+		onBlur?: () => void,
+	},
+	errors?: FieldError,
+
+	className?: string
 }

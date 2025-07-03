@@ -1,4 +1,5 @@
 export interface IChangeAvatar {
-	src?: string,
-	isMyProfile?: boolean
+	src?: string | null,
+	isMyProfile?: boolean,
+	className?: string
 }

@@ -1,12 +1,13 @@
-import { STATUS_MUTATION_KEY, STATUS_QUERY_KEY } from "@/constants/queryKeys.const";
-import { useInput } from "@/hooks/useInput";
-import { useToggle } from "@/hooks/useToggle";
+import { useQuery } from "@tanstack/react-query";
+
+import { STATUS_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
-import { useMutation, useQuery } from "@tanstack/react-query";
+
+import { useToggle } from "@/hooks/useToggle";
 
 export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 
-	const { data: status, isLoading: isStatusLoading, refetch: statusRefetch, isSuccess } = useQuery({
+	const { data: status, isLoading: isStatusLoading, isSuccess } = useQuery({
 		queryKey: [STATUS_QUERY_KEY],
 		queryFn: profileService.getStatus(userId),
 		select: ({ data }) => data,
@@ -14,22 +15,7 @@ export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 
 	const [ haveStatusInput, toggleStatusInput ] = useToggle(isSuccess && !status && isMyProfile);
 
-	const { mutate } = useMutation({
-		mutationKey: [STATUS_MUTATION_KEY],
-		mutationFn: profileService.setProfileStatus,
-		onSuccess: () => {
-			statusRefetch();
-			toggleStatusInput();
-		}
-	})
-
-	const setStatus = (value: string) => {
-		mutate(value);
-		if(!value) toggleStatusInput();
-	}
-
 	return {
-		input: useInput("", setStatus),
 		isStatusLoading,
 		status,
 		haveStatusInput,

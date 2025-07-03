@@ -48,8 +48,11 @@
 	}
 }
 
-@mixin input($width: 100%, $paddingY: .5rem, $paddingLeft: 2rem, $paddingRight: $paddingLeft, $font-size: 1rem, $focusColor: var(--chat-border-dark)) {
-	input {
+@mixin input($width: 100%, $paddingY: .5rem, $paddingLeft: 2rem, $paddingRight: $paddingLeft, $font-size: 1rem, $focusColor: var(--chat-border-dark), $min-height: 1.5rem) {
+
+	.input_field {
+		min-height: $min-height;
+		max-height: 10rem;
 		width: $width;
 
 		padding: {
@@ -65,7 +68,7 @@
 		outline: none;
 		border-radius: 1.25rem;
 		border: none;
-		resize: none;
+		resize: vertical;
 		line-height: 1.25rem;
 		transition: background-color 0.3s;
 

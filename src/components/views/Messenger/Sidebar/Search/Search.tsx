@@ -4,12 +4,12 @@ import { useInput } from "@/hooks/useInput";
 
 export const Search = () => {
 
-	const {...input} = useInput<string>("");
+	const {...input} = useInput("");
 
 	return (
 		<div className={styles.search}>
 			<FaSearch className={styles.icon} />
-			<input type="text" placeholder="Search or start new chat" {...input}/>
+			<input className={styles.input_field} type="text" placeholder="Search or start new chat" {...input}/>
 			<button className={styles.clear} title="Clear search value">
 				<FaTimes className={styles.icon}/>
 			</button>

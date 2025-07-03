@@ -7,6 +7,7 @@ export const InputContainer = ({...input}) => {
 		<div className={styles.input_container}>
 			<input
 				type="text"
+				className={styles.input_field}
 				placeholder="Type a message"
 				{...input} />
 			<button className={styles.emoji_btn} title="Emoji">

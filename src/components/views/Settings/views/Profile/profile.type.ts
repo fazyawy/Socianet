@@ -1,3 +1,5 @@
 import { IProfile } from "@/shared/types/profile.type";
 
-export type IProfileForm = Omit<IProfile, "photos">;
+export interface IProfileForm extends Omit<IProfile, "photos"> {
+	status: string
+};

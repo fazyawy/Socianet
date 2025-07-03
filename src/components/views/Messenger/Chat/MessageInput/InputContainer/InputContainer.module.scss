@@ -10,12 +10,7 @@
 	position: relative;
 
 	@include mixins.input($paddingY: .1rem,
-	$paddingRight: 3rem, $paddingLeft: 1rem);
-
-	input {
-		max-height: 11.25rem;
-		min-height: 2.5rem;
-	}
+	$paddingRight: 3rem, $paddingLeft: 1rem, $min-height: 2.5rem);
 
 	.emoji_btn {
 		transform: translateY(-50%);
