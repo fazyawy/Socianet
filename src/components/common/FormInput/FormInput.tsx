@@ -5,7 +5,7 @@ import { FaTimes } from "react-icons/fa";
 
 import { IFormInput } from "./FormInput.type";
 
-export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className }: IFormInput) => {
+export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className, isClear = true }: IFormInput) => {
 
 	const inputId = useId()
 
@@ -31,9 +31,11 @@ export const FormInput = ({ type = "text", title, label, placeholder, register, 
 						title={title}
 						{...register} />}
 
-				<button className={styles.clear} title="Clear input value" type={"reset"}>
-					<FaTimes className={styles.icon} />
-				</button>
+				{isClear &&
+					<button className={styles.clear} title="Clear input value" type={"reset"}>
+						<FaTimes className={styles.icon} />
+					</button>}
+
 			</div>
 
 			{errors && (

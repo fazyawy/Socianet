@@ -1,14 +1,22 @@
 import { IStatusInput } from "./statusInput.type";
 import { useStatusInput } from "./useStatusInput";
 
-export const StatusInput = ({className, toggleStatusInput}: IStatusInput) => {
+import { FormInput } from "../FormInput/FormInput";
 
-	const input = useStatusInput(toggleStatusInput);
+
+export const StatusInput = ({ className, toggleStatusInput, isClear, label, register, errors }: IStatusInput) => {
+
+	const input = useStatusInput(toggleStatusInput, register);
 
 	return (
-		<input title="Set the status" type="text" className={className} {...input} />
-		// <FormInput title="Set the status" type="text" className={className} register={...input} />
-
+		<FormInput
+			title="Set new status"
+			label={label}
+			type="text"
+			className={className}
+			register={input}
+			isClear={isClear}
+			errors={errors}/>
 	)
 };
 

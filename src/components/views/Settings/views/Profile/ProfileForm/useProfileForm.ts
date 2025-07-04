@@ -1,4 +1,4 @@
-import { IProfileForm } from "./profile.type";
+import { IProfileForm } from "../profile.type";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -8,7 +8,7 @@ import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { PROFILE_MUTATION_KEY, PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
 
-export const useProfile = () => {
+export const useProfileForm = () => {
 
 	const queryClient = useQueryClient();
 

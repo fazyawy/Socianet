@@ -12,8 +12,17 @@
 		display: flex;
 		align-items: center;
 
+		border: .15rem transparent solid;
+		outline: .2rem transparent solid;
 		border-radius: 1.25rem;
 		background: var(--chat-border-dark);
+
+		transition: all .1s linear;
+
+		&:focus-within {
+			border: .15rem var(--white) solid;
+			outline: .2rem var(--white-secondary) solid;
+		}
 
 		@include mixins.input($width: 80%, $paddingRight: .75rem);
 
@@ -29,6 +38,7 @@
 
 
 			right: 2rem;
+			left: .2rem;
 			// top: 50%;
 			// transform: translateY(50%);
 		}

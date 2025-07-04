@@ -13,13 +13,16 @@ export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 		select: ({ data }) => data,
 	})
 
+	console.log(status)
+
 	const [ haveStatusInput, toggleStatusInput ] = useToggle(isSuccess && !status && isMyProfile);
 
 	return {
 		isStatusLoading,
 		status,
-		haveStatusInput,
-		toggleStatusInput
+		// haveStatusInput: isMyProfile && isSuccess && !!status && haveStatusInput,
+		haveStatusInput: true,
+		toggleStatusInput,
 	};
 };
 

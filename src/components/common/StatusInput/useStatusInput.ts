@@ -2,8 +2,9 @@ import { STATUS_MUTATION_KEY, STATUS_QUERY_KEY } from "@/constants/queryKeys.con
 import { useInput } from "@/hooks/useInput";
 import profileService from "@/services/profile.service";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { UseFormRegisterReturn } from "react-hook-form";
 
-export const useStatusInput = (toggleStatusInput: () => void) => {
+export const useStatusInput = (toggleStatusInput: () => void = () => {}, register?: UseFormRegisterReturn) => {
 
 	const queryClient = useQueryClient()
 
@@ -22,6 +23,6 @@ export const useStatusInput = (toggleStatusInput: () => void) => {
 		mutate(value);
 		if(!value) toggleStatusInput();
 	}
-	return useInput("", setStatus)
+	return !!register ? register : {...useInput("", setStatus)}
 };
 

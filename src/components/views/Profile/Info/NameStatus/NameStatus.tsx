@@ -4,6 +4,7 @@ import { Preloader } from "@/components/UI/Preloader/Preloader";
 import { useNameStatus } from "./useNameStatus";
 import { FaPen } from "react-icons/fa";
 import { StatusInput } from "@/components/common/StatusInput/StatusInput";
+import { Profile } from "@/components/views/Settings/views/Profile/Profile";
 
 interface INameStatus {
 	name?: string,
@@ -22,9 +23,8 @@ export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 			<div className={styles.status_container}>
 				<h3 className={isMyProfile && status ? styles.status : ""} onClick={toggleStatusInput}>{isStatusLoading ? <Preloader /> : status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}</h3>
 
-				{isMyProfile &&
-					(!status || haveStatusInput) &&
-						<StatusInput toggleStatusInput={toggleStatusInput} className={styles.status_input} />}
+				{haveStatusInput &&
+						<Profile isSettings={false}/>}
 			</div>
 
 		</div>
