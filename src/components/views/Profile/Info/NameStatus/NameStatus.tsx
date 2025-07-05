@@ -1,10 +1,11 @@
 import styles from "./NameStatus.module.scss"
 
-import { Preloader } from "@/components/UI/Preloader/Preloader";
 import { useNameStatus } from "./useNameStatus";
+
 import { FaPen } from "react-icons/fa";
-import { StatusInput } from "@/components/common/StatusInput/StatusInput";
-import { Profile } from "@/components/views/Settings/views/Profile/Profile";
+
+import { Preloader } from "@/components/UI/Preloader/Preloader";
+import { StatusInput } from "./StatusInput/StatusInput";
 
 interface INameStatus {
 	name?: string,
@@ -24,7 +25,9 @@ export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 				<h3 className={isMyProfile && status ? styles.status : ""} onClick={toggleStatusInput}>{isStatusLoading ? <Preloader /> : status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}</h3>
 
 				{haveStatusInput &&
-						<Profile isSettings={false}/>}
+						// <Profile isSettings={false}/>
+						<StatusInput toggleStatusInput={toggleStatusInput} />
+						}
 			</div>
 
 		</div>

@@ -5,14 +5,17 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useMyProfileStore } from "@/store/useMyProfileStore";
 
-import { PROFILE_MUTATION_KEY, PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
+import { PROFILE_MUTATION_KEY, MY_PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
+import { useShallow } from "zustand/shallow";
 
 export const useProfileForm = () => {
 
 	const queryClient = useQueryClient();
 
-	const {photos, ...myProfile} = useMyProfileStore(state => state.myProfile);
+	const [profile, status, setStatus] = useMyProfileStore(useShallow(state => [state.myProfile, state.status, state.setStatus]));
+
+	const {photos, ...myProfile} = profile;
 
 	const { mutate } = useMutation({
 		mutationKey: [PROFILE_MUTATION_KEY],
@@ -20,7 +23,7 @@ export const useProfileForm = () => {
 
 		onSuccess: () => {
 			queryClient.invalidateQueries({
-				queryKey: PROFILE_QUERY_KEY
+				queryKey: MY_PROFILE_QUERY_KEY
 			})
 		}
 	})
@@ -31,6 +34,7 @@ export const useProfileForm = () => {
 		const fullData = {...myProfile, ...data}
 
 		mutate(fullData)
+		setStatus(status)
 		reset()
 	};
 
@@ -39,7 +43,8 @@ export const useProfileForm = () => {
 		register,
 		errors,
 		myProfile,
-		src: photos.large
+		src: photos.large,
+		status
 	}
 };
 

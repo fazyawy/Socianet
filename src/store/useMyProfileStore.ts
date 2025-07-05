@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { IProfile } from "@/shared/types/profile.type";
 import { IMyProfileStore } from "./types/myProfile.types";
 
-const initialState: IProfile = {
+const initialProfileState: IProfile = {
 	userId: 32475,
 	aboutMe: "",
 	lookingForAJob: false,
@@ -28,7 +28,11 @@ const initialState: IProfile = {
 export const useMyProfileStore = create<IMyProfileStore>((set) => ({
 	myId: 2,
 	setMyId: (changedValue) => set(() => ({ myId: changedValue })),
-	myProfile: initialState,
-	setMyProfile: (changedValue) => set(() => ({ myProfile: {...changedValue, lookingForAJobDescription: initialState.lookingForAJobDescription} }))
+
+	myProfile: initialProfileState,
+	setMyProfile: (changedValue) => set(() => ({ myProfile: {...changedValue, lookingForAJobDescription: initialProfileState.lookingForAJobDescription} })),
+
+	status: null,
+	setStatus: (changedValue) => set(() => ({ status: changedValue }))
 }));
 

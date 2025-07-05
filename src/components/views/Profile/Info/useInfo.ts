@@ -5,7 +5,7 @@ import profileService from "@/services/profile.service";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { useLocation } from "react-router";
 import { useEffect } from "react";
-import { STATUS_QUERY_KEY, USER_PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
+import { STATUS_QUERY_KEY, PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 import { useShallow } from "zustand/shallow";
 
 export const useInfo = () => {
@@ -20,7 +20,7 @@ export const useInfo = () => {
 	const isMyProfile = userId === myId;
 
 	const { data: profile, isLoading: isProfileLoading, isSuccess: isProfileSuccess } = useQuery({
-		queryKey: [USER_PROFILE_QUERY_KEY],
+		queryKey: [ PROFILE_QUERY_KEY ],
 		queryFn: profileService.getProfile(userId),
 		select: ({ data }) => data,
 		enabled: !isMyProfile
@@ -33,9 +33,9 @@ export const useInfo = () => {
 
 	useEffect(() => {
 		queryClient.invalidateQueries({
-			queryKey: [STATUS_QUERY_KEY]
+			queryKey: [ STATUS_QUERY_KEY ]
 		});
-	}, [userId])
+	}, [!isMyProfile])
 
 	return {
 		photo: photos.large || undefined,

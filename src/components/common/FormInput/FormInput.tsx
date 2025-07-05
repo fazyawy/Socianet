@@ -4,8 +4,9 @@ import { useId } from "react";
 import { FaTimes } from "react-icons/fa";
 
 import { IFormInput } from "./FormInput.type";
+import { Input } from "@/components/common/Input/Input";
 
-export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className, isClear = true }: IFormInput) => {
+export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className }: IFormInput) => {
 
 	const inputId = useId()
 
@@ -22,19 +23,18 @@ export const FormInput = ({ type = "text", title, label, placeholder, register, 
 						placeholder={placeholder}
 						title={title}
 						{...register} /> :
-					<input
-						className={styles.input_field}
+					<Input
 						inputMode={"text"}
 						id={inputId}
 						type={type}
 						placeholder={placeholder}
 						title={title}
-						{...register} />}
+						register={register} />}
 
-				{isClear &&
-					<button className={styles.clear} title="Clear input value" type={"reset"}>
-						<FaTimes className={styles.icon} />
-					</button>}
+
+				<button className={styles.clear} title="Clear input value" type={"reset"}>
+					<FaTimes className={styles.icon} />
+				</button>
 
 			</div>
 

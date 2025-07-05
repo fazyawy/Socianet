@@ -4,24 +4,30 @@ import { STATUS_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
 
 import { useToggle } from "@/hooks/useToggle";
+import { useMyProfileStore } from "@/store/useMyProfileStore";
 
 export const useNameStatus = (userId: number, isMyProfile: boolean) => {
+
+	const myStatus = useMyProfileStore(state => state.status)
 
 	const { data: status, isLoading: isStatusLoading, isSuccess } = useQuery({
 		queryKey: [STATUS_QUERY_KEY],
 		queryFn: profileService.getStatus(userId),
 		select: ({ data }) => data,
+
+		enabled: !isMyProfile || myStatus === null
 	})
 
-	console.log(status)
 
 	const [ haveStatusInput, toggleStatusInput ] = useToggle(isSuccess && !status && isMyProfile);
 
+	console.log(isMyProfile && !!myStatus && haveStatusInput)
+
 	return {
 		isStatusLoading,
-		status,
-		// haveStatusInput: isMyProfile && isSuccess && !!status && haveStatusInput,
-		haveStatusInput: true,
+		status: isMyProfile ? myStatus : status,
+		haveStatusInput: isMyProfile && !!myStatus && haveStatusInput,
+		// haveStatusInput: true,
 		toggleStatusInput,
 	};
 };

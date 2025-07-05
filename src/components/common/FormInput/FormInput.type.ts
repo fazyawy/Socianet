@@ -14,5 +14,4 @@ export interface IFormInput {
 	label?: string,
 	placeholder?: string,
 	className?: string,
-	isClear?: boolean
 }
