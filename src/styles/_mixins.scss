@@ -1,4 +1,4 @@
-@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--secondary), $bgActiveColor: var(--primary)) {
+@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--secondary), $bgActiveColor: var(--primary), $font-size: 1rem) {
 
 	button {
 		padding: $paddingY $paddingX;
@@ -8,6 +8,7 @@
 		border: none;
 		background-color: $bgColor;
 		color: $txtColor;
+		font-size: $font-size;
 		opacity: .8;
 		transition: opacity .2s linear;
 		cursor: pointer;

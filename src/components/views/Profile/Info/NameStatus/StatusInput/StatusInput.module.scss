@@ -1,6 +1,10 @@
 @use "@/styles/mixins";
 
 .status_input {
-	width: 50%;
+	input {
+		width: 50%;
+	}
+
+	@include mixins.button($paddingY: .2rem);
 }
 

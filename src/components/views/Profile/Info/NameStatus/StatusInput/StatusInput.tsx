@@ -7,14 +7,17 @@ import { Input } from "@/components/common/Input/Input";
 
 export const StatusInput = ({ toggleStatusInput }: IStatusInput) => {
 
-	const input = useStatusInput({ toggleStatusInput });
+	const {onClick, ...input} = useStatusInput({ toggleStatusInput });
 
 	return (
-		<Input
-			className={styles.status_input}
+		<div className={styles.status_input}>
+			<Input
 			title="Set new status"
 			type="text"
 			register={input} />
+
+			<button onClick={onClick}>save</button>
+		</div>
 	)
 };
 

@@ -3,7 +3,7 @@ import styles from "./ProfileLayout.module.scss"
 
 import { ReactElement } from "react";
 
-export const ProfileLayout = ({ children, src }: { children: ReactElement, src?: string }) => {
+export const ProfileLayout = ({ children }: { children: ReactElement }) => {
 
 	return (
 		<section className={styles.profile}>
@@ -13,7 +13,7 @@ export const ProfileLayout = ({ children, src }: { children: ReactElement, src?:
 
 				{children}
 
-				<ChangeAvatar src={src} className={styles.change_avatar} />
+				<ChangeAvatar className={styles.change_avatar} />
 			</div>
 
 		</section>

@@ -1,4 +1,4 @@
-import { IProfileForm } from "../profile.type";
+import { IProfileForm } from "./profileForm.type";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -7,15 +7,13 @@ import { useMyProfileStore } from "@/store/useMyProfileStore";
 
 import { PROFILE_MUTATION_KEY, MY_PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
-import { useShallow } from "zustand/shallow";
+import { getProfileFormSelector } from "./profileForm.selector";
 
 export const useProfileForm = () => {
 
 	const queryClient = useQueryClient();
 
-	const [profile, status, setStatus] = useMyProfileStore(useShallow(state => [state.myProfile, state.status, state.setStatus]));
-
-	const {photos, ...myProfile} = profile;
+	const [{ photos, ...myProfile }, status, setCurrentStatus] = useMyProfileStore(getProfileFormSelector());
 
 	const { mutate } = useMutation({
 		mutationKey: [PROFILE_MUTATION_KEY],
@@ -30,11 +28,11 @@ export const useProfileForm = () => {
 
 	const { register, formState: { errors }, handleSubmit, reset } = useForm<IProfileForm>();
 
-	const onSubmit: SubmitHandler<IProfileForm> = ({status, ...data}) => {
-		const fullData = {...myProfile, ...data}
+	const onSubmit: SubmitHandler<IProfileForm> = ({ status, ...data }) => {
+		const fullData = { ...myProfile, ...data }
 
 		mutate(fullData)
-		setStatus(status)
+		if (!!status) setCurrentStatus(status)
 		reset()
 	};
 
@@ -43,8 +41,7 @@ export const useProfileForm = () => {
 		register,
 		errors,
 		myProfile,
-		src: photos.large,
-		status
+		status: status || ""
 	}
 };
 

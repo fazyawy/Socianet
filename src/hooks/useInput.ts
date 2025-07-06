@@ -9,7 +9,7 @@ export const useInput = (initialValue: string = "", fn?: (value: string) => void
 		setValue(e.target.value);
 	}
 
-	const onBlur = () => {
+	const onClick = () => {
 		if (!fn) return;
 
 		console.log(value);
@@ -20,7 +20,7 @@ export const useInput = (initialValue: string = "", fn?: (value: string) => void
 	return {
 		value,
 		onChange,
-		onBlur,
+		onClick,
 	}
 };
 

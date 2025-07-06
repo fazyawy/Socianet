@@ -1,10 +1,12 @@
 import { UseFormRegisterReturn } from "react-hook-form";
 import { BaseSyntheticEvent, HTMLInputTypeAttribute } from "react";
 
+type onChangeType = (e: BaseSyntheticEvent) => void;
+
 export interface IInput {
 	register: UseFormRegisterReturn | {
-		onChange: (e: BaseSyntheticEvent) => void,
-		onBlur?: () => void,
+		onChange: onChangeType,
+		onBlur?: () => void | onChangeType,
 		value: string
 	}
 

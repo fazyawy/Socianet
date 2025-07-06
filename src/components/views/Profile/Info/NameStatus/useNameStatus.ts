@@ -15,19 +15,18 @@ export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 		queryFn: profileService.getStatus(userId),
 		select: ({ data }) => data,
 
-		enabled: !isMyProfile || myStatus === null
+		enabled: !isMyProfile
 	})
 
+	const [ haveStatusInput, toggleStatusInput ] = useToggle(true);
 
-	const [ haveStatusInput, toggleStatusInput ] = useToggle(isSuccess && !status && isMyProfile);
-
-	console.log(isMyProfile && !!myStatus && haveStatusInput)
+	// console.log(status)
 
 	return {
 		isStatusLoading,
 		status: isMyProfile ? myStatus : status,
-		haveStatusInput: isMyProfile && !!myStatus && haveStatusInput,
-		// haveStatusInput: true,
+		// haveStatusInput: isMyProfile && !!status && haveStatusInput,
+		haveStatusInput: true,
 		toggleStatusInput,
 	};
 };

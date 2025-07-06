@@ -30,9 +30,13 @@ export const useMyProfileStore = create<IMyProfileStore>((set) => ({
 	setMyId: (changedValue) => set(() => ({ myId: changedValue })),
 
 	myProfile: initialProfileState,
-	setMyProfile: (changedValue) => set(() => ({ myProfile: {...changedValue, lookingForAJobDescription: initialProfileState.lookingForAJobDescription} })),
+	setMyProfile: (changedValue) => set(() => ({ myProfile: { ...changedValue, lookingForAJobDescription: initialProfileState.lookingForAJobDescription } })),
 
 	status: null,
-	setStatus: (changedValue) => set(() => ({ status: changedValue }))
+	setStatus: (changedValue) => set(() => ({ status: changedValue })),
+
+	currentStatus: null,
+	setCurrentStatus: (changedValue) => set(() => ({ currentStatus: changedValue }))
+
 }));
 
