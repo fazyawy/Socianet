@@ -2,12 +2,12 @@ import styles from "./Info.module.scss"
 
 import { useInfo } from "./useInfo";
 
-import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
-
 import { Preloader } from "@/components/UI/Preloader/Preloader";
+import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
+import { ChangeAvatar } from "@/components/common/ChangeAvatar/ChangeAvatar";
+
 import { NameStatus } from "./NameStatus/NameStatus";
 import { InfoDesription } from "./InfoDescription/InfoDesription";
-import { ChangeAvatar } from "@/components/common/ChangeAvatar/ChangeAvatar";
 
 
 export const Info = () => {

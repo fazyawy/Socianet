@@ -1,9 +1,10 @@
 import styles from "./AuthMenu.module.scss"
+
 import { useAuthMenu } from "./useAuthMenu";
 
 import { Avatar } from "@/components/common/Avatar/Avatar";
 
-import { GiExitDoor } from "react-icons/gi";
+import { Settings } from "./Settings/Settings";
 
 export const AuthMenu = () => {
 
@@ -13,7 +14,7 @@ export const AuthMenu = () => {
 
 		myAvatar,
 
-		mutate
+		isSettings
 	} = useAuthMenu();
 
 	return (
@@ -30,9 +31,7 @@ export const AuthMenu = () => {
 					onlineStyle={styles.online} />
 			</button>
 
-			<button title="Logout" className={styles.logout} onClick={mutate}>
-				<GiExitDoor size={35} />
-			</button>
+			<Settings isSettings={isSettings}/>
 		</>
 	)
 };

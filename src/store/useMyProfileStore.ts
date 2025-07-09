@@ -33,10 +33,6 @@ export const useMyProfileStore = create<IMyProfileStore>((set) => ({
 	setMyProfile: (changedValue) => set(() => ({ myProfile: { ...changedValue, lookingForAJobDescription: initialProfileState.lookingForAJobDescription } })),
 
 	status: null,
-	setStatus: (changedValue) => set(() => ({ status: changedValue })),
-
-	currentStatus: null,
-	setCurrentStatus: (changedValue) => set(() => ({ currentStatus: changedValue }))
-
+	setStatus: (changedValue) => set(() => ({ status: changedValue }))
 }));
 

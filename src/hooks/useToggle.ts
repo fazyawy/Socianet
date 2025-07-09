@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-type TypeToggleReturn = [
+type ToggleReturnType = [
 	isValue: boolean,
 	toggleIsValue: () => void
 ]
 
-export const useToggle = (defaultValue = false, trueLogic = ():void => {}, falseLogic = trueLogic): TypeToggleReturn => {
+export const useToggle = (defaultValue = false, trueLogic = ():void => {}, falseLogic = trueLogic): ToggleReturnType => {
 
 	const [isValue, setIsValue] = useState<boolean>(defaultValue);
 

@@ -1,3 +1,3 @@
 export interface IStatusInput {
-	toggleStatusInput: () => void
+	setHaveStatusInput: (isValue: boolean) => void
 }

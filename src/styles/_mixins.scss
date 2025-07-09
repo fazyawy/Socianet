@@ -1,6 +1,6 @@
 @mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--secondary), $bgActiveColor: var(--primary), $font-size: 1rem) {
 
-	button {
+	button, .button {
 		padding: $paddingY $paddingX;
 
 		border-radius: .5rem;

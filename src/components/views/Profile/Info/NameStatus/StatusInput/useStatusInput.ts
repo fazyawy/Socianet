@@ -1,41 +1,20 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
-import { useShallow } from "zustand/shallow";
-
-import { STATUS_MUTATION_KEY, MY_STATUS_QUERY_KEY } from "@/constants/queryKeys.const";
-import { useInput } from "@/hooks/useInput";
-import profileService from "@/services/profile.service";
-import { useMyProfileStore } from "@/store/useMyProfileStore";
 import { IStatusInput } from "./statusInput.type";
 
-export const useStatusInput = ({ toggleStatusInput }: IStatusInput) => {
+import { useInput } from "@/hooks/useInput";
+import { useChangeStatus } from "@/hooks/useChangeStatus";
 
-	const queryClient = useQueryClient()
+export const useStatusInput = ({ setHaveStatusInput }: IStatusInput) => {
 
-	const [currentStatus, setCurrentStatus, status] = useMyProfileStore(useShallow(state => [state.currentStatus, state.setCurrentStatus, state.status]));
-
-	const { mutate } = useMutation({
-		mutationKey: [STATUS_MUTATION_KEY],
-		mutationFn: profileService.setProfileStatus,
-		onSuccess: () => {
-			queryClient.invalidateQueries({
-				queryKey: [MY_STATUS_QUERY_KEY]
-			});
-			toggleStatusInput();
-		}
-	})
-
-	useEffect(() => {
-		if (currentStatus !== null && currentStatus !== status) {
-			mutate(currentStatus)
-			console.log(currentStatus)
-		}
-	}, [currentStatus])
+	const { mutate, isPending } = useChangeStatus();
 
 	const setStatusOnClick = (value: string) => {
-		setCurrentStatus(value);
-		if (!value) toggleStatusInput();
+		mutate(value);
+		setHaveStatusInput(false)
+		if (!value) setHaveStatusInput(true);
 	}
-	return useInput("", setStatusOnClick)
+	return {
+		input: useInput("", setStatusOnClick),
+		isPending
+	}
 };
 

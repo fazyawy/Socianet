@@ -15,20 +15,24 @@ interface INameStatus {
 
 export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 
-	const { isStatusLoading, status, haveStatusInput, toggleStatusInput } = useNameStatus(userId, isMyProfile);
+	const { isStatusLoading, status, haveStatusInput, toggleHaveStatusInput, setHaveStatusInput } = useNameStatus(userId, isMyProfile);
 
 	return (
 		<div className={styles.nameStatus_container}>
 			<h1 className={styles.name}>{name || "fazyawy"}</h1>
 
-			<div className={styles.status_container}>
-				<h3 className={isMyProfile && status ? styles.status : ""} onClick={toggleStatusInput}>{isStatusLoading ? <Preloader /> : status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}</h3>
+			{isStatusLoading ? <Preloader /> : (
+				<div className={styles.status_container}>
+					<h3 className={isMyProfile && status ? styles.status : ""} onClick={toggleHaveStatusInput}>{status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}</h3>
 
-				{haveStatusInput &&
-						// <Profile isSettings={false}/>
-						<StatusInput toggleStatusInput={toggleStatusInput} />
-						}
-			</div>
+					{haveStatusInput && (
+						<div className={styles.status_input}>
+							<StatusInput setHaveStatusInput={setHaveStatusInput} />
+						</div>
+					)}
+				</div>
+			)}
+
 
 		</div>
 	)

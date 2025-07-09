@@ -1,0 +1,13 @@
+.settings {
+	color: var(--white-secondary);
+
+	transition: color .25s linear;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	z-index: 10;
+
+	&:hover {
+		color: var(--white);
+	}
+}

@@ -1,6 +1,6 @@
 import styles from "./ProfileForm.module.scss"
 
-import { useProfileForm } from "./useProfileForm";
+import { useProfileForm } from "./hooks/useProfileForm";
 
 import { FormInput } from "@/components/common/FormInput/FormInput";
 

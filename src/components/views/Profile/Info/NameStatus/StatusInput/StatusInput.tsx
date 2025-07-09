@@ -5,19 +5,20 @@ import { useStatusInput } from "./useStatusInput";
 
 import { Input } from "@/components/common/Input/Input";
 
-export const StatusInput = ({ toggleStatusInput }: IStatusInput) => {
+export const StatusInput = ({ setHaveStatusInput }: IStatusInput) => {
 
-	const {onClick, ...input} = useStatusInput({ toggleStatusInput });
+	const {input: { onClick, ...input }, isPending} = useStatusInput({ setHaveStatusInput });
 
 	return (
-		<div className={styles.status_input}>
+		<>
 			<Input
-			title="Set new status"
-			type="text"
-			register={input} />
+				className={styles.status_input}
+				title="Set new status"
+				type="text"
+				register={input} />
 
-			<button onClick={onClick}>save</button>
-		</div>
+			<button onClick={onClick} className={styles.button}>save</button>
+		</>
 	)
 };
 

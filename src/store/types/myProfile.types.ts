@@ -8,8 +8,5 @@ export interface IMyProfileStore {
 	setMyProfile: (value: IProfile) => void,
 
 	status: string | null,
-	setStatus: (value: string) => void,
-
-	currentStatus: string | null,
-	setCurrentStatus: (value: string) => void
+	setStatus: (value: string) => void
 }
