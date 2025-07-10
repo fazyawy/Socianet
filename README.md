@@ -1,10 +1,8 @@
-<h1>🌟 Socianet - социальная сеть *(в разработке)*</h1>
+<h1>🌟 Socianet - социальная сеть <i>(в разработке)</i></h1>
 
 [![Socianet Badge](https://img.shields.io/badge/sociaNeT-v0.5.0--alfa-c233cf?style=plastic&logo=%3C3)](https://github.com/fazyawy/Socianet)
 [![Static Badge](https://img.shields.io/badge/react-%5E19.0.0-17f)](https://www.npmjs.com/package/react)
 
-
-___
 
 **Pet-проект социальной сети с возможностью регистрации, поиска пользователей и подписки на их профили.**
 ___
@@ -27,11 +25,11 @@ ___
 - Список друзей
 - Система подписок
 
-![Страница профиля]()
-![Список пользователей]()
-![Профиль другого пользователя]()
-![Настройки]()
-![Логин]()
+![Страница профиля](<img width="1280" height="748" alt="изображение" src="https://github.com/user-attachments/assets/be2dfa2e-98dc-423b-8f85-1df74e17cce2" />)
+![Список пользователей](<img width="1280" height="795" alt="изображение" src="https://github.com/user-attachments/assets/16fa13c7-77a0-4687-815b-eaac7592ff65" />)
+![Профиль другого пользователя](<img width="1280" height="727" alt="изображение" src="https://github.com/user-attachments/assets/485ffdd3-10cc-4ec5-ae11-0dee54d4c6ac" />)
+![Настройки](<img width="1280" height="730" alt="изображение" src="https://github.com/user-attachments/assets/94237ac3-6fe7-419c-a696-72ced816ef90" />)
+![Логин](<img width="1280" height="736" alt="изображение" src="https://github.com/user-attachments/assets/6d7784e3-ee1d-4200-9d34-554b7ae431a8" />)
 
 ____
 ## 🏗️ Установка и запуск:
