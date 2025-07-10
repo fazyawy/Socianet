@@ -32,7 +32,7 @@ export const Login = () => {
 					placeholder="ex. email@email.com" />
 
 				<FormInput
-					type="password"
+					type="text"
 					title={"password"}
 					register={register("password", requiredValidator)}
 					errors={errors.password}

@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 
 import { Header } from "./Header/Header";
 import { Aside } from "./Aside/Aside";
-import { Footer } from "./Footer/Footer";
+// import { Footer } from "./Footer/Footer";
 
 import { useLayout } from "./hooks/useLayout";
 import { Preloader } from "../UI/Preloader/Preloader";

@@ -7,7 +7,7 @@ import { Input } from "@/components/common/Input/Input";
 
 export const StatusInput = ({ setHaveStatusInput }: IStatusInput) => {
 
-	const {input: { onClick, ...input }, isPending} = useStatusInput({ setHaveStatusInput });
+	const {input: { onClick, ...input }} = useStatusInput({ setHaveStatusInput });
 
 	return (
 		<>

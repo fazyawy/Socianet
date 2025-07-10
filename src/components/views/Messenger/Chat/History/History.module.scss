@@ -20,7 +20,7 @@
 			position: relative;
 
 			span {
-				background-color: var(--chat-bg-dark);
+				background-color: var(--black);
 				padding: .25rem 1rem;
 				border-radius: 20px;
 				font-size: .75rem;
@@ -36,7 +36,7 @@
 				left: 0;
 				right: 0;
 				height: .05rem;
-				background-color: var(--chat-border-dark);
+				background-color: var(--black-secondary);
 				z-index: 0;
 			}
 		}

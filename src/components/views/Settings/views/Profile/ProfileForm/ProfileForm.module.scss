@@ -1,3 +1,5 @@
+@use "@/styles/mixins";
+
 .profile_form {
 	margin-top: 2rem;
 	display: flex;
@@ -7,4 +9,7 @@
 	.form_input {
 		width: 100%;
 	}
+
+	@include mixins.button();
+
 }

@@ -1,4 +1,4 @@
-@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--secondary), $bgActiveColor: var(--primary), $font-size: 1rem) {
+@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--white-transparent), $bgActiveColor: var(--black), $font-size: 1rem) {
 
 	button, .button {
 		padding: $paddingY $paddingX;
@@ -49,7 +49,7 @@
 	}
 }
 
-@mixin input($width: 100%, $paddingY: .5rem, $paddingLeft: 2rem, $paddingRight: $paddingLeft, $font-size: 1rem, $focusColor: var(--chat-border-dark), $min-height: 1.5rem) {
+@mixin input($width: 100%, $paddingY: .5rem, $paddingLeft: 2rem, $paddingRight: $paddingLeft, $font-size: 1rem, $focusColor: var(--black-secondary), $min-height: 1.5rem) {
 
 	.input_field {
 		min-height: $min-height;
@@ -64,7 +64,7 @@
 		}
 
 		color: var(--white);
-		background-color: var(--chat-border-dark);
+		background-color: var(--black-secondary);
 		font-size: $font-size;
 		outline: none;
 		border-radius: 1.25rem;

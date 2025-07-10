@@ -37,7 +37,7 @@
 		}
 	}
 
-	&:hover {
+	&:hover, &.active {
 		img {
 			opacity: .5;
 

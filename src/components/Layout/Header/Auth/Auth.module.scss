@@ -8,7 +8,7 @@
 	position: relative;
 
 	.auth_login {
-		@include mixins.button($txtColor: var(--primary),
-			$bgActiveColor: var(--secondary));
+		@include mixins.button($txtColor: var(--black),
+			$bgActiveColor: var(--white-transparent));
 	}
 }

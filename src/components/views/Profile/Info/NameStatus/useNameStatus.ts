@@ -1,10 +1,10 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { STATUS_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
 
 import { useMyProfileStore } from "@/store/useMyProfileStore";
-import { useState } from "react";
 
 export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 

@@ -15,7 +15,7 @@
 		justify-content: center;
 		gap: 1.5rem;
 
-		background: var(--secondary);
+		background: var(--white-transparent);
 
 		@include mixins.button($txtColor: var(--black-secondary));
 

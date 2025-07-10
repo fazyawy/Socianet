@@ -6,10 +6,13 @@
 	position: relative;
 
 	&.received {
+		margin-left: 1rem;
 		align-self: flex-start;
 
 		.content {
-			background-color: var(--message-received);
+			margin-left: 1rem;
+
+			background-color: var(--white-transparent);
 			border-top-left-radius: 0;
 		}
 	}
@@ -21,20 +24,22 @@
 		flex-direction: row-reverse;
 
 		.content {
-			background-color: var(--message-sent);
+			background-color: var(--black);
 			border-top-right-radius: 0;
 		}
 
 	}
 
 	.content {
+		min-width: 7.5rem;
 		display: flex;
 		flex-direction: column;
 		padding: .5rem .75rem;
+
 		border-radius: .5rem;
-		position: relative;
 		word-wrap: break-word;
-		min-width: 7.5rem;
+
+		position: relative;
 
 		.text {
 			margin-bottom: .25rem;
@@ -53,7 +58,7 @@
 			color: var(--white-secondary);
 
 			.read_receipt {
-				color: var(--secondary);
+				color: var(--white-transparent);
 			}
 		}
 	}

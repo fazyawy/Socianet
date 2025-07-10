@@ -3,12 +3,12 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: .625rem 1rem;
-	background-color: var(--chat-bg-dark);
-	border-bottom: 1px solid var(--chat-border-dark);
+	background-color: var(--black);
+	border-bottom: 1px solid var(--black-secondary);
 	z-index: 1;
 
 	.online {
-		border: .13rem solid var(--chat-bg-dark);
+		border: .13rem solid var(--black);
 	}
 
 	.contact_info {

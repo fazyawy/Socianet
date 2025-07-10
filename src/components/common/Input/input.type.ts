@@ -6,7 +6,6 @@ type onChangeType = (e: BaseSyntheticEvent) => void;
 export interface IInput {
 	register: UseFormRegisterReturn | {
 		onChange: onChangeType,
-		onBlur?: () => void | onChangeType,
 		value: string
 	}
 

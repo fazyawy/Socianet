@@ -1,7 +1,8 @@
 .settings {
 	color: var(--white-secondary);
+	opacity: 0;
 
-	transition: color .25s linear;
+	transition: all .25s linear;
 	position: absolute;
 	top: 25%;
 	left: 25%;
@@ -9,5 +10,9 @@
 
 	&:hover {
 		color: var(--white);
+	}
+
+	&.active {
+		opacity: 1;
 	}
 }

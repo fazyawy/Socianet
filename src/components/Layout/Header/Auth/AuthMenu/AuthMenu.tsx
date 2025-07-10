@@ -31,7 +31,7 @@ export const AuthMenu = () => {
 					onlineStyle={styles.online} />
 			</button>
 
-			<Settings isSettings={isSettings}/>
+			<Settings isSettings={isSettings} isOpenMenu={isOpenMenu}/>
 		</>
 	)
 };

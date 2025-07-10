@@ -5,14 +5,11 @@ type ToggleReturnType = [
 	toggleIsValue: () => void
 ]
 
-export const useToggle = (defaultValue = false, trueLogic = ():void => {}, falseLogic = trueLogic): ToggleReturnType => {
+export const useToggle = (defaultValue = false): ToggleReturnType => {
 
 	const [isValue, setIsValue] = useState<boolean>(defaultValue);
 
 	const toggleIsValue = () => {
-		if(isValue) trueLogic();
-		else falseLogic();
-
 		setIsValue(!isValue)
 	};
 

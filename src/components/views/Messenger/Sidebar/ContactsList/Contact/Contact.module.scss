@@ -6,25 +6,25 @@
 	position: relative;
 
 	.online {
-		border: .13rem solid var(--chat-bg-dark);
+		border: .13rem solid var(--black);
 	}
 	.avatar {
 		margin-right: 1rem;
 	}
 
 	&:hover {
-		background-color: var(--primary-dark);
+		background-color: var(--black-secondary);
 
 		.online {
-			border: .13rem solid var(--primary-dark);
+			border: .13rem solid var(--black-secondary);
 		}
 	}
 
 	&.active {
-		background-color: var(--secondary);
+		background-color: var(--white-transparent);
 
 		.online {
-			border: .13rem solid var(--secondary);
+			border: .13rem solid var(--white-transparent);
 		}
 	}
 

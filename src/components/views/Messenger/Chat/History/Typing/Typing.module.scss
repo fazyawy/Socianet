@@ -2,13 +2,17 @@
 	display: flex;
 	align-items: center;
 	align-self: flex-start;
+	margin: {
+		top: .25rem;
+		left: 1rem;
+	};
 	padding: .5rem .75rem;
-	background-color: var(--message-received);
+
+	background-color: var(--black-secondary);
 	border-radius: .5rem;
 	border-top-left-radius: 0;
 	font-size: .9rem;
 	color: var(--white-secondary);
-	margin-top: .25rem;
 
 	.dots {
 		display: flex;

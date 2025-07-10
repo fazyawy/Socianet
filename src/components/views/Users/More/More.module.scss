@@ -5,8 +5,5 @@
 	flex-direction: column;
 	gap: .8rem;
 
-	@include mixins.button($paddingY: .4rem,
-		$bgColor: var(--primary),
-		$txtColor: var(--white),
-		$bgActiveColor: var(--secondary));
+	@include mixins.button($paddingY: .4rem);
 }

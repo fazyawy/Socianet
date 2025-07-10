@@ -5,7 +5,7 @@ import { useSettingsAside } from "./useSettingsAside";
 
 export const SettingsAside = () => {
 
-	const {} = useSettingsAside()
+	const { mutate } = useSettingsAside()
 
 	return (
 		<aside className={styles.settings_aside}>
@@ -13,7 +13,7 @@ export const SettingsAside = () => {
 			<Link to={"/settings/profile"}>Profile</Link>
 			<Link to={"/settings/profile"}>Profile</Link>
 			<Link to={"/settings/profile"}>Profile</Link>
-			<button className={styles.logout}>Logout</button>
+			<button className={styles.logout} onClick={() => mutate()}>Logout</button>
 		</aside>
 	)
 };

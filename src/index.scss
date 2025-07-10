@@ -27,34 +27,37 @@
 	}
 
 	// Common=========================================\\
+
+	//*********** dark theme**************
+
+	// main colors===================\\
+	--white: #e7e7e7;
+	--white-secondary: #b1b0b0;
+	--white-transparent: #4d4d4da1;
+
+	--black: #333336;
+	--black-secondary: #222121;
+
+	// //*********** light theme**************
+
+	// // main colors===================\\
+	// --white: #666;
+	// --white-secondary: #353535;
+	// --white-transparent: #c5c4c4d7;
+
+	// --black: #b1b1b1;
+	// --black-secondary: #dadada;
+
+	// **********sub colors*************\\
 	--primary: #333fcc;
 	--primary-dark: #5F3BCE;
 
 	--secondary: #c233cf;
 
-	// dark theme
-	// --primary: #333336;
-	// --primary-dark: #000000;
-
-	// --secondary: #504c50;
-
-	--white: #e7e7e7;
-	--white-secondary: #b1b0b0;
-	--white-transparent: #e7e7e71f;
-
-	--black: #2b2b2b;
-	--black-secondary: #242424;
-
+	// **********Meta********************\\
 	--red: #dd2c2c;
 
 	--online-status: #27b94b;
-
-	// Messenger============================\\
-	--chat-bg-dark: #3f258f;
-	--chat-border-dark: #5a4792;
-
-	--message-received: var(--primary-dark);
-	--message-sent: #6844d6;
 }
 
 * {
