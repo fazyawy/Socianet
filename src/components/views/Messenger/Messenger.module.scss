@@ -1,0 +1,22 @@
+.main {
+	display: grid;
+	grid-template-columns: 20rem 1fr;
+	gap: 1rem;
+}
+
+// 	/* Animations */
+// 	@keyframes messageSent {
+// 		0% {
+// 			transform: scale(0.8);
+// 			opacity: 0;
+// 		}
+
+// 		100% {
+// 			transform: scale(1);
+// 			opacity: 1;
+// 		}
+// 	}
+
+// 	.message.sent {
+// 		animation: messageSent 0.2s ease-out;
+// 	}

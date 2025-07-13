@@ -1,0 +1,31 @@
+.header {
+	grid-area: header;
+
+	display: flex;
+	padding: 1rem;
+
+	background: var(--black);
+
+	.logo {
+		color: var(--white);
+	}
+
+	button:not(.rotate_half) {
+		transition: all .5s ease-in-out;
+	}
+
+	.rotate_half {
+		animation: rotateHalf .5s ease-in-out;
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes rotateHalf {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(180deg);
+	}
+}

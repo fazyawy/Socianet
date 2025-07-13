@@ -1,0 +1,38 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .625rem 1rem;
+	background-color: var(--black);
+	border-bottom: 1px solid var(--black-secondary);
+	z-index: 1;
+
+	.online {
+		border: .13rem solid var(--black);
+	}
+
+	.contact_info {
+		display: flex;
+		align-items: center;
+
+		.contact_details {
+			margin-left: .625rem;
+			display: flex;
+			flex-direction: column;
+
+			.contact_name {
+				font-weight: 600;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.contact_status {
+				font-size: .8rem;
+				color: var(--white-secondary);
+			}
+		}
+
+	}
+
+}

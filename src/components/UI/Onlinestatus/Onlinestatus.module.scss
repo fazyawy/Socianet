@@ -1,0 +1,12 @@
+.online_status {
+	width: .6rem;
+	height: .6rem;
+
+	background-color: var(--online-status);
+	border-radius: 50%;
+	border: .13rem solid var(--white);
+
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}

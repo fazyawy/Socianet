@@ -1,0 +1,80 @@
+@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--white-transparent), $bgActiveColor: var(--black), $font-size: 1rem) {
+
+	button, .button {
+		padding: $paddingY $paddingX;
+
+		border-radius: .5rem;
+		outline: none;
+		border: none;
+		background-color: $bgColor;
+		color: $txtColor;
+		font-size: $font-size;
+		opacity: .8;
+		transition: opacity .2s linear;
+		cursor: pointer;
+
+		&.active {
+			background-color: $bgActiveColor;
+			color: $bgColor;
+		}
+
+		&:hover {
+			opacity: .7;
+		}
+	}
+
+}
+
+@mixin button-chat($primary, $secondary, $bgHover, $size: 1.25rem, $bgSize: auto, $padding: 0) {
+	button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: $bgSize;
+		height: $bgSize;
+		padding: $padding;
+
+		background: none;
+		border: none;
+		border-radius: 50%;
+		color: $primary;
+		font-size: $size;
+		cursor: pointer;
+		transition: color 0.2s;
+
+		&:hover {
+			background-color: $bgHover;
+			color: $secondary;
+		}
+	}
+}
+
+@mixin input($width: 100%, $paddingY: .5rem, $paddingLeft: 2rem, $paddingRight: $paddingLeft, $font-size: 1rem, $focusColor: var(--black-secondary), $min-height: 1.5rem) {
+
+	.input_field {
+		min-height: $min-height;
+		max-height: 10rem;
+		width: $width;
+
+		padding: {
+			top: $paddingY;
+			right: $paddingRight;
+			bottom: $paddingY;
+			left: $paddingLeft;
+		}
+
+		color: var(--white);
+		background-color: var(--black-secondary);
+		font-size: $font-size;
+		outline: none;
+		border-radius: 1.25rem;
+		border: none;
+		resize: vertical;
+		line-height: 1.25rem;
+		transition: background-color 0.3s;
+
+		&:focus {
+			background-color: $focusColor;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+@use "@/styles/mixins";
+
+.profile {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .6rem 1rem;
+	background-color: var(--black);
+	border-bottom: .1rem solid var(--black-secondary);
+
+	.profile_actions {
+		display: flex;
+		gap: 1rem;
+
+		@include mixins.button-chat($primary: var(--white-secondary),
+			$secondary: var(--white),
+			$bgHover: transparent,
+			$size: 1.1rem);
+	}
+}

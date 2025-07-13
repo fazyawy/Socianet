@@ -1,0 +1,9 @@
+@use "@/styles/mixins";
+
+.more {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem;
+
+	@include mixins.button($paddingY: .4rem);
+}

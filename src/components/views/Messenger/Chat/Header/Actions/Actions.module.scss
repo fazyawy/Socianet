@@ -1,0 +1,14 @@
+@use "@/styles/mixins";
+
+.actions {
+	display: flex;
+	gap: 1rem;
+
+	@include mixins.button-chat(
+		$primary: var(--white-secondary),
+		$secondary: var(--white),
+		$bgHover: transparent,
+		$size: 1.1rem,
+		$bgSize: auto
+	)
+}

@@ -1,0 +1,47 @@
+.auth_menu {
+	z-index: 100;
+
+	.online {
+		width: 1rem;
+		height: 1rem;
+		border: .25rem solid var(--black);
+	}
+
+	&:not(.openedMenu) {
+		transition: all .5s ease-in-out;
+
+		img {
+			transition: all .5s ease-in-out;
+		}
+	}
+
+	&.openedMenu {
+		animation: openeMenu .5s ease-in-out;
+		transform: translateX(-100%);
+
+		img {
+			animation: rotateImage .5s linear;
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@keyframes openeMenu {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes rotateImage {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

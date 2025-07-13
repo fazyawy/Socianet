@@ -1,0 +1,21 @@
+.theme {
+	padding: 1rem;
+
+	.description {
+		opacity: .8;
+	}
+
+	.theme_setter {
+		margin-top: 1rem;
+		display: flex;
+		gap: 5rem;
+
+		.theme_btn {
+			opacity: .3;
+
+			&.active, &:hover {
+				opacity: 1;
+			}
+		}
+	}
+}

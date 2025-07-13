@@ -1,0 +1,74 @@
+.contact {
+	display: flex;
+	padding: .625rem 1rem;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	position: relative;
+
+	.online {
+		border: .13rem solid var(--black);
+	}
+	.avatar {
+		margin-right: 1rem;
+	}
+
+	&:hover {
+		background-color: var(--black-secondary);
+
+		.online {
+			border: .13rem solid var(--black-secondary);
+		}
+	}
+
+	&.active {
+		background-color: var(--white-transparent);
+
+		.online {
+			border: .13rem solid var(--white-transparent);
+		}
+	}
+
+	.contact_info {
+		flex: 1;
+		min-width: 0;
+
+		.contact_name_time {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: .3rem;
+
+			.contact_name {
+				font-weight: 600;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		.message_preview_unread {
+			display: flex;
+			justify-content: space-between;
+
+			.message_preview {
+				font-size: .875rem;
+				color: var(--white-secondary);
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				flex: 1;
+			}
+
+			.unread_badge {
+				background-color: var(--red);
+				color: white;
+				font-size: .625rem;
+				padding: .15rem .5rem;
+				border-radius: 50%;
+				margin-left: .625rem;
+				flex-shrink: 0;
+			}
+		}
+
+
+	}
+}

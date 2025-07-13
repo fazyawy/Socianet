@@ -1,0 +1,14 @@
+@use "@/styles/mixins";
+
+.auth {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-left: auto;
+	position: relative;
+
+	.auth_login {
+		@include mixins.button($txtColor: var(--black),
+			$bgActiveColor: var(--white-transparent));
+	}
+}

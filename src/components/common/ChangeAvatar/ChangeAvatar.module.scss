@@ -1,0 +1,55 @@
+.info_avatar {
+	height: 10rem;
+
+	position: relative;
+
+	.info_setAvatar {
+		width: 10rem;
+		height: 10rem;
+
+		cursor: pointer;
+		opacity: 0;
+
+		position: relative;
+		z-index: 100;
+	}
+
+	.pen {
+		width: 50%;
+		height: 50%;
+		opacity: 0;
+
+		transition: opacity .2s linear;
+
+		position: absolute;
+		top: 25%;
+		left: 25%;
+	}
+
+	.avatar {
+		position: absolute;
+		top: 0;
+		z-index: 10;
+
+
+		img {
+			transition: all .2s linear;
+		}
+	}
+
+	&:hover, &.active {
+		img {
+			opacity: .5;
+
+			filter: blur(.1rem) grayscale(80%);
+			;
+		}
+
+		.pen {
+			opacity: 1;
+
+		}
+	}
+
+
+}

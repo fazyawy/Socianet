@@ -1,0 +1,13 @@
+.message_menu_btn {
+	background: none;
+	border: none;
+	color: var(--white-secondary);
+	cursor: pointer;
+	padding: .25rem;
+	border-radius: 50%;
+	transition: background-color 0.2s;
+
+	&:hover {
+		background-color: var(--white-transparent);
+	}
+}

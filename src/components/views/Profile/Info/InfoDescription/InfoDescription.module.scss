@@ -1,0 +1,33 @@
+.info_description {
+	width: auto;
+
+	.description_content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		gap: .5rem;
+
+		.open_contacts {
+			color: var(--white);
+			opacity: .7;
+		}
+
+		.contacts {
+			display: flex;
+			gap: .5rem;
+
+			list-style-type: none;
+			text-wrap: nowrap;
+
+			a {
+				color: var(--white);
+				transition: color .1s linear;
+
+				&:hover {
+					color: var(--black-secondary);
+				}
+			}
+		}
+	}
+
+}

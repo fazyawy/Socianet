@@ -1,0 +1,7 @@
+@use "@/styles/mixins";
+
+.status_input {
+	padding: .1rem .5rem;
+}
+
+@include mixins.button($paddingY: .2rem);

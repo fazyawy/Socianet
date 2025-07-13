@@ -1,0 +1,16 @@
+@use "@/styles/mixins.scss";
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	gap: .1rem;
+
+	@include mixins.button($paddingY: .25rem);
+
+	span {
+		padding: .25rem;
+		letter-spacing: .5rem;
+		cursor: default;
+		text-align: center;
+	}
+}

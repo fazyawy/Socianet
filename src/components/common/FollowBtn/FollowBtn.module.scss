@@ -1,0 +1,5 @@
+@use "@/styles/mixins";
+
+.button_container {
+	@include mixins.button();
+}

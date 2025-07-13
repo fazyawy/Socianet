@@ -1,0 +1,63 @@
+@use "@/styles/mixins";
+
+.input_container {
+	width: 50%;
+	display: flex;
+	// flex-direction: column;
+	flex-wrap: wrap;
+	gap: .5rem;
+
+	.input {
+		width: 100%;
+		display: flex;
+		align-items: center;
+
+		border: .15rem transparent solid;
+		outline: .2rem transparent solid;
+		border-radius: 1.25rem;
+		background: var(--black-secondary);
+
+		transition: all .1s linear;
+
+		&:focus-within {
+			border: .15rem var(--white) solid;
+			outline: .2rem var(--white-secondary) solid;
+		}
+
+		@include mixins.input($width: 80%, $paddingRight: .75rem);
+
+		input {
+			padding-right: .75rem;
+		}
+
+		.clear {
+			padding: 0;
+
+			background: none;
+			border: none;
+			color: var(--white-secondary);
+			cursor: pointer;
+			opacity: 0;
+			transition: opacity 0.2s;
+
+
+			right: 2rem;
+			left: .2rem;
+			// top: 50%;
+			// transform: translateY(50%);
+		}
+
+		input:not(:placeholder-shown)+.clear {
+			opacity: 1;
+		}
+	}
+
+	.error {
+		padding: .5rem;
+
+		background: var(--black-secondary);
+		color: var(--red);
+		font-size: .8rem;
+		font-weight: 600;
+	}
+}

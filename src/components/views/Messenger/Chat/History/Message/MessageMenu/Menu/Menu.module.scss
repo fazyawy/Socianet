@@ -1,0 +1,37 @@
+.menu {
+	display: block;
+	padding: .25rem 0;
+	min-width: 10rem;
+
+	background-color: var(--black);
+	border-radius: .5rem;
+	box-shadow: 0 .125rem .625rem rgba(0, 0, 0, 0.2);
+
+	position: absolute;
+	right: 0;
+	bottom: 100%;
+	z-index: 100;
+
+	.menu_item {
+		display: flex;
+		width: 100%;
+		padding: .5rem 1rem;
+		align-items: center;
+
+		background: none;
+		border: none;
+		color: var(--white);
+		cursor: pointer;
+		text-align: left;
+		transition: background-color 0.2s;
+
+		.i {
+			margin-right: .625rem;
+			width: 1.25rem;
+		}
+
+		&:hover {
+			background-color: var(--white-transparent);
+		}
+	}
+}

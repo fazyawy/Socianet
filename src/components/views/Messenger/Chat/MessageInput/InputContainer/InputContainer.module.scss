@@ -1,0 +1,24 @@
+@use "@/styles/mixins";
+
+.input_container {
+	flex: 1;
+	margin: 0 1rem;
+	display: flex;
+
+	border-radius: 1.25rem;
+
+	position: relative;
+
+	@include mixins.input($paddingY: .1rem,
+	$paddingRight: 3rem, $paddingLeft: 1rem, $min-height: 2.5rem);
+
+	.emoji_btn {
+		transform: translateY(-50%);
+		color: var(--white-secondary);
+		cursor: pointer;
+
+		position: absolute;
+		right: .1rem;
+		top: 50%;
+	}
+}

@@ -1,0 +1,14 @@
+@use "@/styles/mixins";
+
+.info {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin-top: 1rem;
+
+	color: var(--white);
+
+	.button {
+		margin-left: auto;
+	}
+}
