@@ -1,8 +1,10 @@
 .sidebar {
-	background-color: var(--black);
-	border-right: .07rem solid var(--black-secondary);
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 	overflow: hidden;
+
+	background-color: var(--black);
+	border-right: .07rem solid var(--primary);
+	box-shadow: .05rem 0 1rem var(--primary);
 }

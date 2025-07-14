@@ -7,7 +7,8 @@
 	gap: .625rem;
 
 	background-color: var(--black);
-	border-top: 1px solid var(--black-secondary);
+	border-top: 1px solid var(--primary);
+	box-shadow: 0 -.05rem 1rem var(--primary);
 
 	@include mixins.button-chat(
 		$primary: var(--white-secondary),

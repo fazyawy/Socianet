@@ -1,3 +1,5 @@
+@use "@/styles/mixins";
+
 .info_description {
 	width: auto;
 
@@ -7,9 +9,18 @@
 		justify-content: space-around;
 		gap: .5rem;
 
+		position: relative;
+
+		@include mixins.button($paddingY: .1rem,
+		$bgColor: transparent, $txtColor: var(--white),
+		$shadow: var(--primary));
+
 		.open_contacts {
-			color: var(--white);
-			opacity: .7;
+			&:hover {
+				color: var(--primary);
+				opacity: 1;
+				background: var(--white);
+			}
 		}
 
 		.contacts {
@@ -19,14 +30,8 @@
 			list-style-type: none;
 			text-wrap: nowrap;
 
-			a {
-				color: var(--white);
-				transition: color .1s linear;
-
-				&:hover {
-					color: var(--black-secondary);
-				}
-			}
+			position: absolute;
+			top: 100%;
 		}
 	}
 

@@ -1,0 +1,20 @@
+@use "@/styles/mixins";
+
+.contact {
+	display: flex;
+	place-content: center;
+
+
+
+	@include mixins.button(
+		$paddingY: .1rem,$paddingX: .5rem,
+		$bgColor: transparent, $txtColor: var(--white),
+		$shadow: var(--primary));
+
+	a {
+		&:hover {
+			color: var(--primary);
+			background: var(--white);
+		}
+	}
+}

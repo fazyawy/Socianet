@@ -33,6 +33,7 @@
 
 
 		img {
+			box-shadow: 0 0 1rem var(--white);
 			transition: all .2s linear;
 		}
 	}
@@ -41,8 +42,7 @@
 		img {
 			opacity: .5;
 
-			filter: blur(.1rem) grayscale(80%);
-			;
+			filter: blur(.1rem) grayscale(80%) drop-shadow(0 0 1rem var(--primary));
 		}
 
 		.pen {

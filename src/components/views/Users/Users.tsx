@@ -23,7 +23,7 @@ export const Users = () => {
 
 						</div>
 
-						<More pageCount={pageCount} totalCount={usersData.totalCount || 6} />
+						{usersData.totalCount !== 0 && <More pageCount={pageCount} totalCount={usersData.totalCount || 6} />}
 					</>
 				) : "error"}
 

@@ -4,7 +4,7 @@ import { useInput } from "@/hooks/useInput";
 
 export const Search = () => {
 
-	const {...input} = useInput("");
+	const input = useInput("");
 
 	return (
 		<div className={styles.search}>

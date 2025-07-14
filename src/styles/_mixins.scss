@@ -1,6 +1,7 @@
-@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--white-transparent), $bgActiveColor: var(--black), $font-size: 1rem) {
+@mixin button($paddingY: 1rem, $paddingX: $paddingY * 2, $bgColor: var(--white), $txtColor: var(--white-transparent), $bgActiveColor: var(--black), $font-size: 1rem, $shadow: transparent, $shadowActive: $shadow, $bgHover: $bgColor, $bgActiveHover: $bgActiveColor) {
 
-	button, .button {
+	button,
+	.button {
 		padding: $paddingY $paddingX;
 
 		border-radius: .5rem;
@@ -10,16 +11,22 @@
 		color: $txtColor;
 		font-size: $font-size;
 		opacity: .8;
-		transition: opacity .2s linear;
+		transition: all .2s linear;
 		cursor: pointer;
+
+		&:hover {
+			opacity: .7;
+			box-shadow: 0 0 1rem $shadow;
+		}
 
 		&.active {
 			background-color: $bgActiveColor;
 			color: $bgColor;
-		}
+			transition: all .2s linear;
 
-		&:hover {
-			opacity: .7;
+			&:hover {
+				box-shadow: 0 0 1rem $shadowActive;
+			}
 		}
 	}
 
@@ -40,11 +47,12 @@
 		color: $primary;
 		font-size: $size;
 		cursor: pointer;
-		transition: color 0.2s;
+		transition: all 0.2s;
 
 		&:hover {
 			background-color: $bgHover;
 			color: $secondary;
+			filter: drop-shadow(0 0 1rem var(--primary));
 		}
 	}
 }
@@ -71,7 +79,7 @@
 		border: none;
 		resize: vertical;
 		line-height: 1.25rem;
-		transition: background-color 0.3s;
+		transition: all 0.3s;
 
 		&:focus {
 			background-color: $focusColor;

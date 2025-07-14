@@ -32,6 +32,7 @@
 	--primary: #333fcc;
 	--primary-dark: #5F3BCE;
 
+	// --secondary: var(--primary);
 	--secondary: #c233cf;
 
 	// **********Meta********************\\
@@ -42,7 +43,7 @@
 	&:has(div:nth-child(1)[data-color-theme="light"]) {
 		--white: #666;
 		--white-secondary: #353535;
-		--white-transparent: #c5c4c4d7;
+		--white-transparent: #C2C1C1;
 
 		--black: #b1b1b1;
 		--black-secondary: #dadada;
@@ -51,7 +52,7 @@
 	&:has(div:nth-child(1)[data-color-theme="dark"]) {
 		--white: #e7e7e7;
 		--white-secondary: #b1b0b0;
-		--white-transparent: #4d4d4da1;
+		--white-transparent: #444445;
 
 		--black: #333336;
 		--black-secondary: #222121;

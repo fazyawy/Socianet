@@ -9,6 +9,10 @@
 
 	position: relative;
 
+	&:focus-within {
+		box-shadow: 0 0 .5rem var(--primary);
+	}
+
 	@include mixins.input($paddingY: .1rem,
 	$paddingRight: 3rem, $paddingLeft: 1rem, $min-height: 2.5rem);
 

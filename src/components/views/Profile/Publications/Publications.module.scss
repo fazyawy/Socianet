@@ -1,5 +1,8 @@
 .publications {
-	margin-top: 3rem;
+	margin: {
+		top: 3rem;
+		left: 1rem;
+	};
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;

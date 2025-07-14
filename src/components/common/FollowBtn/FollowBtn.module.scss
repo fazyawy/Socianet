@@ -1,5 +1,5 @@
 @use "@/styles/mixins";
 
 .button_container {
-	@include mixins.button();
+	@include mixins.button($shadow: var(--primary));
 }
