@@ -3,12 +3,21 @@
 .pagination {
 	display: flex;
 	justify-content: space-between;
-	gap: .1rem;
+	gap: .3rem;
 
-	@include mixins.button($paddingY: .25rem);
+	@include mixins.button($paddingY: .25rem, $shadowActive: var(--primary));
+
+	.active {
+		box-shadow: var(--default-shadow);
+	}
 
 	span {
-		padding: .25rem;
+		padding: {
+			block: .25rem;
+			right: 0;
+			left: .45rem;
+		}
+
 		letter-spacing: .5rem;
 		cursor: default;
 		text-align: center;

@@ -1,8 +1,8 @@
-import { BaseSyntheticEvent, HTMLInputTypeAttribute } from "react";
+import { BaseSyntheticEvent } from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 
 export interface IFormInput {
-	type?: HTMLInputTypeAttribute | "textarea",
+	type?: "text" | "password" | "email" | "textarea",
 	title: string,
 	register: UseFormRegisterReturn | {
 		value: string,

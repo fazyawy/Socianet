@@ -38,7 +38,7 @@ export const Pagination = ({ pageCount }: { pageCount: number }) => {
 					{nextPage !== pageCount && (
 						<>
 							<button onClick={setNextPage}>{nextPage}</button>
-							{nextPage + 1 !== pageCount && <span> ...</span>}
+							{nextPage + 1 !== pageCount && <span>...</span>}
 						</>
 					)}
 

@@ -28,6 +28,9 @@
 
 	// Common=========================================\\
 
+	--default-shadow: var(--default-shadow-size) var(--primary);
+	--default-shadow-size: 0 0 1rem;
+
 	// **********sub colors*************\\
 	--primary: #333fcc;
 	--primary-dark: #5F3BCE;

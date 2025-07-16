@@ -13,7 +13,6 @@
 		align-items: center;
 
 		border: .15rem transparent solid;
-		outline: .2rem transparent solid;
 		border-radius: 1.25rem;
 		background: var(--black-secondary);
 
@@ -21,7 +20,7 @@
 
 		&:focus-within {
 			border: .15rem var(--white) solid;
-			outline: .2rem var(--white-secondary) solid;
+			box-shadow: var(--default-shadow);
 		}
 
 		@include mixins.input($width: 80%, $paddingRight: .75rem);

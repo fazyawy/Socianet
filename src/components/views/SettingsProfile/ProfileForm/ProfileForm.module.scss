@@ -10,6 +10,10 @@
 		width: 100%;
 	}
 
-	@include mixins.button();
+	@include mixins.button($shadow: var(--white-secondary));
+
+	.button {
+		box-shadow: var(--default-shadow);
+	}
 
 }

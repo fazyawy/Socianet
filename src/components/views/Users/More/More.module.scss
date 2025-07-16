@@ -1,9 +1,13 @@
 @use "@/styles/mixins";
 
 .more {
-	display: flex;
-	flex-direction: column;
-	gap: .8rem;
 
-	@include mixins.button($paddingY: .4rem);
+	@include mixins.button($paddingY: .4rem,
+	$shadow: var(--white-secondary));
+
+	.button {
+		margin-bottom: .8rem;
+
+		box-shadow: var(--default-shadow-size) var(--white);
+	}
 }

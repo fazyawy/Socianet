@@ -1,6 +1,6 @@
 <h1>🌟 Socianet - социальная сеть <i>(в разработке)</i></h1>
 
-[![Socianet Badge](https://img.shields.io/badge/sociaNeT-v1.0.0-c233cf?style=plastic
+[![Socianet Badge](https://img.shields.io/badge/sociaNeT-v1.1.0-c233cf?style=plastic
 )](https://github.com/fazyawy/Socianet)
 [![Static Badge](https://img.shields.io/badge/react-%5E19.0.0-17f)](https://www.npmjs.com/package/react)
 
@@ -13,6 +13,7 @@ ___
 
 ### 🎨 Кастомизация
 - Выбор темы *(светлая или тёмная)*
+- Выбор вспомогательного цвета
 - Параметры, которые можно добавить или измененить:
   - [X] Никнейм
   - [X] Статус

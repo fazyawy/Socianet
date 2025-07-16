@@ -4,7 +4,7 @@
 	padding: .1rem .5rem;
 
 	&:focus {
-		box-shadow: 0 0 1rem var(--primary);
+		box-shadow: var(--default-shadow);
 	}
 }
 

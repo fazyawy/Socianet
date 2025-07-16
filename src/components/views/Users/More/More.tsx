@@ -17,7 +17,7 @@ export const More = ({ pageCount, totalCount }: IMoreProps) => {
 
 	return (
 		<div className={styles.more}>
-			<button className={styles.morebtn} onClick={onClick}>show more</button>
+			<button className={styles.button} onClick={onClick}>show more</button>
 			<Pagination pageCount={pageCount} />
 		</div>
 	)

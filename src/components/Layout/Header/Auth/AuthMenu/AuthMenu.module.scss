@@ -7,6 +7,10 @@
 		border: .25rem solid var(--black);
 	}
 
+	img{
+		filter: drop-shadow(-.5rem -.5rem 1rem var(--primary));
+	}
+
 	&:not(.openedMenu) {
 		transition: all .5s ease-in-out;
 
@@ -20,6 +24,8 @@
 		transform: translateX(-100%);
 
 		img {
+			filter: grayscale(100%);
+
 			animation: rotateImage .5s linear;
 			transform: rotate(360deg);
 		}

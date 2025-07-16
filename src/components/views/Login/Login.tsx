@@ -48,7 +48,7 @@ export const Login = () => {
 						{...register("rememberMe")} />
 				</div>
 
-				<button type="submit" className={styles.login_submit}>Send</button>
+				<button type="submit" className={styles.button}>Send</button>
 			</form>
 
 		</main>

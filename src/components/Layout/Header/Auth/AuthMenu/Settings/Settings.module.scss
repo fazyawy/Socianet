@@ -10,6 +10,8 @@
 
 	&:hover {
 		color: var(--white);
+
+		filter: drop-shadow(var(--default-shadow));
 	}
 
 	&.active {

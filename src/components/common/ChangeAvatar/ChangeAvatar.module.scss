@@ -42,7 +42,7 @@
 		img {
 			opacity: .5;
 
-			filter: blur(.1rem) grayscale(80%) drop-shadow(0 0 1rem var(--primary));
+			filter: blur(.1rem) grayscale(80%) drop-shadow(var(--default-shadow));
 		}
 
 		.pen {

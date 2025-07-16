@@ -1,0 +1,45 @@
+@use "@/styles/mixins";
+
+.sub {
+	.color_picker {
+		appearance: none;
+		width: 5rem;
+		height: 5rem;
+		display: block;
+		margin-block: 1.5rem;
+		// padding: 2rem;
+
+		border-radius: 50%;
+		border: none;
+
+		position: relative;
+
+		input {
+			width: 100%;
+			height: 100%;
+
+			border-radius: 50%;
+			opacity: 0;
+			cursor: pointer;
+
+			position: relative;
+			z-index: 10;
+		}
+
+		span {
+			display: block;
+			width: 5rem;
+			height: 5rem;
+
+			background: var(--primary);
+			border: .3rem solid var(--black-secondary);
+			border-radius: 50%;
+
+			position: absolute;
+			top: 0;
+			z-index: 1;
+		}
+	}
+
+	@include mixins.button();
+}

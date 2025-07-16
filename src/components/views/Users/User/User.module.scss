@@ -10,6 +10,11 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+
+		.avatar {
+			filter: drop-shadow( 0 0 .5rem var(--primary));
+		}
+
 		h2 {
 			font-size: 1.2rem;
 			text-wrap: nowrap;

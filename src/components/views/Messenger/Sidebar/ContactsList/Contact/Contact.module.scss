@@ -34,7 +34,7 @@
 
 	&:not(.active):hover {
 		img {
-			box-shadow: 0 0 1rem var(--primary);
+			box-shadow: var(--default-shadow);
 		}
 	}
 

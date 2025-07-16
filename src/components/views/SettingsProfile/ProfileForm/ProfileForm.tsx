@@ -39,7 +39,7 @@ export const ProfileForm = () => {
 				title={"Set new about me"}
 				register={register("aboutMe", { ...requiredValidator })} />
 
-			<button type="submit">Save changes</button>
+			<button type="submit" className={styles.button}>Save changes</button>
 
 		</form>
 	)

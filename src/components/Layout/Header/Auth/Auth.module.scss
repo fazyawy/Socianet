@@ -9,6 +9,12 @@
 
 	.auth_login {
 		@include mixins.button($txtColor: var(--black),
-			$bgActiveColor: var(--white-transparent));
+			$bgActiveColor: var(--white-transparent),
+			$shadow: var(--white-secondary));
+
+		.button {
+			box-shadow: var(--default-shadow);
+		}
 	}
+
 }
