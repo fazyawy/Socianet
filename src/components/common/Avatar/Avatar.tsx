@@ -19,7 +19,7 @@ export const Avatar = ({ className, src, type, haveOnlineStatus, isOnline, onlin
 
 	return (
 		<div className={`${styles.avatar} ${className}`} style={{"width": sizes[type], "height": sizes[type]}}>
-			<img src={src || defaultImage} alt="Contact" />
+			<img src={src || defaultImage} alt="Avatar" />
 			{haveOnlineStatus && isOnline && <Onlinestatus className={onlineStyle} />}
 		</div>
 	)
