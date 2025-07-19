@@ -1,6 +1,6 @@
 import styles from "./Layout.module.scss"
 
-import { useLayout } from "./hooks/useLayout";
+import { useLayout } from "./useLayout";
 
 import { Navigate, Outlet } from "react-router";
 

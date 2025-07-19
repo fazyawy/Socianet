@@ -11,7 +11,7 @@ export const ChangeAvatar = ({ src, isMyProfile, className }: IChangeAvatar) => 
 
 	const { handleFileChange, image } = useChangeAvatar(src);
 
-	if (!isMyProfile && isMyProfile !== undefined) return <Avatar src={image} type={"large"} className={styles.avatar} />;
+	if (!isMyProfile && isMyProfile !== undefined) return <Avatar src={src} type={"large"} className={styles.avatar} />;
 
 	return (
 		<div className={`${styles.info_avatar} ${className}`} title="Change avatar">

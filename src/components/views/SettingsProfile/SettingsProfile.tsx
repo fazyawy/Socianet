@@ -6,7 +6,7 @@ import { ProfileForm } from "./ProfileForm/ProfileForm";
 export const SettingsProfile = () => {
 
 	return (
-		<section className={styles.profile}>
+		<main className={styles.profile}>
 			<h1>Update your profile</h1>
 
 			<div className={styles.profile_change_container}>
@@ -16,7 +16,7 @@ export const SettingsProfile = () => {
 				<ChangeAvatar className={styles.change_avatar} />
 			</div>
 
-		</section>
+		</main>
 	)
 };
 

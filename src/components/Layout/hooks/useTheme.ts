@@ -1,16 +1,9 @@
 import { useSettingsStore } from "@/store/settings.store"
 import { useEffect } from "react";
+import { useShallow } from "zustand/shallow";
 
 export const useTheme = (): boolean => {
-	const { isDarkTheme, setIsDarkTheme, primaryColor, setPrimaryColor } = useSettingsStore(state => state);
-
-	const theme = localStorage?.getItem("theme");
-	const primary = localStorage?.getItem("primary");
-
-	useEffect(() => {
-		setIsDarkTheme(theme === "dark");
-		if(primary) setPrimaryColor(primary);
-	}, [])
+	const [isDarkTheme, primaryColor] = useSettingsStore(useShallow(state => [state.isDarkTheme, state.primaryColor]));
 
 	useEffect(() => {
 		document.documentElement.style.setProperty("--primary", primaryColor)

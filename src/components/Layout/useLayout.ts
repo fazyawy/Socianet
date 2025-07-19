@@ -1,16 +1,16 @@
 import { useShallow } from "zustand/shallow";
 import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 import { useAuthStore } from "@/store/useAuthStore";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
 
 import { useToggle } from "@/hooks/useToggle";
 
-import { useIsAuth } from "./useIsAuth";
-import { useMyProfile } from "./useMyProfile";
-import { useMyStatus } from "./useMyStatus";
-import { useLocation } from "react-router";
-import { useTheme } from "./useTheme";
+import { useIsAuth } from "./hooks/useIsAuth";
+import { useMyProfile } from "./hooks/useMyProfile";
+import { useMyStatus } from "./hooks/useMyStatus";
+import { useTheme } from "./hooks/useTheme";
 
 
 export const useLayout = () => {

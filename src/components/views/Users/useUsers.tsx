@@ -21,7 +21,7 @@ export const useUsers = () => {
 	const isAuth = useAuthStore(getIsAuthSelector)
 
 
-	const { data: usersData, isPending, refetch } = useQuery({
+	const { data: usersData, isPending, refetch } =useQuery({
 		queryKey: [USERS_QUERY_KEY, {page: currentPage}],
 		queryFn: usersService.getUsers<IUsers>(maxShowedUsers, currentPage, isFriendsPage),
 

@@ -1,26 +1,14 @@
-import { useShallow } from "zustand/shallow";
-
 import { usePaginationStore } from "@/store/usePaginationStore";
-import { IPaginationStore } from "@/store/store.type";
+import { getCurrentPageSelector } from "@/store/selectors/currentPage.selector";
 
 export const usePagination = (pageCount: number) => {
 
-	const [currentPage, setCurrentPage] = usePaginationStore(useShallow((state: IPaginationStore) => ([state.currentPage, state.setCurrentPage])))
-
-	const setCurrentPageAdds = (page: number) => {
-		setCurrentPage(page);
-	}
-
-	const prevPage = currentPage - 1;
-	const nextPage = currentPage + 1;
+	const currentPage = usePaginationStore(getCurrentPageSelector);
 
 	return {
-		setFirstPage: () => setCurrentPageAdds(1),
-		setLastPage: () => setCurrentPageAdds(pageCount),
-		setPrevPage: () => setCurrentPageAdds(prevPage),
-		setNextPage: () => setCurrentPageAdds(nextPage),
-		prevPage,
-		nextPage
+		havePrevPage: currentPage - 1 >= 1,
+		haveNextPage: currentPage + 1 <= pageCount,
+		currentPage
 	}
 };
 

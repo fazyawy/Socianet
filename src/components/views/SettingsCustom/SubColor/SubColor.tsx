@@ -3,7 +3,7 @@ import { useSubColor } from "./useSubColor";
 
 export const SubColor = () => {
 
-	const { value, onChange, onSaveClick, isChanged } = useSubColor();
+	const { value, onChange, onFocusOut } = useSubColor();
 
 	return (
 		<section className={styles.sub}>
@@ -11,11 +11,9 @@ export const SubColor = () => {
 			<sub className={styles.description}>Choose the sub color of the interface for better using experience</sub>
 
 			<div className={styles.color_picker}>
-				<input type="color" name="" id="" onChange={onChange} value={value} />
+				<input type="color" name="" id="" onChange={onChange} value={value} onBlur={onFocusOut} />
 				<span> </span>
 			</div>
-
-			{isChanged && <button className={styles.button} onClick={onSaveClick}>save</button>}
 		</section>
 	)
 };

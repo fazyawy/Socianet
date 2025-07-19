@@ -3,15 +3,18 @@ import styles from "./More.module.scss"
 import { useMore } from "./useMore";
 
 import { Pagination } from "./Pagination/Pagination";
+import { memo } from "react";
 
 interface IMoreProps {
 	pageCount: number,
 	totalCount: number
 }
 
-export const More = ({ pageCount, totalCount }: IMoreProps) => {
+export const More = memo(({ pageCount, totalCount }: IMoreProps) => {
 
 	const { onClick, isMore } = useMore(pageCount, totalCount);
+
+	console.log("render more")
 
 	if(!isMore) return;
 
@@ -21,5 +24,5 @@ export const More = ({ pageCount, totalCount }: IMoreProps) => {
 			<Pagination pageCount={pageCount} />
 		</div>
 	)
-};
+});
 

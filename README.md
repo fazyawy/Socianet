@@ -1,8 +1,7 @@
 <h1>🌟 Socianet - социальная сеть <i>(в разработке)</i></h1>
 
-[![Socianet Badge](https://img.shields.io/badge/sociaNeT-v1.1.0-c233cf?style=plastic
-)](https://github.com/fazyawy/Socianet)
-[![Static Badge](https://img.shields.io/badge/react-%5E19.0.0-17f)](https://www.npmjs.com/package/react)
+[![Socianet Badge](https://img.shields.io/badge/sociaNeT-v1.1.1-c233cf?style=plastic)](https://github.com/fazyawy/Socianet)
+[![Static Badge](https://img.shields.io/badge/react-%5E19.0.0-17f?style=plastic)](https://www.npmjs.com/package/react)
 
 
 ___

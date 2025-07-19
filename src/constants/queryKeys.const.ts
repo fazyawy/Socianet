@@ -1,8 +1,8 @@
 export const USERS_QUERY_KEY: string = 'users';
 
-export const FOLLOW_MUTATION_KEY = ['follow'];
+export const FOLLOW_MUTATION_KEY = 'follow';
 
-export const UNFOLLOW_MUTATION_KEY = ['unfollow'];
+export const UNFOLLOW_MUTATION_KEY = 'unfollow';
 
 export const AUTH_QUERY_KEY: string = 'auth';
 

@@ -3,14 +3,17 @@ import styles from "./User.module.scss"
 import { IUser } from "./User.type";
 import { useUser } from "./useUser";
 
+import { memo } from "react";
 import { Link } from "react-router";
 
 import { Avatar } from "@/components/common/Avatar/Avatar";
 import { FollowBtn } from "@/components/common/FollowBtn/FollowBtn";
 
-export const User = ({ name, photos, followed, id }: IUser) => {
+export const User = memo(({ name, photos, followed, id }: IUser) => {
 
 	const haveFollowBtn = useUser(id);
+
+	console.log("render" + id)
 
 	return (
 		<article className={styles.user}>
@@ -21,5 +24,5 @@ export const User = ({ name, photos, followed, id }: IUser) => {
 			{haveFollowBtn && <FollowBtn isFollowed={followed} userId={id}/>}
 		</article>
 	)
-};
+});
 

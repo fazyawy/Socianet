@@ -17,16 +17,15 @@ export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 
 		enabled: !isMyProfile
 	})
-	console.log(myStatus)
 
-	const [ haveStatusInput, setHaveStatusInput ] = useState(!myStatus && isMyProfile);
+	const [ haveStatusInput, setHaveStatusInput ] = useState(!myStatus && !isMyProfile);
 
 	return {
 		isStatusLoading,
 		status: isMyProfile ? myStatus : status,
-		haveStatusInput: haveStatusInput,
+		haveStatusInput: isMyProfile ? haveStatusInput : false,
 
-		toggleHaveStatusInput: () => setHaveStatusInput(!haveStatusInput),
+		toggleHaveStatusInput: isMyProfile ? () => setHaveStatusInput(!haveStatusInput) : () => {},
 		setHaveStatusInput
 	};
 };

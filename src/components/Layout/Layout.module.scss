@@ -9,13 +9,10 @@
 		"aside main"
 		"aside footer"
 	;
-	// grid-template-rows: 1fr 5fr 1fr;
-	// grid-template-columns: 1fr 3fr;
 	gap: 1rem;
 
 	background: var(--white-transparent);
 	box-shadow: var(--default-shadow);
-	// box-shadow: 0 0 1rem .5rem var(--primary);
 
 	main {
 		padding-right: 1rem;
