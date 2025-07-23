@@ -5,7 +5,6 @@ export const useInput = (initialValue: string = "", fn?: (value: string) => void
 	const [value, setValue] = useState<string>(initialValue);
 
 	const onChange = (e: BaseSyntheticEvent) => {
-		console.log(e.target.value)
 		setValue(e.target.value);
 	}
 

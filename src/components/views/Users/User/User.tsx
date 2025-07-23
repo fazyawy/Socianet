@@ -13,8 +13,6 @@ export const User = memo(({ name, photos, followed, id }: IUser) => {
 
 	const haveFollowBtn = useUser(id);
 
-	console.log("render" + id)
-
 	return (
 		<article className={styles.user}>
 			<Link to={`/${id}`} title={name}>

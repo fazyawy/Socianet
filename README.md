@@ -1,6 +1,6 @@
 <h1>🌟 Socianet - социальная сеть <i>(в разработке)</i></h1>
 
-[![Socianet Badge](https://img.shields.io/badge/sociaNeT-v1.1.2-c233cf?style=plastic)](https://github.com/fazyawy/Socianet)
+[![Socianet Badge](https://img.shields.io/badge/sociaNeT-v1.2.0-c233cf?style=plastic)](https://github.com/fazyawy/Socianet)
 [![Static Badge](https://img.shields.io/badge/react-%5E19.0.0-17f?style=plastic)](https://www.npmjs.com/package/react)
 
 
@@ -24,15 +24,16 @@ ___
 - Выход из акккаунта
 
 ### 👥 Взаимодействие с пользователями
-- Список пользователей
-- Список друзей
+- Список пользователей / друзей
+- Поиск пользователей / друзей
 - Система подписок
 
-![Страница профиля](https://github.com/user-attachments/assets/b9bc7bf1-b746-4699-b5fb-bd1f7fbc4608)
-![Список пользователей](https://github.com/user-attachments/assets/245182f9-502f-4a89-9ccd-abc9f924a319)
-![Профиль другого пользователя](https://github.com/user-attachments/assets/1147a544-55ea-4534-ad55-f56a3284a0d2)
-![Настройки](https://github.com/user-attachments/assets/3b57db12-445a-4c9a-b2d6-0deadaf9f951)
-![Логин](https://github.com/user-attachments/assets/327e98a7-db72-4217-a56f-f60a8f69b5d7)
+![Страница профиля](https://github.com/user-attachments/assets/f2199fe6-9b94-4024-95c1-5909302fd072)
+![Список пользователей](https://github.com/user-attachments/assets/7857174c-6bb6-4e81-a7e4-6392971b422f)
+![Профиль другого пользователя](https://github.com/user-attachments/assets/9cf82faf-926b-4306-8375-13b54765fc3a)
+![Настройки аккаунта](https://github.com/user-attachments/assets/59cdd9d3-3019-46b3-9050-79892724f7eb)
+![Настройки сайта](https://github.com/user-attachments/assets/acf34b7d-12b5-4b52-83d6-c5b3bdc0e7e6)
+![Логин](https://github.com/user-attachments/assets/e64b78a3-f76f-4f22-94b8-df66a66eaafb)
 
 ____
 ## 🏗️ Установка и запуск:

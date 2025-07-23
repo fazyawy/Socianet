@@ -5,12 +5,11 @@ import { useLocation } from "react-router";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
 
-import { useToggle } from "@/hooks/useToggle";
-
 import { useIsAuth } from "./hooks/useIsAuth";
 import { useMyProfile } from "./hooks/useMyProfile";
 import { useMyStatus } from "./hooks/useMyStatus";
 import { useTheme } from "./hooks/useTheme";
+import { useAside } from "./hooks/useAside";
 
 
 export const useLayout = () => {
@@ -38,14 +37,14 @@ export const useLayout = () => {
 		if(isStatusSuccess) setStatus(status);
 	}, [isAuthFetching, isProfileFetching, isStatusFetching])
 
-	const [haveAside, toggleAside] = useToggle(true);
+	const {haveAside, toggleHaveAside} = useAside();
 
 	const isDarkTheme = useTheme();
 
 	return {
 		haveAside: haveAside,
 		// haveAside: pathname !== "/auth/login" && haveAside,
-		toggleAside,
+		toggleAside: toggleHaveAside,
 
 		isLoading: isAuthFetching || isProfileFetching || isStatusFetching,
 		isSuccess: isAuth ? isAuthSuccess && isProfileSuccess && isStatusSuccess : isAuthSuccess,

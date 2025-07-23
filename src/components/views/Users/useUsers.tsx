@@ -12,18 +12,21 @@ import { USERS_QUERY_KEY } from "@/constants/queryKeys.const";
 import { usePaginationStore } from "@/store/usePaginationStore";
 import { useAuthStore } from "@/store/useAuthStore";
 import { getIsAuthSelector } from "@/store/selectors/auth.selector";
+import { useSearchUsersStore } from "@/store/searchUsers.store";
+import { useToggle } from "@/hooks/useToggle";
 
 export const useUsers = () => {
 	const { pathname } = useLocation();
 	const isFriendsPage = pathname === "/friends"
 
-	const [currentPage, maxShowedUsers, setCurrentPage] = usePaginationStore(useShallow(state => [state.currentPage, state.maxShowedUsers, state.setCurrentPage]));
-	const isAuth = useAuthStore(getIsAuthSelector)
+	const [currentPage, maxShowedUsers, setCurrentPage, upperShowedUsers] = usePaginationStore(useShallow(state => [state.currentPage, state.maxShowedUsers, state.setCurrentPage, state.upperShowedUsers]));
+	const isAuth = useAuthStore(getIsAuthSelector);
+	const searchValue = useSearchUsersStore(state => state.searchValue)
 
 
-	const { data: usersData, isPending, refetch } =useQuery({
-		queryKey: [USERS_QUERY_KEY, {page: currentPage}],
-		queryFn: usersService.getUsers<IUsers>(maxShowedUsers, currentPage, isFriendsPage),
+	const { data: usersData, isPending, refetch } = useQuery({
+		queryKey: [USERS_QUERY_KEY, { page: currentPage }],
+		queryFn: usersService.getUsers<IUsers>(maxShowedUsers, currentPage, isFriendsPage, searchValue),
 
 		select: ({ data }) => data,
 		retry: 2,
@@ -31,16 +34,28 @@ export const useUsers = () => {
 	})
 
 	useEffect(() => {
-		if(isFriendsPage) setCurrentPage(1);
+		if (isFriendsPage) setCurrentPage(1);
 		refetch();
 	}, [maxShowedUsers, currentPage, isFriendsPage])
+
+	const [isSearch, toggleIsSearch] = useToggle(false);
+
 
 	return {
 		pageCount: usersData ? Math.ceil(usersData.totalCount / maxShowedUsers) : 0,
 
 		usersData,
 		isPending,
-		isFriendsPage
+		isFriendsPage,
+		haveAside: upperShowedUsers === 6,
+
+		search: {
+			isSearch,
+			toggleIsSearch: () => {
+				toggleIsSearch();
+				setCurrentPage(1);
+			},
+		}
 	}
 };
 

@@ -6,18 +6,19 @@ import { More } from "./More/More";
 import { User } from "./User/User";
 
 import { Preloader } from "@/components/UI/Preloader/Preloader";
+import { Search } from "./Search/Search";
 
 export const Users = () => {
-	const { isFriendsPage, usersData, isPending, pageCount } = useUsers();
+	const { isFriendsPage, usersData, isPending, pageCount, haveAside, search } = useUsers();
 
 	return (
 		<main className={styles.users}>
-			<h1>{isFriendsPage ? "Friends" : "Users"}</h1>
+			<Search isFriendsPage={isFriendsPage} {...search}/>
 
 			{isPending ? <Preloader />
 				: !!usersData ? (
 					<>
-						<div className={styles.user_container}>
+						<div className={`${styles.user_container} ${haveAside ? "" : styles.not_aside}`}>
 
 							{usersData?.items.map((el) => <User key={el.id} {...el} />)}
 

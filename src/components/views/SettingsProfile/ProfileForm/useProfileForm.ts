@@ -1,7 +1,7 @@
-import { useProfileMutation } from "./useProfileMutation";
+import { useProfileMutation } from "./hooks/useProfileMutation";
 
-import { IProfileForm } from "../profileForm.type";
-import { getProfileFormSelector } from "../profileForm.selector";
+import { IProfileForm } from "./profileForm.type";
+import { getProfileFormSelector } from "./profileForm.selector";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 

@@ -15,6 +15,10 @@
 		justify-content: center;
 		align-items: center;
 		gap: 1.9rem 12.5%;
+
+		&.not_aside {
+			width: 100%;
+		}
 	}
 
 }
