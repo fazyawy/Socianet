@@ -10,7 +10,7 @@ export const useToggle = (defaultValue = false): ToggleReturnType => {
 	const [isValue, setIsValue] = useState<boolean>(defaultValue);
 
 	const toggleIsValue = () => {
-		setIsValue(!isValue)
+		setIsValue(prev => !prev)
 	};
 
 	return [isValue, toggleIsValue]

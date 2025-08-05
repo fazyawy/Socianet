@@ -2,14 +2,13 @@ import { create } from "zustand";
 
 import { ISettingsStore } from "./types/settings.types";
 
-import { getIsDarkTheme } from "@/utils/localStorage/getIsDarkTheme";
-import { getPrimaryColor } from "@/utils/localStorage/getPrimaryColor";
-
 export const useSettingsStore = create<ISettingsStore>((set) => ({
-	isDarkTheme: getIsDarkTheme(),
+	// isDarkTheme: getIsDarkTheme(),
+	isDarkTheme: false,
 	setIsDarkTheme: (changedValue) => set(() => ({ isDarkTheme: changedValue })),
 
-	primaryColor: getPrimaryColor(),
+	// primaryColor: getPrimaryColor(),
+	primaryColor: "#000",
 	setPrimaryColor: (changedValue) => set(() => ({ primaryColor: changedValue }))
 }));
 

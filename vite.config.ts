@@ -1,7 +1,7 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 
 import react from '@vitejs/plugin-react-swc';
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 import path from 'path';
 
@@ -12,8 +12,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
-  plugins: [react(), nodePolyfills()],
+  plugins: [react()],
 	server: {
 		port: 3000,
-	}
+	},
 })

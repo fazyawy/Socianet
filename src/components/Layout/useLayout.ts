@@ -50,7 +50,6 @@ export const useLayout = () => {
 		isSuccess: isAuth ? isAuthSuccess && isProfileSuccess && isStatusSuccess : isAuthSuccess,
 
 		isSettings: pathname.slice(0, 9) === "/settings",
-		isRedirect: isAuth === false && (pathname === "/" || pathname === "/messenger" || pathname === "/friends" || !!Number(pathname.slice(1)) || pathname.slice(0, 9) === "/settings"),
 		isDarkTheme
 	};
 };

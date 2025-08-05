@@ -1,16 +1,6 @@
 import { useSettingsStore } from "@/store/settings.store";
 
 export const useTheme = () => {
-	const getIsDarkTheme = ():boolean => {
-		const theme = localStorage?.getItem("theme")
-
-		if(theme === "dark") return true;
-
-		return false;
-	}
-
-	// const [isDarkTheme, setIsDarkTheme] = useState<boolean>(getIsDarkTheme());
-
 	const { isDarkTheme, setIsDarkTheme } = useSettingsStore(state => state)
 
 	const onSetDarkThemeClick = () => {
@@ -20,10 +10,8 @@ export const useTheme = () => {
 
 	const onSetLightThemeClick = () => {
 		setIsDarkTheme(false);
-		localStorage?.setItem('theme', "");
+		localStorage?.setItem('theme', "light");
 	}
-
-	console.log(getIsDarkTheme())
 
 	return {
 		isDarkTheme,

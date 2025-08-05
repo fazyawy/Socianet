@@ -29,7 +29,8 @@ ___
 - Система подписок
 
 ![Страница профиля](https://github.com/user-attachments/assets/f2199fe6-9b94-4024-95c1-5909302fd072)
-![Список пользователей](https://github.com/user-attachments/assets/7857174c-6bb6-4e81-a7e4-6392971b422f)
+![Список пользователей](https://github.com/user-attachments/assets/f45bfe01-b817-4b93-b193-f3ff0b5a2c21)
+![Поиск пользователей](https://github.com/user-attachments/assets/00257b42-e668-4ccc-bbfd-f1f33ee15b68)
 ![Профиль другого пользователя](https://github.com/user-attachments/assets/9cf82faf-926b-4306-8375-13b54765fc3a)
 ![Настройки аккаунта](https://github.com/user-attachments/assets/59cdd9d3-3019-46b3-9050-79892724f7eb)
 ![Настройки сайта](https://github.com/user-attachments/assets/acf34b7d-12b5-4b52-83d6-c5b3bdc0e7e6)
