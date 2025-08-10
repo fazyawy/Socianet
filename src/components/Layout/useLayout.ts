@@ -34,17 +34,19 @@ export const useLayout = () => {
 			setMyId(myId);
 		}
 		if (isProfileSuccess) setMyProfile(profile);
-		if(isStatusSuccess) setStatus(status);
+		if (isStatusSuccess) setStatus(status);
 	}, [isAuthFetching, isProfileFetching, isStatusFetching])
 
-	const {haveAside, toggleHaveAside} = useAside();
+	const { haveAside, toggleHaveAside } = useAside();
 
 	const isDarkTheme = useTheme();
 
 	return {
-		haveAside: haveAside,
-		// haveAside: pathname !== "/auth/login" && haveAside,
-		toggleAside: toggleHaveAside,
+		aside: {
+			haveAside: haveAside,
+			// haveAside: pathname !== "/auth/login" && haveAside,
+			toggleAside: toggleHaveAside,
+		},
 
 		isLoading: isAuthFetching || isProfileFetching || isStatusFetching,
 		isSuccess: isAuth ? isAuthSuccess && isProfileSuccess && isStatusSuccess : isAuthSuccess,

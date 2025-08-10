@@ -3,12 +3,12 @@ import { screen } from "@testing-library/react";
 
 import { Layout } from "./Layout"
 
-import { renderWithRouter } from "@/tests/helpers/renderWithRouter";
+import { renderWithRouterAndQueries } from "@/tests/helpers/renderWithRouterAndQueries";
 
 test("render layout", () => {
-	renderWithRouter({
+	renderWithRouterAndQueries({
 		element: <Layout />
 	})
-	const helloWorldEl = screen.getByText(/hello world/i);
+	const helloWorldEl = screen.getByText(/profile/i);
 	expect(helloWorldEl).toBeInTheDocument();
 })
