@@ -8,7 +8,7 @@ export const SettingsAside = () => {
 	const { mutate } = useSettingsAside()
 
 	return (
-		<aside className={styles.settings_aside}>
+		<aside className={styles.settings_aside} data-testid="settings aside">
 			<Link to={"/settings/profile"} className={styles.active}>Account</Link>
 			<Link to={"/settings/custom"}>Custom</Link>
 			<Link to={"/settings/profile"}>Profile</Link>

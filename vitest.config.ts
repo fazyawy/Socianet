@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 export default mergeConfig(viteConfig, defineConfig({
 	test: {
+		globals: true,
 		environment: "jsdom",
 		setupFiles: [resolve(__dirname, "src/tests/setup/setup.ts")],
 	}

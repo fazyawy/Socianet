@@ -11,7 +11,7 @@ export const useAside = () => {
 		if(haveAside) setMaxShowedUsers(8);
 		else setMaxShowedUsers(6);
 
-		setHaveAside(!haveAside);
+		setHaveAside(prev => !prev);
 	}
 
 	return {

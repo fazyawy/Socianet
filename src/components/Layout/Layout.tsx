@@ -12,12 +12,15 @@ import { SettingsAside } from "./SettingsAside/SettingsAside";
 import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 export const Layout = () => {
-	const { aside: {haveAside, toggleAside}, isLoading, isSuccess, isSettings, isDarkTheme } = useLayout();
+	const { aside: { haveAside, toggleAside }, isLoading, isSuccess, isSettings, isDarkTheme } = useLayout();
 
 	return (
-		<div className={`${styles.layout} ${haveAside ? "" : styles.not_aside}`} data-color-theme={isDarkTheme ? "dark" : "light"}>
+		<div
+			className={`${styles.layout} ${haveAside ? "" : styles.not_aside}`}
+			data-color-theme={isDarkTheme ? "dark" : "light"}
+			data-testid="layout-container">
 			<Header haveAside={haveAside} toggleAside={toggleAside} />
-			{haveAside && isSettings ? <SettingsAside /> : <Aside />}
+			{haveAside && (isSettings ? <SettingsAside /> : <Aside />)}
 			{isLoading && <Preloader />}
 			{isSuccess && !isLoading && <Outlet />}
 			{/* <Footer /> */}
