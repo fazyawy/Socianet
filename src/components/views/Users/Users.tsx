@@ -12,7 +12,7 @@ export const Users = () => {
 	const { isFriendsPage, usersData, isPending, pageCount, haveAside, search } = useUsers();
 
 	return (
-		<main className={styles.users}>
+		<main className={styles.users} data-testid="main">
 			<Search isFriendsPage={isFriendsPage} {...search}/>
 
 			{isPending ? <Preloader />

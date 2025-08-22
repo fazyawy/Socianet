@@ -32,11 +32,11 @@ const routes = [
 			},
 			{
 				path: "news",
-				element: <main>news</main>
+				element: <main data-testid="main">news</main>
 			},
 			{
 				path: "music",
-				element: <main>music</main>
+				element: <main data-testid="main">music</main>
 			},
 			{
 				path: "friends",

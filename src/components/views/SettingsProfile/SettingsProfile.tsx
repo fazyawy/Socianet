@@ -6,7 +6,7 @@ import { ProfileForm } from "./ProfileForm/ProfileForm";
 export const SettingsProfile = () => {
 
 	return (
-		<main className={styles.profile}>
+		<main className={styles.profile} data-testid="main">
 			<h1>Update your profile</h1>
 
 			<div className={styles.profile_change_container}>

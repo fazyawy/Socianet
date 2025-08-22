@@ -5,7 +5,7 @@ import { Theme } from "./Theme/Theme";
 
 export const SettingsCustom = () => {
 	return (
-		<main className={styles.settings}>
+		<main className={styles.settings} data-testid="main">
 			<h1>Custom this web app</h1>
 
 			<Theme />

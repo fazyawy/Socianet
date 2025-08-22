@@ -18,9 +18,9 @@ export const Login = () => {
 	}
 
 	return (
-		<main className={styles.login} data-testid="login page">
+		<main className={styles.login} data-testid="main">
 
-			<form onSubmit={onSubmit} className={styles.login_form}>
+			<form onSubmit={onSubmit} className={styles.login_form} data-testid="login form">
 				<h2>Login</h2>
 
 				<FormInput

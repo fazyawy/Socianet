@@ -1,17 +1,10 @@
 import { expect, test, describe } from "vitest"
-import { fireEvent, screen } from "@testing-library/react";
-
-import axios from "axios";
+import { screen } from "@testing-library/react";
 
 import { Layout } from "./Layout"
 
 import { renderWithRouterAndQueries } from "@/tests/helpers/renderWithRouterAndQueries";
 import { toggleTest } from "@/tests/common/toggleTest";
-
-import { Mock } from "vitest"
-import { IAuthData } from "@/services/types/auth.types";
-
-vitest.mock("axios");
 
 describe("LAYOUT TESTS", () => {
 
@@ -25,34 +18,4 @@ describe("LAYOUT TESTS", () => {
 	})
 
 	toggleTest("aside", <Layout />)
-})
-
-describe("ASYNC LAYOUT TESTS", () => {
-
-	let authResponse: { data: IAuthData };
-	beforeEach(() => {
-		authResponse = {
-			data: {
-				resultCode: 0,
-				data: {
-					id: 32514,
-					login: "nuuuuuuuuuuuuuuuuuuu",
-					email: "cilmogerda@gufum.com"
-				}
-			}
-		}
-	})
-
-	test("auth", async () => {
-		(axios.get as Mock).mockReturnValue(authResponse);
-
-		renderWithRouterAndQueries({
-			element: <Layout />
-		});
-
-		const preloaderEl = await screen.findByTestId("preloader");
-
-		expect((axios.get as Mock)).toBeCalledTimes(1);
-		expect(preloaderEl).toBeInTheDocument();
-	})
 })

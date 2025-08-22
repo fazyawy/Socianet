@@ -4,7 +4,7 @@ import { Sidebar } from "./Sidebar/Sidebar";
 
 export const Messenger = () => {
 	return (
-		<main className={styles.main}>
+		<main className={styles.main} data-testid={"main"}>
 			<Sidebar />
 			<Chat />
 		</main>
