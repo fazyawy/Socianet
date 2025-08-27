@@ -22,6 +22,7 @@ export const AuthMenu = () => {
 			<button
 				title="Menu"
 				onClick={toggleIsOpenMenu}
+				data-testid="toggle auth menu"
 				className={`${styles.auth_menu} ${isOpenMenu ? styles.openedMenu : ""}`}>
 				<Avatar
 					src={myAvatar}
@@ -31,7 +32,7 @@ export const AuthMenu = () => {
 					onlineStyle={styles.online} />
 			</button>
 
-			<Settings isSettings={isSettings} isOpenMenu={isOpenMenu}/>
+			{isOpenMenu && <Settings isSettings={isSettings} />}
 		</>
 	)
 };

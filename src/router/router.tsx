@@ -9,7 +9,7 @@ import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 import { settingsRoutes } from "./settings.router";
 
-const routes = [
+export const routes = [
 	{
 		path: "/",
 		element: <Layout />,

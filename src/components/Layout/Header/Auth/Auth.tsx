@@ -15,7 +15,7 @@ export const Auth = () => {
 			{isAuth && <AuthMenu />}
 
 			{!isAuth && !isLogin && <Link to={"/auth/login"} className={styles.auth_login}>
-				<button className={styles.button}>login</button>
+				<button className={styles.button} data-testid="login button">login</button>
 			</Link>}
 		</div>
 	)

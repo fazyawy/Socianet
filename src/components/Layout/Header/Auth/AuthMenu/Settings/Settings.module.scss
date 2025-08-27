@@ -1,6 +1,5 @@
 .settings {
 	color: var(--white-secondary);
-	opacity: 0;
 
 	transition: all .25s linear;
 	position: absolute;
@@ -12,9 +11,5 @@
 		color: var(--white);
 
 		filter: drop-shadow(var(--default-shadow));
-	}
-
-	&.active {
-		opacity: 1;
 	}
 }

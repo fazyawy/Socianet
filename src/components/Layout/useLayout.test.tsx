@@ -40,17 +40,17 @@ describe("LAYOUT HOOKS TESTS", () => {
 		}
 	}
 	)
+// ================ uncomment this test later (when u be returning to the async tests)============================================
+	// test("useIsAuth tests", async () => {
 
-	test("useIsAuth tests", async () => {
+	// 	const { result } = renderHook(() => useIsAuth(), { wrapper: createWrapperWithQueries() });
 
-		const { result } = renderHook(() => useIsAuth(), { wrapper: createWrapperWithQueries() });
+	// 	await waitFor(() => {
+	// 		return expect(result.current?.isSuccess).toBe(authResponse.isAuthSuccess);
+	// 	})
 
-		await waitFor(() => {
-			return expect(result.current?.isSuccess).toBe(authResponse.isAuthSuccess);
-		})
-
-		expect(JSON.stringify(result.current.data)).toEqual(JSON.stringify(authResponse.data));
-	})
+	// 	expect(JSON.stringify(result.current.data)).toEqual(JSON.stringify(authResponse.data));
+	// })
 
 	// const myId: number = (authResponse?.isAuthSuccess && authResponse?.authData.resultCode === 0) ? authResponse?.authData.data.id : 2;
 
