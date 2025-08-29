@@ -11,7 +11,7 @@ export const FormInput = ({ type = "text", title, label, placeholder, register, 
 	const inputId = useId()
 
 	return (
-		<div className={`${styles.input_container} ${className}`}>
+		<div className={`${styles.input_container} ${className}`} data-testid={"form input"}>
 			<label htmlFor={inputId}>{label}</label>
 
 			<div className={styles.input}>
@@ -22,9 +22,9 @@ export const FormInput = ({ type = "text", title, label, placeholder, register, 
 						id={inputId}
 						placeholder={placeholder}
 						title={title}
-						{...register} /> :
+						{...register}
+						data-testid={"input"} /> :
 					<Input
-						inputMode={"text"}
 						id={inputId}
 						type={type}
 						placeholder={placeholder}

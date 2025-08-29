@@ -1,17 +1,14 @@
-import { useState } from "react";
 import styles from "./Aside.module.scss"
-
-import { AsideEl } from "./AsideEl/AsideEl";
+import { MainAside } from "./MainAside/MainAside";
+import { SettingsAside } from "./SettingsAside/SettingsAside";
+import { useAside } from "./useAside";
 
 export const Aside = () => {
-	const [pages] = useState<string[]>(["/", "/messenger", "/news", "/music", "/users", "/friends", "/preloader"]);
+	const { isSettings } = useAside();
 
 	return (
 		<aside className={styles.aside} data-testid="aside">
-			<nav>
-
-				{pages.map(el => <AsideEl key={el} el={el} />)}
-			</nav>
+			{isSettings ? <SettingsAside /> : <MainAside />}
 		</aside>
 	)
 };

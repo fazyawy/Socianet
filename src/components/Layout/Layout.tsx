@@ -6,13 +6,12 @@ import { Outlet } from "react-router";
 
 import { Header } from "./Header/Header";
 import { Aside } from "./Aside/Aside";
-import { SettingsAside } from "./SettingsAside/SettingsAside";
 // import { Footer } from "./Footer/Footer";
 
 import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 export const Layout = () => {
-	const { aside: { haveAside, toggleAside }, isLoading, isSuccess, isSettings, isDarkTheme } = useLayout();
+	const { aside: { haveAside, toggleAside }, isLoading, isSuccess, isDarkTheme } = useLayout();
 
 	return (
 		<div
@@ -20,7 +19,7 @@ export const Layout = () => {
 			data-color-theme={isDarkTheme ? "dark" : "light"}
 			data-testid="layout-container">
 			<Header haveAside={haveAside} toggleAside={toggleAside} />
-			{haveAside && (isSettings ? <SettingsAside /> : <Aside />)}
+			{haveAside && <Aside />}
 			{isLoading && <Preloader />}
 			{isSuccess && !isLoading && <Outlet />}
 			{/* <Footer /> */}

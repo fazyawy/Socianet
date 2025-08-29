@@ -18,7 +18,9 @@ describe("AUTH MENU", () => {
 		expect(screen.getByTestId("avatar")).toBeInTheDocument();
 	})
 
-	toggleTest("auth menu", <AuthMenu />, true)
+	toggleTest("auth menu", {
+		element: <AuthMenu />
+	}, true)
 
 	test("toggle auth menu fast", () => {
 		renderWithRouter({

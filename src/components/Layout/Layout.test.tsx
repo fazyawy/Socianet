@@ -3,7 +3,7 @@ import { screen } from "@testing-library/react";
 
 import { Layout } from "./Layout"
 
-import { renderWithRouterAndQueries } from "@/tests/helpers/renderWithRouterAndQueries";
+import { renderWithRouterAndQueries } from "@/tests/helpers/render/renderWithRouterAndQueries";
 import { toggleTest } from "@/tests/common/toggleTest";
 
 describe("LAYOUT TESTS", () => {
@@ -17,5 +17,30 @@ describe("LAYOUT TESTS", () => {
 		// screen.debug();
 	})
 
-	toggleTest("aside", <Layout />)
+	toggleTest("aside", {
+		element: <Layout />,
+		paths: ["/", "/messenger", "/news", "/music", "/users", "/friends", "/preloader", "/settings/profile", "/settings/custom"]
+	})
+
+	// test("switch asides", () => {
+	// 	renderWithRouter({
+	// 		element: <Layout />,
+	// 		paths: ["/", "/settings/profile"]
+	// 	});
+
+	// 	fireEvent.click(screen.getByTestId("toggle auth menu"));
+
+	// 	expect(screen.queryByTestId("main aside")).toBeInTheDocument();
+	// 	expect(screen.queryByTestId("settings aside")).toBeNull();
+
+	// 	fireEvent.click(screen.getByTestId("auth menu"));
+
+	// 	expect(screen.queryByTestId("main aside")).toBeNull();
+	// 	expect(screen.queryByTestId("settings aside")).toBeInTheDocument();
+
+	// 	fireEvent.click(screen.getByTestId("auth menu"));
+
+	// 	expect(screen.queryByTestId("main aside")).toBeInTheDocument();
+	// 	expect(screen.queryByTestId("settings aside")).toBeNull();
+	// })
 })

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface IRenderWithRouter {
+export interface IRender {
 	paths?: string[],
 	element: ReactNode
 }

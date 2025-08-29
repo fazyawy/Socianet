@@ -1,24 +1,17 @@
-import { ReactNode } from "react";
-
 import { render } from "@testing-library/react";
 
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { RouterProvider } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-interface IRenderWithRouterAndQueries {
-	path?: string,
-	element: ReactNode
-}
+import { IRender } from "@/tests/types/render.type";
 
-export const renderWithRouterAndQueries = ({ path = "/", element }:IRenderWithRouterAndQueries) => {
+import { createRouter } from "./utils/createRouter";
+
+export const renderWithRouterAndQueries = ({ paths = ["/"], element }:IRender) => {
 	const queryClient = new QueryClient();
 
-	const router = createBrowserRouter([
-		{
-			path,
-			element
-		}
-	])
+	const router = createRouter({paths, element});
+
 	return render(
 		<QueryClientProvider client={queryClient}>
 			<RouterProvider router={router} />

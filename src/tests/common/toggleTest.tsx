@@ -1,15 +1,14 @@
-import { ReactNode } from "react";
 import { expect, test } from "vitest"
 import { screen, fireEvent } from "@testing-library/react";
 
+import { renderWithRouterAndQueries } from "@/tests/helpers/render/renderWithRouterAndQueries";
 
-import { renderWithRouterAndQueries } from "../helpers/render/renderWithRouterAndQueries";
+import { IRender } from "@/tests/types/render.type";
 
-export const toggleTest = (title: string, component: ReactNode, haveElBefore?: boolean) => {
+export const toggleTest = (title: string, { paths = ["/"], element }:IRender, haveElBefore: boolean = false) => {
 	return test(`toggle ${title}`, () => {
-		renderWithRouterAndQueries({
-			element: component
-		})
+		renderWithRouterAndQueries({element, paths});
+
 		const btn = screen.getByTestId(`toggle ${title}`);
 
 		!!haveElBefore && fireEvent.click(btn);

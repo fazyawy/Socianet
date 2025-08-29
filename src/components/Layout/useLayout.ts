@@ -1,6 +1,5 @@
 import { useShallow } from "zustand/shallow";
 import { useEffect } from "react";
-import { useLocation } from "react-router";
 
 import { useAuthStore } from "@/store/useAuthStore";
 import { useMyProfileStore } from "@/store/useMyProfileStore";
@@ -13,8 +12,6 @@ import { useAside } from "./hooks/useAside";
 
 
 export const useLayout = () => {
-	const { pathname } = useLocation();
-
 	const { setIsAuth, isAuth } = useAuthStore(state => state);
 	const [setMyId, defaultId, setMyProfile, setStatus] = useMyProfileStore(useShallow(state => [state.setMyId, state.myId, state.setMyProfile, state.setStatus]));
 
@@ -51,7 +48,6 @@ export const useLayout = () => {
 		isLoading: isAuthFetching || isProfileFetching || isStatusFetching,
 		isSuccess: isAuth ? isAuthSuccess && isProfileSuccess && isStatusSuccess : isAuthSuccess,
 
-		isSettings: pathname.slice(0, 9) === "/settings",
 		isDarkTheme
 	};
 };

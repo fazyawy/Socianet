@@ -3,7 +3,7 @@ import { useAuthStore } from "@/store/useAuthStore";
 import { capitalizeFirstLetter } from "@/utils/string/capitalizeFirstLetter";
 import { useLocation } from "react-router";
 
-export const useAsideEl = (el: string) => {
+export const useMainAsideEl = (el: string) => {
 
 	const isAuth = useAuthStore(getIsAuthSelector)
 
