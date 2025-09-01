@@ -8,10 +8,16 @@ import { toggleTest } from "@/tests/common/toggleTest";
 import { renderWithRouter } from "@/tests/helpers/render/renderWithRouter";
 
 describe("AUTH MENU", () => {
-	test("render", () => {
+
+	const renderSetup = (paths?: string[]) => {
 		renderWithRouter({
-			element: <AuthMenu />
+			element: <AuthMenu />,
+			paths
 		});
+	}
+
+	test("render", () => {
+		renderSetup();
 
 		expect(screen.getByTestId("toggle auth menu")).toBeInTheDocument();
 		expect(screen.getByTestId("avatar container")).toBeInTheDocument();
@@ -23,9 +29,7 @@ describe("AUTH MENU", () => {
 	}, true)
 
 	test("toggle auth menu fast", () => {
-		renderWithRouter({
-			element: <AuthMenu />
-		});
+		renderSetup();
 
 		const toggleBtn = screen.getByTestId("toggle auth menu");
 
@@ -37,10 +41,7 @@ describe("AUTH MENU", () => {
 	})
 
 	test("settings buttons", () => {
-		renderWithRouter({
-			element: <AuthMenu />,
-			paths: ["/", "settings/profile"]
-		});
+		renderSetup(["/", "settings/profile"]);
 
 		fireEvent.click(screen.getByTestId("toggle auth menu"));
 

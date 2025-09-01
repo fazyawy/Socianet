@@ -1,7 +1,11 @@
 import styles from "./Input.module.scss"
 import { IInput } from "./input.type";
+import { useInputComp } from "./useInputComp";
 
 export const Input = ({ register, inputMode = "text", id, title, placeholder, type = "text", className }: IInput) => {
+
+	const input = useInputComp(register);
+
 	return (
 		<input
 			inputMode={inputMode}
@@ -10,7 +14,7 @@ export const Input = ({ register, inputMode = "text", id, title, placeholder, ty
 			title={title}
 			type={type}
 			className={`${styles.input_field} ${className}`}
-			{...register}
+			{...input}
 			data-testid={"input"}/>
 	)
 };

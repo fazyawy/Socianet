@@ -7,7 +7,7 @@ import { Input } from "@/components/common/Input/Input";
 
 export const StatusInput = ({ setHaveStatusInput }: IStatusInput) => {
 
-	const {input: { onClick, ...input }} = useStatusInput({ setHaveStatusInput });
+	const {input, onSaveStatusClick} = useStatusInput({ setHaveStatusInput });
 
 	return (
 		<>
@@ -17,7 +17,7 @@ export const StatusInput = ({ setHaveStatusInput }: IStatusInput) => {
 				type="text"
 				register={input} />
 
-			<button onClick={onClick} className={styles.button}>save</button>
+			<button onClick={onSaveStatusClick} className={styles.button}>save</button>
 		</>
 	)
 };

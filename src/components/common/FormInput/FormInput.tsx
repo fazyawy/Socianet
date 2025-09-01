@@ -1,14 +1,15 @@
 import styles from "./FormInput.module.scss"
 
-import { useId } from "react";
 import { FaTimes } from "react-icons/fa";
 
 import { IFormInput } from "./FormInput.type";
 import { Input } from "@/components/common/Input/Input";
+import { useFormInput } from "./useFormInput";
+import { Errors } from "./Errors/Errors";
 
 export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className }: IFormInput) => {
 
-	const inputId = useId()
+	const { inputId, input } = useFormInput(register);
 
 	return (
 		<div className={`${styles.input_container} ${className}`} data-testid={"form input"}>
@@ -22,27 +23,23 @@ export const FormInput = ({ type = "text", title, label, placeholder, register, 
 						id={inputId}
 						placeholder={placeholder}
 						title={title}
-						{...register}
+						{...input}
 						data-testid={"input"} /> :
 					<Input
 						id={inputId}
 						type={type}
 						placeholder={placeholder}
 						title={title}
-						register={register} />}
+						register={input} />}
 
 
-				<button className={styles.clear} title="Clear input value" type={"reset"}>
+				<button className={styles.clear} title="Clear input value" type={"reset"} data-testid={"clear input btn"}>
 					<FaTimes className={styles.icon} />
 				</button>
 
 			</div>
 
-			{errors && (
-				<span className={styles.error}>
-					{errors.message}
-				</span>
-			)}
+			{errors && <Errors message={errors.message}/>}
 		</div>
 	)
 };

@@ -20,12 +20,14 @@ export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 
 	const [ haveStatusInput, setHaveStatusInput ] = useState(!myStatus && !isMyProfile);
 
+	console.log(isMyProfile ? !!status ? haveStatusInput : isMyProfile && !myStatus : false)
+
 	return {
 		isStatusLoading,
 		status: isMyProfile ? myStatus : status,
 		haveStatusInput: isMyProfile ? haveStatusInput : false,
 
-		toggleHaveStatusInput: isMyProfile ? () => setHaveStatusInput(!haveStatusInput) : () => {},
+		toggleHaveStatusInput: isMyProfile ? () => setHaveStatusInput(prev => !prev) : () => {},
 		setHaveStatusInput
 	};
 };

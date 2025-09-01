@@ -1,17 +1,10 @@
-import { BaseSyntheticEvent } from "react";
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { FieldError } from "react-hook-form";
 
-export interface IFormInput {
+import { IInput } from "../Input/input.type";
+
+export interface IFormInput extends Omit<IInput, "id"> {
 	type?: "text" | "password" | "email" | "textarea",
-	title: string,
-	register: UseFormRegisterReturn | {
-		value: string,
-		onChange: (e: BaseSyntheticEvent) => void,
-		onBlur?: () => void,
-	},
 	errors?: FieldError,
 
 	label?: string,
-	placeholder?: string,
-	className?: string,
 }

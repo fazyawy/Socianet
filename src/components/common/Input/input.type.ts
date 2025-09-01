@@ -1,13 +1,9 @@
-import { UseFormRegisterReturn } from "react-hook-form";
-import { BaseSyntheticEvent, HTMLInputTypeAttribute } from "react";
+import { HTMLInputTypeAttribute } from "react";
 
-type onChangeType = (e: BaseSyntheticEvent) => void;
+import { RegisterType } from "@/shared/types/register.type";
 
 export interface IInput {
-	register: UseFormRegisterReturn | {
-		onChange: onChangeType,
-		value: string
-	}
+	register?: RegisterType
 
 	inputMode?: "search" | "email" | "tel" | "text" | "url" | "none" | "numeric" | "decimal"
 	id?: string
