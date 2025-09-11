@@ -9,7 +9,7 @@ class AuthService {
 
 	getAuth = async() => await instance.get<IAuthData>(`${this.#BASE_URL}me`)
 
-	login = async({email, password, rememberMe, captcha = true}: ILogin) => await instance.post<ILoginResponse>(`${this.#BASE_URL}login`, {
+	login = async({email, password, rememberMe = false, captcha = true}: ILogin) => await instance.post<ILoginResponse>(`${this.#BASE_URL}login`, {
 		email,
 		password,
 		rememberMe,

@@ -1,5 +1,6 @@
 export interface IResponse {
 	resultCode: number,
 	messages: string[],
-	data: {}
+	data: {},
+	fieldsErrors?: [] | string[],
 }

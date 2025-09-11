@@ -4,7 +4,7 @@ import { useInputComp } from "./useInputComp";
 
 export const Input = ({ register, inputMode = "text", id, title, placeholder, type = "text", className }: IInput) => {
 
-	const input = useInputComp(register);
+	const input = useInputComp(register, type);
 
 	return (
 		<input

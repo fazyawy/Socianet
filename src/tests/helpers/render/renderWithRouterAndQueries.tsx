@@ -7,14 +7,14 @@ import { IRender } from "@/tests/types/render.type";
 
 import { createRouter } from "./utils/createRouter";
 
-export const renderWithRouterAndQueries = ({ paths = ["/"], element }:IRender) => {
+export const renderWithRouterAndQueries = ({ paths = ["/"], element, router }:IRender) => {
 	const queryClient = new QueryClient();
 
-	const router = createRouter({paths, element});
+	const routerNew = createRouter({paths, element});
 
 	return render(
 		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
+			<RouterProvider router={!!router ? router : routerNew} />
 		</QueryClientProvider>
 	);
 };

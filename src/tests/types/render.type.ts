@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
+import { DataRouter } from "react-router";
 
 export interface IRender {
 	paths?: string[],
-	element: ReactNode
+	element?: ReactNode,
+	router?: DataRouter
 }

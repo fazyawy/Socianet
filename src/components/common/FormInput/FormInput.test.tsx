@@ -8,10 +8,8 @@ describe("FORM INPUT TESTS", () => {
 	const user = userEvent.setup();
 	const renderSetup = (type?: "text" | "password" | "email" | "textarea") => {
 		render(<FormInput
-		type={type}
-		title={""}
-		label=""
-		placeholder="" />)
+		inputData={{type: type,
+		title:""}} />)
 
 		const input = screen.getByTestId("input") as HTMLInputElement;
 		const clearBtn = screen.getByTestId("clear input btn");

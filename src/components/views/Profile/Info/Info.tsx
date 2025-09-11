@@ -17,7 +17,7 @@ export const Info = () => {
 	if (isProfileLoading) return <Preloader />
 
 	return (
-		<div className={styles.info}>
+		<div className={styles.info} data-testid={isMyProfile ? "profile" : "foreiner profile"}>
 
 			<ChangeAvatar src={photo} isMyProfile={isMyProfile} />
 

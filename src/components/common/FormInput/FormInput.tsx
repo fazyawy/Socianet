@@ -7,15 +7,15 @@ import { Input } from "@/components/common/Input/Input";
 import { useFormInput } from "./useFormInput";
 import { Errors } from "./Errors/Errors";
 
-export const FormInput = ({ type = "text", title, label, placeholder, register, errors, className }: IFormInput) => {
+export const FormInput = ({ inputData: {type = "text", title, label, placeholder, register}, errors, className, testid }: IFormInput) => {
 
 	const { inputId, input } = useFormInput(register);
 
 	return (
-		<div className={`${styles.input_container} ${className}`} data-testid={"form input"}>
+		<div className={`${styles.input_container} ${className}`} data-testid={testid}>
 			<label htmlFor={inputId}>{label}</label>
 
-			<div className={styles.input}>
+			<div className={styles.input} data-testid={"form input"}>
 				{type === "textarea" ?
 					<textarea
 						className={styles.input_field}

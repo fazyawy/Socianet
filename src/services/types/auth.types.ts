@@ -2,14 +2,12 @@ import { IResponse } from "./services.type"
 
 export interface ILoginResponse extends IResponse {
 	data: {
-		userId: number
+		userId: number,
+		token?: string
 	}
 }
 
-export interface IAuthData {
-	resultCode: number,
-	messages?: [] | string[],
-	fieldsErrors?: [] | string[],
+export interface IAuthData extends IResponse {
 	data: {
 		id: number,
 		login: string,
