@@ -8,23 +8,18 @@ import { createWrapperWithQueries } from "@/tests/helpers/createWrapperWithQueri
 import { useMyProfile } from "./hooks/useMyProfile";
 import { useMyStatus } from "./hooks/useMyStatus";
 import { loginHookTest } from "@/tests/common/loginHookTest";
+import { IProfile } from "@/shared/types/profile.type";
 
 describe("LAYOUT HOOKS TESTS", () => {
 
-	let authResponse: {
-		isAuthSuccess: true
-		data: IAuthData | {
-			data: {},
-			fieldsErrors: [],
-			messages: string[],
-			resultCode: 1
-		};
+	let response: {
+		auth: IAuthData,
+		profile: IProfile
 	}
 
 	beforeEach(() => {
-		authResponse = {
-			isAuthSuccess: true,
-			data: {
+		response = {
+			auth: {
 				resultCode: 0,
 				data: {
 					id: 32602,
@@ -39,9 +34,34 @@ describe("LAYOUT HOOKS TESTS", () => {
 				// ],
 				// fieldsErrors: [],
 				// resultCode: 1,
-			}
+			},
+
+			profile: {
+				userId: 32602,
+				aboutMe: null,
+				lookingForAJob: false,
+				lookingForAJobDescription: null,
+				fullName: "wookong",
+				contacts: {
+					github: null,
+					vk: null,
+					facebook: null,
+					instagram: null,
+					twitter: null,
+					website: null,
+					youtube: null,
+					mainLink: null,
+				},
+				photos: {
+					small: null,
+					large: null
+				},
+			},
+
+
 		}
 	}
+
 	)
 
 	test("useIsAuth tests", async () => {
@@ -61,34 +81,34 @@ describe("LAYOUT HOOKS TESTS", () => {
 
 		// AUTH PART =======================================
 
-		const { result } = renderHook(() => useIsAuth(), { wrapper: createWrapperWithQueries() });
+		const { result: authResult } = renderHook(() => useIsAuth(), { wrapper: createWrapperWithQueries() });
 
 		await waitFor(() => {
-			return expect(result.current?.isSuccess).toBe(authResponse.isAuthSuccess);
+			return expect(authResult.current?.isSuccess).toBe(true);
 		})
 
-		expect(result.current.data).toEqual(authResponse.data);
+		expect(authResult.current.data).toEqual(response.auth);
 	})
 
 	test("useMyProfile tests", async () => {
 
-		const { result } = renderHook(() => useMyProfile(0, false), { wrapper: createWrapperWithQueries() });
+		const { result } = renderHook(() => useMyProfile(32602, true), { wrapper: createWrapperWithQueries() });
 
 		await waitFor(() => {
-			return expect(!!result.current?.isSuccess).toBe(false);
+			return expect(result.current?.isSuccess).toBe(true);
 		})
 
-		expect(JSON.stringify(result.current.data)).toBeUndefined();
+		expect(result.current.data).toEqual(response.profile);
 	})
 
 	test("useMyStatus tests", async () => {
 
-		const { result } = renderHook(() => useMyStatus(2, false), { wrapper: createWrapperWithQueries() });
+		const { result } = renderHook(() => useMyStatus(32602, true), { wrapper: createWrapperWithQueries() });
 
 		await waitFor(() => {
-			return expect(!!result.current?.isSuccess).toBe(false);
+			return expect(!!result.current?.isSuccess).toBe(true);
 		})
 
-		expect(JSON.stringify(result.current.data)).toBeUndefined();
+		expect(result.current.data).toBeNull();
 	})
 })

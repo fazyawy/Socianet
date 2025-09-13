@@ -13,13 +13,9 @@ import { useAside } from "./hooks/useAside";
 
 export const useLayout = () => {
 	const { setIsAuth, isAuth } = useAuthStore(state => state);
-	const [setMyId, defaultId, setMyProfile, setStatus] = useMyProfileStore(useShallow(state => [state.setMyId, state.myId, state.setMyProfile, state.setStatus]));
+	const [setMyId, setMyProfile, setStatus] = useMyProfileStore(useShallow(state => [state.setMyId, state.setMyProfile, state.setStatus]));
 
-	const { data: authData, isFetching: isAuthFetching, isSuccess: isAuthSuccess } = useIsAuth();
-
-	const myId: number = (isAuthSuccess && authData.resultCode === 0) ? authData.data.id : defaultId;
-
-	const isAuthChecked = (isAuthSuccess && authData.resultCode === 0);
+	const { data: authData, isFetching: isAuthFetching, isSuccess: isAuthSuccess, myId, isAuthChecked } = useIsAuth();
 
 	const { isFetching: isProfileFetching, data: profile, isSuccess: isProfileSuccess } = useMyProfile(myId, isAuthChecked);
 
@@ -27,7 +23,7 @@ export const useLayout = () => {
 
 	useEffect(() => {
 		if (isAuthSuccess) {
-			setIsAuth(authData.resultCode === 0);
+			setIsAuth(authData?.resultCode === 0);
 			setMyId(myId);
 		}
 		if (isProfileSuccess) setMyProfile(profile);

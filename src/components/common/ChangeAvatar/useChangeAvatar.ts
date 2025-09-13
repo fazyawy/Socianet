@@ -9,7 +9,7 @@ export const useChangeAvatar = (src: string | null | undefined) => {
 
 	const queryClient = useQueryClient();
 
-	const {photos} = useMyProfileStore(state => state.myProfile)
+	const { photos } = useMyProfileStore(state => state.myProfile)
 
 	const { mutate } = useMutation({
 		mutationKey: [PROFILE_PHOTO_MUTATION_KEY],
