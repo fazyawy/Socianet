@@ -1,9 +1,10 @@
-import { renderHook } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 
 import { ILoginResponse } from "@/services/types/auth.types";
 
-import { createWrapperWithQueries } from "@/tests/helpers/createWrapperWithQueries";
 import { useLoginMutation } from "@/components/views/Login/hook/useLoginMutation";
+
+import { renderHookWithQuery } from "../helpers/renderHookWithQuery";
 
 
 let loginResponse: ILoginResponse;
@@ -22,13 +23,21 @@ beforeEach(() => {
 )
 
 export const loginHookTest = () => {
-	const { result, rerender } = renderHook(() => useLoginMutation(), { wrapper: createWrapperWithQueries() });
+	return test("LOGIN HOOK TEST", async () => {
+		const { result, rerender } = renderHookWithQuery<typeof useLoginMutation>(useLoginMutation);
 
-	result.current.mutate({
-		"email": "stcursi@pzejw.com",
-		password: "123",
-		rememberMe: false
+		result.current.mutate({
+			"email": "stcursi@pzejw.com",
+			password: "123",
+			rememberMe: false
+		})
+
+		rerender();
+
+		await waitFor(() => {
+			return expect(!!result.current.isPending).toBe(false);
+		})
+
+		expect({ ...result.current.data?.data, data: { userId: 32602, token: "" } }).toEqual(loginResponse);
 	})
-
-	return { rerender, loginResponse, result }
 }

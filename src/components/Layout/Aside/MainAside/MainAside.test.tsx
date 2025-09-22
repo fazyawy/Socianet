@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react"
 
-import { renderWithRouter } from "@/tests/helpers/render/renderWithRouter"
+import { renderWithRouter } from "@/tests/helpers/renderWithRouter"
 
 import { MainAside } from "./MainAside"
 

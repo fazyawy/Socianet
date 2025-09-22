@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react"
 
-import { renderWithRouterAndQueries } from "@/tests/helpers/render/renderWithRouterAndQueries"
+import { renderWithRouterAndQueries } from "@/tests/helpers/renderWithRouterAndQueries"
 
 import { SettingsAside } from "./SettingsAside"
 

@@ -3,7 +3,7 @@ import { screen } from "@testing-library/react";
 
 import { Layout } from "./Layout"
 
-import { renderWithRouterAndQueries } from "@/tests/helpers/render/renderWithRouterAndQueries";
+import { renderWithRouterAndQueries } from "@/tests/helpers/renderWithRouterAndQueries";
 import { toggleTest } from "@/tests/common/toggleTest";
 
 describe("LAYOUT TESTS", () => {

@@ -1,7 +1,7 @@
 import { expect, test } from "vitest"
 import { screen, fireEvent } from "@testing-library/react";
 
-import { renderWithRouterAndQueries } from "@/tests/helpers/render/renderWithRouterAndQueries";
+import { renderWithRouterAndQueries } from "../helpers/renderWithRouterAndQueries";
 
 import { IRender } from "@/tests/types/render.type";
 

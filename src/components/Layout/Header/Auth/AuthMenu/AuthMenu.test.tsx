@@ -5,7 +5,7 @@ import { AuthMenu } from "./AuthMenu";
 
 import { toggleTest } from "@/tests/common/toggleTest";
 
-import { renderWithRouter } from "@/tests/helpers/render/renderWithRouter";
+import { renderWithRouter } from "@/tests/helpers/renderWithRouter";
 
 describe("AUTH MENU", () => {
 

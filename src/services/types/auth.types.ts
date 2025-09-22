@@ -4,7 +4,7 @@ export interface ILoginResponse extends IResponse {
 	data: {
 		userId: number,
 		token?: string
-	} | {}
+	}
 }
 
 export interface IAuthData extends IResponse {

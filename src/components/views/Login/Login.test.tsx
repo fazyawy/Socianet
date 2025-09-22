@@ -3,7 +3,7 @@ import { screen } from "@testing-library/react";
 
 import { Login } from "./Login";
 
-import { renderWithRouterAndQueries } from "@/tests/helpers/render/renderWithRouterAndQueries";
+import { renderWithRouterAndQueries } from "@/tests/helpers/renderWithRouterAndQueries";
 
 describe("LOGIN TESTS", () => {
 
