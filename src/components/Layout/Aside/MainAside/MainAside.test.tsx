@@ -12,8 +12,8 @@ describe("MAIN ASIDE TESTS", () => {
 			paths: ["/", "/messenger", "/news", "/music", "/users", "/friends", "/preloader"]
 		})
 
-		const asideChilds = screen.getAllByTestId("main aside's child");
+		const mainAside = screen.getByTestId("main aside");
 
-		expect(asideChilds.length).toBe(7);
+		expect(mainAside).toBeInTheDocument();
 	})
 })

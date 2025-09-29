@@ -17,7 +17,7 @@ export const useLayout = () => {
 
 	const { data: authData, isFetching: isAuthFetching, isSuccess: isAuthSuccess, myId, isAuthChecked } = useIsAuth();
 
-	const { isFetching: isProfileFetching, data: profile, isSuccess: isProfileSuccess } = useMyProfile(myId, isAuthChecked);
+	const { data: profile, isFetching: isProfileFetching, isSuccess: isProfileSuccess } = useMyProfile(myId, isAuthChecked);
 
 	const { data: status, isFetching: isStatusFetching, isSuccess: isStatusSuccess } = useMyStatus(myId, isAuthChecked)
 

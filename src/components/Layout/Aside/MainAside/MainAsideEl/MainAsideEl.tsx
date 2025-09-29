@@ -15,7 +15,7 @@ export const MainAsideEl = ({ el }: { el: string }) => {
 			to={to}
 			key={el}
 			className={`${styles.link} ${isActive ? styles.active : ""}`}
-			data-testid="main aside's child">{title}</Link>
+			data-testid={`main-link-${title}`}>{title}</Link>
 	)
 };
 

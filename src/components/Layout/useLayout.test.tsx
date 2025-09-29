@@ -60,11 +60,8 @@ describe("LAYOUT HOOKS TESTS", () => {
 				},
 			},
 
-
 		}
-	}
-
-	)
+	})
 
 	loginHookTest();
 

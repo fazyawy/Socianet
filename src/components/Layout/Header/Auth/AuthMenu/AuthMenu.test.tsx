@@ -20,8 +20,8 @@ describe("AUTH MENU", () => {
 		renderSetup();
 
 		expect(screen.getByTestId("toggle auth menu")).toBeInTheDocument();
-		expect(screen.getByTestId("avatar container")).toBeInTheDocument();
-		expect(screen.getByTestId("avatar")).toBeInTheDocument();
+		expect(screen.getByTestId("avatar-container")).toBeInTheDocument();
+		expect(screen.getByTestId("avatar-big")).toBeInTheDocument();
 	})
 
 	toggleTest("auth menu", {
