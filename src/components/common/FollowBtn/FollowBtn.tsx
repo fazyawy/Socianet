@@ -9,7 +9,12 @@ export const FollowBtn = ({ isFollowed, userId, className }: IFollowBtn) => {
 
 	return (
 		<div className={`${styles.button_container} ${className}`}>
-			<button onClick={() => mutate(userId)} className={`${styles.button} ${isFollowBtn ? styles.active : ""}`} disabled={isPending}>
+			<button
+			onClick={() => mutate(userId)}
+			className={`${styles.button}
+			${isFollowBtn ? styles.active : ""}`}
+			disabled={isPending}
+			data-testid={`${!!isFollowBtn ? "un" : ""}follow-btn`}>
 				{isFollowBtn && "un"}follow
 			</button>
 		</div>

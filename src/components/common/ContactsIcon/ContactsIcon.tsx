@@ -1,38 +1,35 @@
 import { FaDog, FaFacebook, FaGithub, FaHeart, FaInstagram, FaRobot, FaTwitter, FaVk, FaYoutube } from "react-icons/fa";
-
-interface IContactsIcon {
-	iconName: string | null
-}
+import { IContactsIcon } from "./ContactIcon.type";
 
 export const ContactsIcon = ({ iconName }: IContactsIcon) => {
 
 	switch (iconName) {
 		case "github": {
-			return <FaGithub />;
+			return <FaGithub data-testid={"github-icon"} />;
 		}
 		case "vk": {
-			return <FaVk />;
+			return <FaVk data-testid={"vk-icon"} />;
 		}
 		case "facebook": {
-			return <FaFacebook />;
+			return <FaFacebook data-testid={"facebook-icon"} />;
 		}
 		case "instagram": {
-			return <FaInstagram />;
+			return <FaInstagram data-testid={"instagram-icon"} />;
 		}
 		case "twitter": {
-			return <FaTwitter />;
+			return <FaTwitter data-testid={"twitter-icon"} />;
 		}
 		case "website": {
-			return <FaRobot />;
+			return <FaRobot data-testid={"website-icon"} />;
 		}
 		case "youtube": {
-			return <FaYoutube />;
+			return <FaYoutube data-testid={"youtube-icon"} />;
 		}
 		case "mainLink": {
-			return <FaHeart />;
+			return <FaHeart data-testid={"mainLink-icon"} />;
 		}
 		default: {
-			return <FaDog />;
+			return <FaDog data-testid={"default-icon"} />;
 		}
 	}
 };

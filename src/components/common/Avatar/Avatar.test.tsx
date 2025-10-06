@@ -6,8 +6,8 @@ import { AvatarType } from "./Avatar.type"
 // "large" | "bigger" | "big" | "middle" | "small" | "smaller"
 
 describe("AVATAR TESTS", () => {
-	const renderSetup = (type: AvatarType) => {
-		render(<Avatar type={type}/>)
+	const renderSetup = (type: AvatarType, haveOnlineStatus?:boolean, isOnline?: boolean) => {
+		render(<Avatar type={type} haveOnlineStatus={haveOnlineStatus} isOnline={isOnline} />)
 	}
 
 	test("large avatar test", () => {
@@ -38,5 +38,11 @@ describe("AVATAR TESTS", () => {
 	test("smaller avatar test", () => {
 		renderSetup("smaller");
 		expect(screen.getByTestId("avatar-smaller")).toBeInTheDocument();
+	})
+
+	test("online avatar test", () => {
+		renderSetup("smaller", true, true);
+		expect(screen.getByTestId("avatar-smaller")).toBeInTheDocument();
+		expect(screen.getByTestId("online-status")).toBeInTheDocument();
 	})
 })
