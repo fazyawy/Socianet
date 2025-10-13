@@ -3,10 +3,11 @@ import styles from "./Publications.module.scss"
 import { usePublications } from "./usePublications";
 
 import { Post } from "./Post/Post";
+
 import { Preloader } from "@/components/UI/Preloader/Preloader";
 
 export const Publications = () => {
-	const { data, isLoading } = usePublications()
+	const { data, isLoading } = usePublications();
 
 	return (
 		<section className={styles.publications}>

@@ -15,28 +15,35 @@ export const ProfileForm = () => {
 		<form action="" onSubmit={onSubmit} className={styles.profile_form}>
 
 			<FormInput
+				inputData={{
+					label: "Change nickname:",
+					title: "Set new nickname",
+					placeholder: myProfile.fullName
+				}}
+
 				className={styles.form_input}
 				errors={errors.fullName}
-				placeholder={myProfile.fullName}
-				label={"Change nickname:"}
-				title={"Set new nickname"}
 				register={register("fullName", { ...requiredValidator })} />
 
 			<FormInput
-				title={"Set new status"}
+				inputData={{
+					label: "Change status:",
+					title: "Set new status",
+					placeholder: status
+				}}
 				className={styles.form_input}
 				errors={errors.status}
-				label={"Change status:"}
-				placeholder={status}
 				register={register("status", { ...maxLengthValidator(300) })} />
 
 			<FormInput
-				type={"textarea"}
+				inputData={{
+					type: "textarea",
+					placeholder: myProfile.aboutMe || "",
+					label: "Change about me:",
+					title: "Set new about me"
+				}}
 				className={styles.form_input}
 				errors={errors.aboutMe}
-				placeholder={myProfile.aboutMe || ""}
-				label={"Change about me:"}
-				title={"Set new about me"}
 				register={register("aboutMe", { ...requiredValidator })} />
 
 			<button type="submit" className={styles.button}>Save changes</button>

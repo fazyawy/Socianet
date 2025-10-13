@@ -6,7 +6,7 @@ import { capitalizeFirstLetter } from "@/utils/string/capitalizeFirstLetter";
 
 export const Post = ({id, title, body}:IPublications) => {
 	return (
-		<article className={styles.post}>
+		<article className={styles.post} data-testid={"profile-post"}>
 			<h3>{id}. {capitalizeFirstLetter(title)}</h3>
 			<span>{capitalizeFirstLetter(body)}</span>
 		</article>

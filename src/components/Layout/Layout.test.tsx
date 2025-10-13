@@ -11,17 +11,15 @@ import { loginHookTest } from "@/tests/common/loginHookTest";
 
 describe("LAYOUT TESTS", () => {
 
-		const renderSetup = (paths?: string[]) => {
-			renderWithRouterAndQueries({
-				element: <Layout />,
-				paths
-			});
-		}
+	const renderSetup = (paths?: string[]) => {
+		renderWithRouterAndQueries({
+			element: <Layout />,
+			paths
+		});
+	}
 
 	test("render", () => {
-		renderWithRouterAndQueries({
-			element: <Layout />
-		})
+		renderSetup();
 		expect(screen.getByTestId("layout-container")).toBeInTheDocument();
 		expect(screen.getByTestId("header")).toBeInTheDocument();
 		// screen.debug();
@@ -58,7 +56,7 @@ describe("LAYOUT TESTS", () => {
 	// 	expect(screen.queryByTestId("settings aside")).toBeNull();
 	// })
 
-		test("check login btn", () => {
+	test("check login btn", () => {
 		renderSetup(["/", "/auth/login", "/users"]);
 
 		expect(screen.getByTestId("login button")).toBeInTheDocument();

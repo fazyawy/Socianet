@@ -27,7 +27,7 @@ export const FormInput = ({ inputData: {type = "text", title, label, placeholder
 						data-testid={"input"} /> :
 					<Input
 						id={inputId}
-						type={type}
+						type={type || "text"}
 						placeholder={placeholder}
 						title={title}
 						register={input} />}
