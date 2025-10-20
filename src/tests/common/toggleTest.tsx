@@ -9,7 +9,7 @@ export const toggleTest = (title: string, { paths = ["/"], element }:IRender, ha
 	return test(`toggle ${title}`, () => {
 		renderWithRouterAndQueries({element, paths});
 
-		const btn = screen.getByTestId(`toggle ${title}`);
+		const btn = screen.getByTestId(`toggle-${title}`);
 
 		!!haveElBefore && fireEvent.click(btn);
 

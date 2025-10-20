@@ -13,7 +13,7 @@ export const Header = ({ toggleAside, haveAside }: IHeader) => {
 	return (
 		<header data-testid="header" className={styles.header}>
 
-			<button data-testid="toggle aside" onClick={toggleAside} className={haveAside ? styles.rotate : styles.rotate_half}>
+			<button data-testid="toggle-aside" onClick={toggleAside} className={haveAside ? styles.rotate : styles.rotate_half}>
 				<LuHeart size={70} className={styles.logo} />
 			</button>
 

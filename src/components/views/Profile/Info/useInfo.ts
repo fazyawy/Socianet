@@ -21,7 +21,7 @@ export const useInfo = () => {
 		photo: photos?.large || undefined,
 		info_description: {
 			description,
-			contacts,
+			contacts: Object.values(contacts).some(el => el !== null) ? contacts : null,
 		},
 
 		isProfileLoading,
