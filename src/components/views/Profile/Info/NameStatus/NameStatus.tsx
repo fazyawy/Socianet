@@ -23,7 +23,11 @@ export const NameStatus = ({ name, userId, isMyProfile }: INameStatus) => {
 
 			{isStatusLoading ? <Preloader /> : (
 				<div className={styles.status_container}>
-					<h3 className={isMyProfile && status ? styles.status : ""} onClick={toggleHaveStatusInput}>{status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}</h3>
+					<h3 className={isMyProfile && status ? styles.status : ""}
+						onClick={toggleHaveStatusInput}
+						data-testid={"toggle-status"}>
+						{status}{isMyProfile && status && <FaPen className={styles.status_pen} size={10} />}
+					</h3>
 
 					{haveStatusInput && (
 						<div className={styles.status_input}>

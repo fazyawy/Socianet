@@ -29,9 +29,11 @@ describe("INFO DESCRIPTION TESTS", () => {
 		});
 	}
 
-	toggleTest("contacts", {
-		element: <InfoDesription description="..." contacts={defaultContacts} />
-	}, true)
+	test("render", () => {
+		renderSetup(true);
+		expect(screen.getByTestId("info-description")).toBeInTheDocument();
+		expect(screen.getByText("Description")).toBeInTheDocument();
+	})
 
 	test("have toggle contacts", () => {
 		renderSetup(true);
@@ -42,5 +44,9 @@ describe("INFO DESCRIPTION TESTS", () => {
 		renderSetup();
 		expect(screen.queryByTestId("toggle-contacts")).toBeNull();
 	})
+
+	toggleTest("contacts", {
+		element: <InfoDesription description="..." contacts={defaultContacts} />
+	}, true)
 
 })

@@ -26,7 +26,7 @@ export const useInfo = () => {
 
 		isProfileLoading,
 		isMyProfile,
-		userId: Number(userId),
+		userId,
 		name: fullName
 	}
 };

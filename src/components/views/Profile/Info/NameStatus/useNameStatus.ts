@@ -1,33 +1,19 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useStatusQuery } from "./hooks/useStatusQuery";
 
-import { STATUS_QUERY_KEY } from "@/constants/queryKeys.const";
-import profileService from "@/services/profile.service";
-
-import { useMyProfileStore } from "@/store/useMyProfileStore";
+import { useToggle } from "@/hooks/useToggle";
 
 export const useNameStatus = (userId: number, isMyProfile: boolean) => {
 
-	const myStatus = useMyProfileStore(state => state.status)
+	const { data: status, isLoading: isStatusLoading } = useStatusQuery(userId, isMyProfile)
 
-	const { data: status, isLoading: isStatusLoading } = useQuery({
-		queryKey: [STATUS_QUERY_KEY],
-		queryFn: profileService.getStatus(userId),
-		select: ({ data }) => data,
-
-		enabled: !isMyProfile
-	})
-
-	const [ haveStatusInput, setHaveStatusInput ] = useState(!myStatus && !isMyProfile);
-
-	console.log(isMyProfile ? !!status ? haveStatusInput : isMyProfile && !myStatus : false)
+	const [ haveStatusInput, toggleHaveStatusInput, setHaveStatusInput ] = useToggle(!isMyProfile);
 
 	return {
 		isStatusLoading,
-		status: isMyProfile ? myStatus : status,
+		status,
 		haveStatusInput: isMyProfile ? haveStatusInput : false,
 
-		toggleHaveStatusInput: isMyProfile ? () => setHaveStatusInput(prev => !prev) : () => {},
+		toggleHaveStatusInput: isMyProfile ? () => toggleHaveStatusInput : () => {},
 		setHaveStatusInput
 	};
 };

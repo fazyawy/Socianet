@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { type Dispatch, type SetStateAction, useState } from "react";
 
 type ToggleReturnType = [
 	isValue: boolean,
-	toggleIsValue: () => void
+	toggleIsValue: () => void,
+	setIsValue: Dispatch<SetStateAction<boolean>>
 ]
 
 export const useToggle = (defaultValue = false): ToggleReturnType => {
@@ -13,6 +14,6 @@ export const useToggle = (defaultValue = false): ToggleReturnType => {
 		setIsValue(prev => !prev)
 	};
 
-	return [isValue, toggleIsValue]
+	return [isValue, toggleIsValue, setIsValue]
 };
 

@@ -1,7 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
+
 import { PROFILE_QUERY_KEY } from "@/constants/queryKeys.const";
 import profileService from "@/services/profile.service";
+
 import { useMyProfileStore } from "@/store/useMyProfileStore";
-import { useQuery } from "@tanstack/react-query";
 
 export const useProfileQuery = (userId: number, isMyProfile: boolean) => {
 	const myProfile = useMyProfileStore(state => state.myProfile)
@@ -14,7 +16,7 @@ export const useProfileQuery = (userId: number, isMyProfile: boolean) => {
 	})
 
 	return {
-		data: !isMyProfile && isSuccess ? { ...profile } : { ...myProfile },
+		data: isSuccess && !isMyProfile ? { ...profile } : { ...myProfile },
 		isLoading
 	}
 };
